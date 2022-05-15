@@ -35,35 +35,44 @@ struct ContentView: View {
     
     @AppStorage("Unit") var 🛠Unit: 🄴numUnit = .℃
     
+    @State private var 体温: [Int] = [3]
+    
     var body: some View {
         VStack {
             Spacer()
             
-            Text(📝Temp.description + "℃")
-                .font(.system(size: 64).weight(.black))
-                .padding()
+            HStack(alignment: .firstTextBaseline) {
+                Group {
+                    Text("3")
+                    
+                    Text("_")
+                    
+                    Text(".")
+                    
+                    Text("_")
+                        .opacity(0)
+                }
+                .font(.system(size: 72).weight(.black))
+                
+                Text("℃")
+                    .font(.system(size: 48).weight(.black))
+            }
+            .padding(32)
             
             Spacer()
             
             Divider()
             
             KeyboardView()
-            
-            Button {
-                🏥HealthStore.save(🄳ataTemp) { 🆗, 👿 in
-                    if 🆗 {
-                        print(".save/.bodyTemp: Success")
-                    } else {
-                        print("👿:", 👿.debugDescription)
+                .onTapGesture {
+                    🏥HealthStore.save(🄳ataTemp) { 🆗, 👿 in
+                        if 🆗 {
+                            print(".save/.bodyTemp: Success")
+                        } else {
+                            print("👿:", 👿.debugDescription)
+                        }
                     }
                 }
-            } label: {
-                Image(systemName: "checkmark.circle.fill")
-                    .font(.title)
-                    .symbolRenderingMode(.palette)
-                    .foregroundStyle(.white, .pink)
-                    .padding()
-            }
         }
         .onAppear {
             let 🅃ype: Set<HKSampleType> = [HKQuantityType(.bodyTemperature)]
