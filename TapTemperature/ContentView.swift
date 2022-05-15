@@ -42,21 +42,21 @@ struct ContentView: View {
             Spacer()
             
             HStack(alignment: .firstTextBaseline) {
-                Group {
-                    Text("3")
-                    
-                    Text("_")
-                    
-                    Text(".")
-                    
-                    Text("_")
-                        .opacity(0)
-                }
-                .font(.system(size: 72).weight(.black))
+                Text("3")
+                
+                Text("_")
+                    .scaleEffect(y: 0.5, anchor: .bottom)
+                
+                Text(".")
+                
+                Text("_")
+                    .opacity(0)
+                    .scaleEffect(y: 0.5, anchor: .bottom)
                 
                 Text("℃")
-                    .font(.system(size: 48).weight(.black))
             }
+            .font(.system(size: 72).weight(.black))
+            .monospacedDigit()
             .padding(32)
             
             Spacer()
@@ -64,6 +64,7 @@ struct ContentView: View {
             Divider()
             
             KeyboardView()
+                .padding(.vertical)
                 .onTapGesture {
                     🏥HealthStore.save(🄳ataTemp) { 🆗, 👿 in
                         if 🆗 {
