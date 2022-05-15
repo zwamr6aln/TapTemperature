@@ -49,6 +49,8 @@ struct ContentView: View {
                 }
             }
         
+        KeyboardView()
+        
         Button {
             🏥HealthStore.save(🄳ataTemp) { 🆗, 👿 in
                 if 🆗 {
