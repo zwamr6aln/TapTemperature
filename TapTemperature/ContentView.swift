@@ -16,7 +16,7 @@ struct ContentView: View {
     var 🅄nit: HKUnit {
         switch 🛠Unit {
         case .℃: return .degreeCelsius()
-        case .℉: return .kelvin()
+        case .℉: return .degreeFahrenheit()
         }
     }
     
