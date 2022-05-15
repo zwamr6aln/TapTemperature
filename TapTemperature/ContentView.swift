@@ -3,12 +3,25 @@ import SwiftUI
 import HealthKit
 
 
+enum 🄴numUnit: String, CaseIterable {
+    case ℃
+    case ℉
+}
+
+
 struct ContentView: View {
     
     let 🏥HealthStore = HKHealthStore()
     
+    var 🅄nit: HKUnit {
+        switch 🛠Unit {
+        case .℃: return .degreeCelsius()
+        case .℉: return .kelvin()
+        }
+    }
+    
     var 🅀uantityTemp: HKQuantity {
-        HKQuantity(unit: .kelvin(), doubleValue: Double(📝Temp)/10)
+        HKQuantity(unit: 🅄nit, doubleValue: 📝Temp)
     }
     
     var 🄳ataTemp: HKQuantitySample {
@@ -19,6 +32,8 @@ struct ContentView: View {
     }
     
     @AppStorage("Temp") var 📝Temp = 36.0
+    
+    @AppStorage("Unit") var 🛠Unit: 🄴numUnit = .℃
     
     var body: some View {
         Text(📝Temp.description + "℃")
