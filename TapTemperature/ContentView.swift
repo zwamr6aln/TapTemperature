@@ -35,24 +35,45 @@ struct ContentView: View {
     
     @AppStorage("Unit") var 🛠Unit: 🄴numUnit = .℃
     
-    @State private var 体温: [Int] = [3]
+    @State private var 体温: [Int] = [3,6,6]
     
     var body: some View {
         VStack {
             Spacer()
             
             HStack(alignment: .firstTextBaseline) {
-                Text("3")
+                if 体温.count >= 1 {
+                    Text(体温[0].description)
+                } else {
+                    Text("3")
+                }
                 
-                Text("6")
+                if 体温.count >= 2 {
+                    Text(体温[1].description)
+                } else {
+                    Text("_")
+                        .scaleEffect(y: 0.5, anchor: .bottom)
+                }
                 
                 Text(".")
                 
-                Text("_")
-                //.opacity(0)
-                    .scaleEffect(y: 0.5, anchor: .bottom)
+                if 体温.count >= 3 {
+                    Text(体温[2].description)
+                } else {
+                    Text("_")
+                        .opacity(0)
+                        .scaleEffect(y: 0.5, anchor: .bottom)
+                }
+                
+                if 体温.count == 4 {
+                    Text(体温[3].description)
+                } else {
+                    EmptyView()
+                }
                 
                 Text("℃")
+                    .minimumScaleFactor(0.1)
+                    .scaledToFit()
                     .font(.system(size: 54, weight: .bold))
             }
             .font(.system(size: 81, weight: .bold))
