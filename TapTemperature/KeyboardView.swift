@@ -10,16 +10,23 @@ struct KeyboardView: View {
     
     var body: some View {
         LazyVGrid(columns: 列) {
-            ForEach(🄺ey, id: \.self) { 🪧 in
-                Button {
-                    print(🪧)
-                } label: {
-                    Text(🪧)
-                        .font(.largeTitle.bold())
-                        .padding(4)
+            ForEach(1..<13) { a in
+                if 6 <= a && a <= 8 {
+                    Text(a.description)
+                } else if a == 10 {
+                    Image(systemName: "checkmark.circle.fill")
+                        .symbolRenderingMode(.palette)
+                        .foregroundStyle(.white, .pink)
+                } else {
+                    Text(🄺ey[a-1])
+                        .opacity(0.3)
                 }
             }
+            .font(.largeTitle.weight(.black))
+            .foregroundColor(.primary)
+            .padding(8)
         }
+        .padding()
     }
 }
 

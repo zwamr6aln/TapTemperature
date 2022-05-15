@@ -36,35 +36,44 @@ struct ContentView: View {
     @AppStorage("Unit") var 🛠Unit: 🄴numUnit = .℃
     
     var body: some View {
-        Text(📝Temp.description + "℃")
-            .padding()
-            .onAppear {
-                let 🅃ype: Set<HKSampleType> = [HKQuantityType(.bodyTemperature)]
-                🏥HealthStore.requestAuthorization(toShare: 🅃ype, read: nil) { 🆗, 👿 in
+        VStack {
+            Spacer()
+            
+            Text(📝Temp.description + "℃")
+                .font(.system(size: 64).weight(.black))
+                .padding()
+            
+            Spacer()
+            
+            Divider()
+            
+            KeyboardView()
+            
+            Button {
+                🏥HealthStore.save(🄳ataTemp) { 🆗, 👿 in
                     if 🆗 {
-                        print("requestAuthorization/bodyTemp: Success")
+                        print(".save/.bodyTemp: Success")
                     } else {
                         print("👿:", 👿.debugDescription)
                     }
                 }
+            } label: {
+                Image(systemName: "checkmark.circle.fill")
+                    .font(.title)
+                    .symbolRenderingMode(.palette)
+                    .foregroundStyle(.white, .pink)
+                    .padding()
             }
-        
-        KeyboardView()
-        
-        Button {
-            🏥HealthStore.save(🄳ataTemp) { 🆗, 👿 in
+        }
+        .onAppear {
+            let 🅃ype: Set<HKSampleType> = [HKQuantityType(.bodyTemperature)]
+            🏥HealthStore.requestAuthorization(toShare: 🅃ype, read: nil) { 🆗, 👿 in
                 if 🆗 {
-                    print(".save/.bodyTemp: Success")
+                    print("requestAuthorization/bodyTemp: Success")
                 } else {
                     print("👿:", 👿.debugDescription)
                 }
             }
-        } label: {
-            Image(systemName: "checkmark.circle.fill")
-                .font(.system(size: 120))
-                .symbolRenderingMode(.palette)
-                .foregroundStyle(.white, .pink)
-                .padding()
         }
     }
 }
