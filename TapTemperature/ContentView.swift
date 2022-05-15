@@ -35,46 +35,55 @@ struct ContentView: View {
     
     @AppStorage("Unit") var 🛠Unit: 🄴numUnit = .℃
     
-    @State private var 体温: [Int] = [3,6,6]
+    @State private var 体温: [Int] = [3]
     
     var body: some View {
         VStack {
             Spacer()
             
             HStack(alignment: .firstTextBaseline) {
-                if 体温.count >= 1 {
+                if 体温.indices.contains(0) {
                     Text(体温[0].description)
-                } else {
-                    Text("3")
+                }  else {
+                    Text("0").opacity(0)
+                        .overlay(alignment: .bottom) {
+                            Rectangle()
+                                .frame(height: 4)
+                        }
                 }
                 
-                if 体温.count >= 2 {
+                if 体温.indices.contains(1) {
                     Text(体温[1].description)
-                } else {
-                    Text("_")
-                        .scaleEffect(y: 0.5, anchor: .bottom)
+                }  else {
+                    Text("0").opacity(0)
+                        .overlay(alignment: .bottom) {
+                            Rectangle()
+                                .frame(height: 4)
+                        }
                 }
                 
                 Text(".")
                 
-                if 体温.count >= 3 {
+                if 体温.indices.contains(2) {
                     Text(体温[2].description)
-                } else {
-                    Text("_")
-                        .opacity(0)
-                        .scaleEffect(y: 0.5, anchor: .bottom)
+                }  else {
+                    Text("0").opacity(0)
+                        .overlay(alignment: .bottom) {
+                            Rectangle()
+                                .frame(height: 4)
+                        }
                 }
                 
-                if 体温.count == 4 {
+                if 体温.indices.contains(3) {
                     Text(体温[3].description)
                 } else {
                     EmptyView()
                 }
                 
-                Text("℃")
+                Text(🛠Unit.rawValue)
+                    .font(.system(size: 54, weight: .bold))
                     .minimumScaleFactor(0.1)
                     .scaledToFit()
-                    .font(.system(size: 54, weight: .bold))
             }
             .font(.system(size: 81, weight: .bold))
             .monospacedDigit()
