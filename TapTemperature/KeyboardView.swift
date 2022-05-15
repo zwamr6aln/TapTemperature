@@ -9,7 +9,7 @@ struct KeyboardView: View {
     let 列 = Array(repeating: GridItem(.flexible()), count: 3)
     
     var body: some View {
-        LazyVGrid(columns: 列) {
+        LazyVGrid(columns: 列, spacing: 24) {
             ForEach(1..<13) { a in
                 if 6 <= a && a <= 8 {
                     Text(a.description)
@@ -19,12 +19,11 @@ struct KeyboardView: View {
                         .foregroundStyle(.white, .pink)
                 } else {
                     Text(🄺ey[a-1])
-                        .opacity(0.3)
+                        .opacity(0.2)
                 }
             }
-            .font(.largeTitle.weight(.black))
+            .font(.system(size: 48, weight: .medium, design: .rounded))
             .foregroundColor(.primary)
-            .padding(8)
         }
         .padding()
     }

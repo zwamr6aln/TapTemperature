@@ -44,18 +44,18 @@ struct ContentView: View {
             HStack(alignment: .firstTextBaseline) {
                 Text("3")
                 
-                Text("_")
-                    .scaleEffect(y: 0.5, anchor: .bottom)
+                Text("6")
                 
                 Text(".")
                 
                 Text("_")
-                    .opacity(0)
+                //.opacity(0)
                     .scaleEffect(y: 0.5, anchor: .bottom)
                 
                 Text("℃")
+                    .font(.system(size: 54, weight: .bold))
             }
-            .font(.system(size: 72).weight(.black))
+            .font(.system(size: 81, weight: .bold))
             .monospacedDigit()
             .padding(32)
             
