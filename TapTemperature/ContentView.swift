@@ -108,7 +108,8 @@ struct ContentView: View {
                                 }
                             }
                         } label: {
-                            Image(systemName: "checkmark.circle.fill")
+                            Image(systemName: "checkmark.circle")
+                                .symbolVariant(体温.count > 2 ? .fill : .none)
                         }
                         .tint(.pink)
                         .disabled(体温.count < 3)
@@ -119,6 +120,7 @@ struct ContentView: View {
                             }
                         } label: {
                             Text("0")
+                                .opacity(体温.count >= 3 ? 0.4 : 1)
                         }
                         .tint(.primary)
                         .disabled(4 == 体温.count)
@@ -140,6 +142,7 @@ struct ContentView: View {
                             Text(🪧.description)
                                 .fontWeight(体温.count == 1 && 体温.first==3 && (5<🪧 && 🪧<9) ? .heavy:nil)
                                 .fontWeight(体温.count==0 && (🪧==3 || 🪧==4) ? .heavy:nil)
+                                .opacity(体温.count >= 3 ? 0.4 : 1)
                         }
                         .tint(.primary)
                         .disabled(4 == 体温.count)
