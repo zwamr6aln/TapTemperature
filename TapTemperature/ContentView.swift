@@ -185,7 +185,7 @@ struct ContentView: View {
                 .accessibilityLabel("🌏Dismiss")
             }
             .ignoresSafeArea()
-            //.statusBar(hidden: true)
+            .preferredColorScheme(.dark)
         }
         .onAppear {
             let 🅃ype: Set<HKSampleType> = [HKQuantityType(.bodyTemperature)]
