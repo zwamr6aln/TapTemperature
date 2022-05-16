@@ -164,17 +164,47 @@ struct ContentView: View {
             }
         }
         .overlay(alignment: .topLeading) {
-            Button {
-                print("placeholder")
-            } label: {
-                Image(systemName: "gearshape")
-                    .font(.title)
-                    .padding()
-            }
-            .tint(.primary)
+            SettingButton()
         }
     }
 }
+
+
+struct SettingButton: View {
+    
+    @State private var 🚩Setting: Bool = false
+    
+    @AppStorage("小数点2桁") var 🚩小数点2桁: Bool = false
+    
+    @AppStorage("自動完了") var 🚩自動完了: Bool = false
+    
+    @AppStorage("ヘルスケアアプリ自動起動") var 🚩ヘルスケアアプリ自動起動: Bool = false
+    
+    var body: some View {
+        Button {
+            🚩Setting = true
+        } label: {
+            Image(systemName: "gearshape")
+                .font(.title)
+                .padding()
+        }
+        .tint(.primary)
+        .popover(isPresented: $🚩Setting) {
+            NavigationView {
+                List {
+                    Toggle("小数点2桁まで入力する", isOn: $🚩小数点2桁)
+                    
+                    Toggle("最後まで数字を入力したら自動で完了する", isOn: $🚩自動完了)
+                    
+                    Toggle("ヘルスケアアプリ自動起動", isOn: $🚩ヘルスケアアプリ自動起動)
+                }
+                .navigationTitle("TapTemperature")
+            }
+        }
+    }
+}
+
+
 
 
 
