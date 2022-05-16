@@ -172,7 +172,7 @@ struct ContentView: View {
 
 struct SettingButton: View {
     
-    @State private var 🚩Setting: Bool = false
+    @State private var 🚩Menu: Bool = false
     
     @AppStorage("小数点2桁") var 🚩小数点2桁: Bool = false
     
@@ -182,23 +182,53 @@ struct SettingButton: View {
     
     var body: some View {
         Button {
-            🚩Setting = true
+            🚩Menu = true
         } label: {
             Image(systemName: "gearshape")
                 .font(.title)
                 .padding()
         }
         .tint(.primary)
-        .popover(isPresented: $🚩Setting) {
+        .popover(isPresented: $🚩Menu) {
             NavigationView {
                 List {
-                    Toggle("小数点2桁まで入力する", isOn: $🚩小数点2桁)
+                    Section {
+                        Toggle("小数点2桁まで入力する", isOn: $🚩小数点2桁)
+                        
+                        Toggle("最後まで数字を入力したら自動で完了する", isOn: $🚩自動完了)
+                        
+                        Toggle("ヘルスケアアプリ自動起動", isOn: $🚩ヘルスケアアプリ自動起動)
+                    } header: {
+                        Text("Option")
+                    }
                     
-                    Toggle("最後まで数字を入力したら自動で完了する", isOn: $🚩自動完了)
-                    
-                    Toggle("ヘルスケアアプリ自動起動", isOn: $🚩ヘルスケアアプリ自動起動)
+                    Section {
+                        Link(destination: URL(string: "x-apple-health://")!) {
+                            HStack {
+                                Label("Open Apple \"Health\" app", systemImage: "heart")
+                                
+                                Spacer()
+                                
+                                Image(systemName: "arrow.up.forward.app")
+                            }
+                            .font(.body.bold())
+                        }
+                    }
                 }
                 .navigationTitle("TapTemperature")
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button {
+                            🚩Menu = false
+                        } label: {
+                            Image(systemName: "chevron.down")
+                                .foregroundStyle(.secondary)
+                                .grayscale(1.0)
+                                .padding(8)
+                        }
+                        .accessibilityLabel("🌏Dismiss")
+                    }
+                }
             }
         }
     }
