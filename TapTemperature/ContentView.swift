@@ -145,9 +145,7 @@ struct ContentView: View {
                         .disabled(4 == 体温.count)
                     }
                 }
-                .font(.system(size: 48,
-                              weight: .medium,
-                              design: .rounded))
+                .font(.system(size: 48, design: .rounded))
             }
             .padding()
             .padding(.vertical, 12)
