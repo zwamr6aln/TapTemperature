@@ -59,6 +59,7 @@ struct ContentView: View {
                         .overlay(alignment: .bottom) {
                             Rectangle()
                                 .frame(height: 4)
+                                .opacity(体温.count < 1 ? 0 : 1)
                         }
                 }
                 
@@ -71,6 +72,7 @@ struct ContentView: View {
                         .overlay(alignment: .bottom) {
                             Rectangle()
                                 .frame(height: 4)
+                                .opacity(体温.count < 2 ? 0 : 1)
                         }
                 }
                 
@@ -125,6 +127,7 @@ struct ContentView: View {
                             体温.removeLast()
                         } label: {
                             Text("⌫")
+                                .scaleEffect(0.8)
                         }
                         .tint(.primary)
                         .disabled(体温.isEmpty)
