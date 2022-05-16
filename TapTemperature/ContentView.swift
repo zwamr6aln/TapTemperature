@@ -193,6 +193,8 @@ struct SettingButton: View {
             NavigationView {
                 List {
                     Section {
+                        Label("Unit", systemImage: "questionmark")
+                        
                         Toggle("小数点2桁まで入力する", isOn: $🚩小数点2桁)
                         
                         Toggle("最後まで数字を入力したら自動で完了する", isOn: $🚩自動完了)
