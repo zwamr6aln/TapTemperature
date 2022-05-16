@@ -163,6 +163,16 @@ struct ContentView: View {
                 }
             }
         }
+        .overlay(alignment: .topLeading) {
+            Button {
+                print("placeholder")
+            } label: {
+                Image(systemName: "gearshape")
+                    .font(.title)
+                    .padding()
+            }
+            .tint(.primary)
+        }
     }
 }
 
