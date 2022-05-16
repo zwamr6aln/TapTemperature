@@ -93,17 +93,61 @@ struct ContentView: View {
             
             Divider()
             
-            KeyboardView()
-                .padding(.vertical)
-                .onTapGesture {
-                    🏥HealthStore.save(🄳ataTemp) { 🆗, 👿 in
-                        if 🆗 {
-                            print(".save/.bodyTemp: Success")
-                        } else {
-                            print("👿:", 👿.debugDescription)
+            let 列 = Array(repeating: GridItem(.flexible()), count: 3)
+            LazyVGrid(columns: 列, spacing: 24) {
+                ForEach(1..<13) { 🪧 in
+                    if 🪧 == 10 {
+                        Button {
+                            🏥HealthStore.save(🄳ataTemp) { 🆗, 👿 in
+                                if 🆗 {
+                                    print(".save/.bodyTemp: Success")
+                                } else {
+                                    print("👿:", 👿.debugDescription)
+                                }
+                            }
+                        } label: {
+                            Image(systemName: "checkmark.circle.fill")
                         }
+                        .tint(.pink)
+                        .disabled(体温.count < 3)
+                    } else if 🪧 == 11 {
+                        Button {
+                            if 体温.count < 4 {
+                                体温.append(0)
+                            }
+                        } label: {
+                            Text("0")
+                        }
+                        .tint(.primary)
+                        .disabled(4 == 体温.count)
+                    } else if 🪧 == 12 {
+                        Button {
+                            体温.removeLast()
+                        } label: {
+                            Text("⌫")
+                        }
+                        .tint(.primary)
+                        .disabled(体温.isEmpty)
+                    } else {
+                        Button {
+                            if 体温.count < 4 {
+                                体温.append(🪧)
+                            }
+                        } label: {
+                            Text(🪧.description)
+                                .fontWeight(体温.count == 1 && 体温.first==3 && (5<🪧 && 🪧<9) ? .heavy:nil)
+                                .fontWeight(体温.count==0 && (🪧==3 || 🪧==4) ? .heavy:nil)
+                        }
+                        .tint(.primary)
+                        .disabled(4 == 体温.count)
                     }
                 }
+                .font(.system(size: 48,
+                              weight: .medium,
+                              design: .rounded))
+            }
+            .padding()
+            .padding(.vertical, 12)
         }
         .onAppear {
             let 🅃ype: Set<HKSampleType> = [HKQuantityType(.bodyTemperature)]
