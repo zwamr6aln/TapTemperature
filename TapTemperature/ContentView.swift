@@ -216,6 +216,14 @@ struct SettingButton: View {
                             .font(.body.bold())
                         }
                     }
+                    
+                    Section {
+                        Label("履歴", systemImage: "doc.plaintext")
+                    }
+                    
+                    Section {
+                        Label("Document", systemImage: "doc")
+                    }
                 }
                 .navigationTitle("TapTemperature")
                 .toolbar {
