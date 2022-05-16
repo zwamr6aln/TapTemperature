@@ -37,6 +37,12 @@ struct ContentView: View {
     
     @State private var 体温: [Int] = [3]
     
+    
+    @State private var 🚩InputDone: Bool = false
+    
+    @State private var 🚩Success: Bool = false
+    
+    
     var body: some View {
         VStack {
             Spacer()
@@ -103,6 +109,8 @@ struct ContentView: View {
                             🏥HealthStore.save(🄳ataTemp) { 🆗, 👿 in
                                 if 🆗 {
                                     print(".save/.bodyTemp: Success")
+                                    🚩InputDone = true
+                                    🚩Success = true
                                 } else {
                                     print("👿:", 👿.debugDescription)
                                 }
@@ -152,6 +160,32 @@ struct ContentView: View {
             }
             .padding()
             .padding(.vertical, 12)
+        }
+        .fullScreenCover(isPresented: $🚩InputDone) {
+            ZStack {
+                🚩Success ? Color.pink : Color.gray
+                
+                Button {
+                    🚩InputDone = false
+                } label: {
+                    VStack(spacing: 16) {
+                        Spacer()
+                        
+                        Image(systemName: 🚩Success ? "heart" : "heart.slash")
+                        
+                        Text(🚩Success ? "OK!" : "Error!?")
+                            .lineLimit(1)
+                            .minimumScaleFactor(0.1)
+                        
+                        Spacer()
+                    }
+                    .font(.system(size: 128).weight(.black))
+                    .foregroundColor(.white)
+                }
+                .accessibilityLabel("🌏Dismiss")
+            }
+            .ignoresSafeArea()
+            //.statusBar(hidden: true)
         }
         .onAppear {
             let 🅃ype: Set<HKSampleType> = [HKQuantityType(.bodyTemperature)]
