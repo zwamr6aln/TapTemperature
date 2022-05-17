@@ -155,11 +155,11 @@ struct ContentView: View {
                             🏥HealthStore.save(🄳ataTemp) { 🆗, 👿 in
                                 if 🆗 {
                                     print(".save/.bodyTemp: Success")
-                                    🚩InputDone = true
-                                    🚩Success = true
+                                    self.🚩Success = true
                                 } else {
                                     print("👿:", 👿.debugDescription)
                                 }
+                                self.🚩InputDone = true
                             }
                         } label: {
                             Image(systemName: "checkmark.circle")
