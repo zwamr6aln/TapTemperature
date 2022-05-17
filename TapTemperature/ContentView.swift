@@ -159,8 +159,8 @@ struct ContentView: View {
                                 } else {
                                     print("👿:", 👿.debugDescription)
                                 }
-                                self.🚩InputDone = true
                             }
+                            🚩InputDone = true
                         } label: {
                             Image(systemName: "checkmark.circle")
                                 .symbolVariant(体温.count > 2 ? .fill : .none)
