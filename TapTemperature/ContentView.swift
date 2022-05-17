@@ -300,6 +300,8 @@ struct SettingButton: View {
                         Toggle("最後まで数字を入力したら自動で完了する", isOn: $🚩自動完了)
                         
                         Toggle("ヘルスケアアプリ自動起動", isOn: $🚩ヘルスケアアプリ自動起動)
+                        
+                        Toggle("基礎体温として記録する", isOn: .constant(false))
                     }
                     
                     
