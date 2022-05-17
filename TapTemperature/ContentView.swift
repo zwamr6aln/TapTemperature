@@ -175,12 +175,12 @@ struct ContentView: View {
                             }
                         } label: {
                             Text("0")
-                                .fontWeight(体温.count==0 ? .regular:nil)
                                 .fontWeight(体温.count==1 && 体温.first==3 ? .regular:nil)
                                 .fontWeight(体温.count >= 3 && !🚩小数点2桁 ? .regular:nil)
                         }
                         .tint(.primary)
-                        .disabled(4 == 体温.count)
+                        .disabled(体温.count == 0)
+                        .disabled(体温.count == 4)
                     } else if 🪧 == 12 {
                         Button {
                             体温.removeLast()
@@ -198,13 +198,13 @@ struct ContentView: View {
                             }
                         } label: {
                             Text(🪧.description)
-                                .fontWeight(体温.count==1 && 体温.first==3 && !(4<🪧 && 🪧<=9) ? .regular:nil)
-                                .fontWeight(体温.count==1 && 体温.first==4 && 🪧 != 1 ? .regular:nil)
-                                .fontWeight(体温.count==0 && !(🪧==3 || 🪧==4) ? .regular:nil)
+                                .fontWeight(体温.count == 1 && 体温.first==3 && !(4<🪧 && 🪧<=9) ? .regular:nil)
                                 .fontWeight(体温.count >= 3 && !🚩小数点2桁 ? .regular:nil)
                         }
                         .tint(.primary)
-                        .disabled(4 == 体温.count)
+                        .disabled(体温.count==0 && !(🪧==3 || 🪧==4))
+                        .disabled(体温.count == 1 && 体温.first==4 && 🪧 != 1)
+                        .disabled(体温.count == 4)
                     }
                 }
                 .font(.system(size: 48, weight: .heavy, design: .rounded))
