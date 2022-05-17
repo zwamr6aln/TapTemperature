@@ -128,6 +128,7 @@ struct ContentView: View {
                             }
                         } label: {
                             Text("0")
+                                .fontWeight(体温.count==1 && 体温.first==4 ? .heavy:nil)
                                 .opacity(体温.count >= 3 ? 0.4 : 1)
                         }
                         .tint(.primary)
@@ -148,7 +149,8 @@ struct ContentView: View {
                             }
                         } label: {
                             Text(🪧.description)
-                                .fontWeight(体温.count == 1 && 体温.first==3 && (5<🪧 && 🪧<9) ? .heavy:nil)
+                                .fontWeight(体温.count==1 && 体温.first==3 && (4<🪧 && 🪧<=9) ? .heavy:nil)
+                                .fontWeight(体温.count==1 && 体温.first==4 && 🪧==1 ? .heavy:nil)
                                 .fontWeight(体温.count==0 && (🪧==3 || 🪧==4) ? .heavy:nil)
                                 .opacity(体温.count >= 3 ? 0.4 : 1)
                         }
