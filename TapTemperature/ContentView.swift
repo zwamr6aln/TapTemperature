@@ -245,6 +245,8 @@ struct SettingButton: View {
     
     @State private var 🚩Menu: Bool = false
     
+    @AppStorage("Unit") var 🛠Unit: 🄴numUnit = .℃
+    
     @AppStorage("小数点2桁") var 🚩小数点2桁: Bool = false
     
     @AppStorage("自動完了") var 🚩自動完了: Bool = false
@@ -263,36 +265,46 @@ struct SettingButton: View {
             NavigationView {
                 List {
                     Section {
-                        Label("Unit", systemImage: "questionmark")
-                        
-                        Toggle("小数点2桁まで入力する", isOn: $🚩小数点2桁)
-                        
-                        Toggle("最後まで数字を入力したら自動で完了する", isOn: $🚩自動完了)
-                        
-                        Toggle("ヘルスケアアプリ自動起動", isOn: $🚩ヘルスケアアプリ自動起動)
-                    } header: {
-                        Text("Option")
-                    }
-                    
-                    Section {
-                        Link(destination: URL(string: "x-apple-health://")!) {
-                            HStack {
-                                Label("Open Apple \"Health\" app", systemImage: "heart")
-                                
-                                Spacer()
-                                
-                                Image(systemName: "arrow.up.forward.app")
+                        Picker(selection: $🛠Unit) {
+                            ForEach(🄴numUnit.allCases, id: \.self) { 🏷 in
+                                Text(🏷.rawValue)
                             }
-                            .font(.body.bold())
+                        } label: {
+                            Label("℃  /  ℉", systemImage: "ruler")
                         }
                     }
                     
-                    Section {
-                        Label("履歴", systemImage: "doc.plaintext")
-                    }
                     
                     Section {
-                        Label("Document", systemImage: "doc")
+                        Toggle(isOn: $🚩小数点2桁) {
+                            HStack {
+                                Image(systemName: "character.cursor.ibeam")
+                                    .foregroundColor(.accentColor)
+                                
+                                Text("36.1")
+                                    .padding(.leading, 8)
+                                
+                                Image(systemName: "arrow.right")
+                                    .imageScale(.small)
+                                
+                                Text("36.12︭")
+                                    .fontWeight(.semibold)
+                            }
+                        }
+                    } footer: {
+                        Text("小数点2桁まで入力する")
+                    }
+                    
+                    
+                    Section{
+                        Toggle("最後まで数字を入力したら自動で完了する", isOn: $🚩自動完了)
+                        
+                        Toggle("ヘルスケアアプリ自動起動", isOn: $🚩ヘルスケアアプリ自動起動)
+                    }
+                    
+                    
+                    Section {
+                        Label("App Document", systemImage: "doc")
                     }
                 }
                 .navigationTitle("TapTemperature")
