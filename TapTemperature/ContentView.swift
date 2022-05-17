@@ -45,7 +45,39 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
+            HStack {
+                Link(destination: URL(string: "x-apple-health://")!) {
+                    Image(systemName: "app")
+                        .imageScale(.large)
+                        .overlay {
+                            Image(systemName: "heart")
+                                .imageScale(.small)
+                        }
+                }
+                .font(.title)
+                .tint(.primary)
+                
+                SettingButton()
+                
+                Button {
+                    print("placeholder")
+                } label: {
+                    Image(systemName: "text.justify.left")
+                }
+                .font(.title)
+                .tint(.primary)
+                .popover(isPresented: .constant(false)) {
+                    Text("placeholder")
+                }
+                
+                Spacer()
+            }
+            .padding(.top)
+            .padding(.horizontal, 20)
+            
+            
             Spacer()
+            
             
             HStack(alignment: .firstTextBaseline) {
                 if 体温.indices.contains(0) {
@@ -95,14 +127,17 @@ struct ContentView: View {
             }
             .font(.system(size: 81, weight: .bold))
             .monospacedDigit()
-            .padding(32)
+            .padding(.horizontal, 32)
+            .padding(.bottom)
+            
             
             Spacer()
             
             Divider()
             
+            
             let 列 = Array(repeating: GridItem(.flexible()), count: 3)
-            LazyVGrid(columns: 列, spacing: 24) {
+            LazyVGrid(columns: 列, spacing: 32) {
                 ForEach(1..<13) { 🪧 in
                     if 🪧 == 10 {
                         Button {
@@ -118,7 +153,7 @@ struct ContentView: View {
                         } label: {
                             Image(systemName: "checkmark.circle")
                                 .symbolVariant(体温.count > 2 ? .fill : .none)
-                                .scaleEffect(体温.count > 2 ? 1.2 : 1)
+                                .scaleEffect(体温.count > 2 ? 1.15 : 1)
                         }
                         .tint(.pink)
                         .disabled(体温.count < 3)
@@ -131,7 +166,7 @@ struct ContentView: View {
                             Text("0")
                                 .fontWeight(体温.count==0 ? .regular:nil)
                                 .fontWeight(体温.count==1 && 体温.first==3 ? .regular:nil)
-                                .opacity(体温.count >= 3 ? 0.4 : 1)
+                                .fontWeight(体温.count >= 3 ? .regular:nil)
                         }
                         .tint(.primary)
                         .disabled(4 == 体温.count)
@@ -140,6 +175,7 @@ struct ContentView: View {
                             体温.removeLast()
                         } label: {
                             Text("⌫")
+                                .fontWeight(体温.count <= 1 ? .regular:nil)
                                 .scaleEffect(0.8)
                         }
                         .tint(.primary)
@@ -154,7 +190,7 @@ struct ContentView: View {
                                 .fontWeight(体温.count==1 && 体温.first==3 && !(4<🪧 && 🪧<=9) ? .regular:nil)
                                 .fontWeight(体温.count==1 && 体温.first==4 && 🪧 != 1 ? .regular:nil)
                                 .fontWeight(体温.count==0 && !(🪧==3 || 🪧==4) ? .regular:nil)
-                                .opacity(体温.count >= 3 ? 0.4 : 1)
+                                .fontWeight(体温.count >= 3 ? .regular:nil)
                         }
                         .tint(.primary)
                         .disabled(4 == 体温.count)
@@ -201,34 +237,6 @@ struct ContentView: View {
                 }
             }
         }
-        .overlay(alignment: .topLeading) {
-            HStack {
-                Link(destination: URL(string: "x-apple-health://")!) {
-                    Image(systemName: "app")
-                        .imageScale(.large)
-                        .overlay {
-                            Image(systemName: "heart")
-                                .imageScale(.small)
-                        }
-                }
-                .font(.title2)
-                .tint(.primary)
-                
-                SettingButton()
-                
-                Button {
-                    print("placeholder")
-                } label: {
-                    Image(systemName: "text.justify.left")
-                }
-                .font(.title2)
-                .tint(.primary)
-                .popover(isPresented: .constant(false)) {
-                    Text("placeholder")
-                }
-            }
-            .padding()
-        }
     }
 }
 
@@ -248,7 +256,7 @@ struct SettingButton: View {
             🚩Menu = true
         } label: {
             Image(systemName: "gearshape")
-                .font(.title2)
+                .font(.title)
         }
         .tint(.primary)
         .popover(isPresented: $🚩Menu) {
