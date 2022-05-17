@@ -35,6 +35,8 @@ struct ContentView: View {
     
     @AppStorage("Unit") var 🛠Unit: 🄴numUnit = .℃
     
+    @AppStorage("小数点2桁") var 🚩小数点2桁: Bool = false
+    
     @State private var 体温: [Int] = [3]
     
     
@@ -117,7 +119,16 @@ struct ContentView: View {
                 if 体温.indices.contains(3) {
                     Text(体温[3].description)
                 } else {
-                    EmptyView()
+                    if 🚩小数点2桁 {
+                        Text("0").opacity(0)
+                            .overlay(alignment: .bottom) {
+                                Rectangle()
+                                    .frame(height: 4)
+                                    .opacity(体温.count < 3 ? 0 : 1)
+                            }
+                    } else {
+                        EmptyView()
+                    }
                 }
                 
                 Text(🛠Unit.rawValue)
@@ -166,7 +177,7 @@ struct ContentView: View {
                             Text("0")
                                 .fontWeight(体温.count==0 ? .regular:nil)
                                 .fontWeight(体温.count==1 && 体温.first==3 ? .regular:nil)
-                                .fontWeight(体温.count >= 3 ? .regular:nil)
+                                .fontWeight(体温.count >= 3 && !🚩小数点2桁 ? .regular:nil)
                         }
                         .tint(.primary)
                         .disabled(4 == 体温.count)
@@ -190,7 +201,7 @@ struct ContentView: View {
                                 .fontWeight(体温.count==1 && 体温.first==3 && !(4<🪧 && 🪧<=9) ? .regular:nil)
                                 .fontWeight(体温.count==1 && 体温.first==4 && 🪧 != 1 ? .regular:nil)
                                 .fontWeight(体温.count==0 && !(🪧==3 || 🪧==4) ? .regular:nil)
-                                .fontWeight(体温.count >= 3 ? .regular:nil)
+                                .fontWeight(体温.count >= 3 && !🚩小数点2桁 ? .regular:nil)
                         }
                         .tint(.primary)
                         .disabled(4 == 体温.count)
@@ -281,13 +292,13 @@ struct SettingButton: View {
                                 Image(systemName: "character.cursor.ibeam")
                                     .foregroundColor(.accentColor)
                                 
-                                Text("36.1")
+                                Text("36.1\(🛠Unit.rawValue)")
                                     .padding(.leading, 8)
                                 
                                 Image(systemName: "arrow.right")
                                     .imageScale(.small)
                                 
-                                Text("36.12︭")
+                                Text("36.12︭\(🛠Unit.rawValue)")
                                     .fontWeight(.semibold)
                             }
                         }
