@@ -200,7 +200,32 @@ struct ContentView: View {
             }
         }
         .overlay(alignment: .topLeading) {
-            SettingButton()
+            HStack {
+                Link(destination: URL(string: "x-apple-health://")!) {
+                    Image(systemName: "app")
+                        .imageScale(.large)
+                        .overlay {
+                            Image(systemName: "heart")
+                                .imageScale(.small)
+                        }
+                }
+                .font(.title2)
+                .tint(.primary)
+                
+                SettingButton()
+                
+                Button {
+                    print("placeholder")
+                } label: {
+                    Image(systemName: "text.justify.left")
+                }
+                .font(.title2)
+                .tint(.primary)
+                .popover(isPresented: .constant(false)) {
+                    Text("placeholder")
+                }
+            }
+            .padding()
         }
     }
 }
@@ -221,8 +246,7 @@ struct SettingButton: View {
             🚩Menu = true
         } label: {
             Image(systemName: "gearshape")
-                .font(.title)
-                .padding()
+                .font(.title2)
         }
         .tint(.primary)
         .popover(isPresented: $🚩Menu) {
