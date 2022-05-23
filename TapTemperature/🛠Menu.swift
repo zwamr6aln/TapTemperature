@@ -36,7 +36,7 @@ struct 🛠Menu: View {
     
     @AppStorage("小数点2桁") var 🚩小数点2桁: Bool = false
     
-    @AppStorage("自動完了") var 🚩自動完了: Bool = false
+    @AppStorage("AutoComplete") var 🚩AutoComplete: Bool = false
     
     @Environment(\.dismiss) var 🔚: DismissAction
     
@@ -61,17 +61,15 @@ struct 🛠Menu: View {
                 
                 
                 Section {
-                    Toggle(isOn: $🚩自動完了) {
-                        Label("自動完了", systemImage: "circle.slash.fill")
+                    Toggle(isOn: $🚩AutoComplete) {
+                        Label("Auto complete", systemImage: "circle.slash.fill")
                             .symbolRenderingMode(.hierarchical)
                     }
                     
                     Toggle(isOn: $🚩小数点2桁) {
-                        Label("36.1\(🛠Unit.rawValue) → 36.12︭\(🛠Unit.rawValue)",
+                        Label("36.1\(🛠Unit.rawValue)  →  36.12︭\(🛠Unit.rawValue)",
                               systemImage: "character.cursor.ibeam")
                     }
-                } footer: {
-                    Text("小数点2桁まで入力する")
                 }
                 
                 
