@@ -62,8 +62,7 @@ struct 🛠Menu: View {
                 
                 Section {
                     Toggle(isOn: $🚩AutoComplete) {
-                        Label("Auto complete", systemImage: "circle.slash.fill")
-                            .symbolRenderingMode(.hierarchical)
+                        Label("Auto complete", systemImage: "checkmark.circle.trianglebadge.exclamationmark")
                     }
                     
                     Toggle(isOn: $🚩小数点2桁) {
