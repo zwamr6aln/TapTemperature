@@ -48,6 +48,10 @@ struct ContentView: View {
     var body: some View {
         VStack {
             HStack {
+                MenuButton()
+                
+                Spacer()
+                
                 Link(destination: URL(string: "x-apple-health://")!) {
                     Image(systemName: "app")
                         .imageScale(.large)
@@ -58,21 +62,6 @@ struct ContentView: View {
                 }
                 .font(.title)
                 .tint(.primary)
-                
-                MenuButton()
-                
-                Button {
-                    print("placeholder")
-                } label: {
-                    Image(systemName: "text.justify.left")
-                }
-                .font(.title)
-                .tint(.primary)
-                .popover(isPresented: .constant(false)) {
-                    Text("placeholder")
-                }
-                
-                Spacer()
             }
             .padding(.top)
             .padding(.horizontal, 20)
