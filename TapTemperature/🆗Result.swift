@@ -52,6 +52,9 @@ struct 🆗Result: View {
                                 .minimumScaleFactor(0.1)
                                 .padding(.horizontal)
                         }
+                        
+                        Spacer()
+                            .frame(height: 100)
                     }
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
