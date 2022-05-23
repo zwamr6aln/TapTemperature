@@ -3,7 +3,7 @@ import SwiftUI
 import HealthKit
 
 
-struct 🛠MenuButton: View {
+struct 🛠MenuButton: View { // ⚙️
     
     @State private var 🚩Menu: Bool = false
     
@@ -69,6 +69,7 @@ struct 🛠Menu: View {
                 
                 Section {
                     Label("App Document", systemImage: "doc")
+                        .foregroundStyle(.secondary)
                 }
             }
             .navigationTitle("TapTemperature")
