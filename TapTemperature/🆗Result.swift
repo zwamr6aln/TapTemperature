@@ -76,5 +76,9 @@ struct 🆗Result: View {
 struct 🆗Result_Previews: PreviewProvider {
     static var previews: some View {
         🆗Result(.constant(true))
+            .previewLayout(.fixed(width: 200, height: 400))
+        
+        🆗Result(.constant(false))
+            .previewLayout(.fixed(width: 200, height: 400))
     }
 }
