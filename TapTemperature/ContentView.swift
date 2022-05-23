@@ -52,16 +52,7 @@ struct ContentView: View {
                 
                 Spacer()
                 
-                Link(destination: URL(string: "x-apple-health://")!) {
-                    Image(systemName: "app")
-                        .imageScale(.large)
-                        .overlay {
-                            Image(systemName: "heart")
-                                .imageScale(.small)
-                        }
-                }
-                .font(.title)
-                .tint(.primary)
+                💟JumpButton()
             }
             .padding(.top)
             .padding(.horizontal, 20)
@@ -237,6 +228,23 @@ struct ContentView: View {
                 }
             }
         }
+    }
+}
+
+
+struct 💟JumpButton: View {
+    var body: some View {
+        Link(destination: URL(string: "x-apple-health://")!) {
+            Image(systemName: "app")
+                .imageScale(.large)
+                .overlay {
+                    Image(systemName: "heart")
+                        .imageScale(.small)
+                }
+        }
+        .font(.title)
+        .foregroundStyle(.primary)
+        .accessibilityLabel("🌏Open \"Health\" app")
     }
 }
 
