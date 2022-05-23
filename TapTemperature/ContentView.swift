@@ -3,12 +3,6 @@ import SwiftUI
 import HealthKit
 
 
-enum 🄴numUnit: String, CaseIterable {
-    case ℃
-    case ℉
-}
-
-
 struct ContentView: View {
     
     let 🏥HealthStore = HKHealthStore()
@@ -35,6 +29,10 @@ struct ContentView: View {
     
     @AppStorage("Unit") var 🛠Unit: 🄴numUnit = .℃
     
+    @AppStorage("基礎体温") var 🚩基礎体温: Bool = false
+    
+    @State private var 基礎体温isActive: Bool = true
+    
     @AppStorage("小数点2桁") var 🚩小数点2桁: Bool = false
     
     @State private var 体温: [Int] = [3]
@@ -47,8 +45,19 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            HStack {
+            HStack(spacing: 16) {
                 🛠MenuButton()
+                
+                if 🚩基礎体温 {
+                    Button {
+                        基礎体温isActive.toggle()
+                    } label: {
+                        Image(systemName: "bed.double")
+                            .font(.title)
+                            .tint(.primary)
+                    }
+                    .foregroundStyle(基礎体温isActive ? .primary : .tertiary)
+                }
                 
                 Spacer()
                 
