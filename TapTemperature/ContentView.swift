@@ -54,10 +54,16 @@ struct ContentView: View {
                         🛏isActive.toggle()
                     } label: {
                         Image(systemName: "bed.double")
+                            .foregroundStyle(🛏isActive ? .primary : .tertiary)
+                            .overlay {
+                                if 🛏isActive == false {
+                                    Image(systemName: "xmark")
+                                        .scaleEffect(1.33)
+                                }
+                            }
                             .font(.title)
                             .tint(.primary)
                     }
-                    .foregroundStyle(🛏isActive ? .primary : .tertiary)
                 }
                 
                 Spacer()
