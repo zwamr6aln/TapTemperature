@@ -34,7 +34,7 @@ struct 🛠Menu: View {
     
     @AppStorage("🛏") var 🚩BasalTemp: Bool = false
     
-    @AppStorage("小数点2桁") var 🚩小数点2桁: Bool = false
+    @AppStorage("2ndDecimalPlace") var 🚩2ndDecimalPlace: Bool = false
     
     @AppStorage("AutoComplete") var 🚩AutoComplete: Bool = false
     
@@ -65,7 +65,7 @@ struct 🛠Menu: View {
                         Label("Auto complete", systemImage: "checkmark.circle.trianglebadge.exclamationmark")
                     }
                     
-                    Toggle(isOn: $🚩小数点2桁) {
+                    Toggle(isOn: $🚩2ndDecimalPlace) {
                         Label("36.1\(🛠Unit.rawValue)  →  36.12︭\(🛠Unit.rawValue)",
                               systemImage: "character.cursor.ibeam")
                     }

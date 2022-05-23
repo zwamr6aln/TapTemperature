@@ -36,7 +36,7 @@ struct ContentView: View {
     
     @State private var 🛏isActive: Bool = true
     
-    @AppStorage("小数点2桁") var 🚩小数点2桁: Bool = false
+    @AppStorage("2ndDecimalPlace") var 🚩2ndDecimalPlace: Bool = false
     
     
     @State private var 🚩InputDone: Bool = false
@@ -115,7 +115,7 @@ struct ContentView: View {
                 if 🌡Temp.indices.contains(3) {
                     Text(🌡Temp[3].description)
                 } else {
-                    if 🚩小数点2桁 {
+                    if 🚩2ndDecimalPlace {
                         Text("0").opacity(0)
                             .overlay(alignment: .bottom) {
                                 Rectangle()
@@ -172,7 +172,7 @@ struct ContentView: View {
                         } label: {
                             Text("0")
                                 .fontWeight(🌡Temp.count==1 && 🌡Temp.first==3 ? .regular:nil)
-                                .fontWeight(🌡Temp.count >= 3 && !🚩小数点2桁 ? .regular:nil)
+                                .fontWeight(🌡Temp.count >= 3 && (🚩2ndDecimalPlace == false) ? .regular:nil)
                         }
                         .tint(.primary)
                         .disabled(🌡Temp.count == 0)
@@ -195,7 +195,7 @@ struct ContentView: View {
                         } label: {
                             Text(🪧.description)
                                 .fontWeight(🌡Temp.count == 1 && 🌡Temp.first==3 && !(4<🪧 && 🪧<=9) ? .regular:nil)
-                                .fontWeight(🌡Temp.count >= 3 && !🚩小数点2桁 ? .regular:nil)
+                                .fontWeight(🌡Temp.count >= 3 && (🚩2ndDecimalPlace == false) ? .regular:nil)
                         }
                         .tint(.primary)
                         .disabled(🌡Temp.count==0 && !(🪧==3 || 🪧==4))
