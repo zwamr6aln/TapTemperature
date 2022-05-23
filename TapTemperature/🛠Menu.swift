@@ -70,6 +70,11 @@ struct 🛠Menu: View {
                         Label("36.1\(🛠Unit.rawValue)  →  36.12︭\(🛠Unit.rawValue)",
                               systemImage: "character.cursor.ibeam")
                     }
+                    .onChange(of: 🚩小数点2桁) { 🚩 in
+                        if 🚩 == true {
+                            🔚.callAsFunction()
+                        }
+                    }
                 }
                 
                 
