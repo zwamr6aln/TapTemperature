@@ -29,9 +29,9 @@ struct ContentView: View {
     
     @AppStorage("Unit") var 🛠Unit: 🄴numUnit = .℃
     
-    @AppStorage("基礎体温") var 🚩基礎体温: Bool = false
+    @AppStorage("🛏") var 🚩🛏基礎体温: Bool = false
     
-    @State private var 基礎体温isActive: Bool = true
+    @State private var 🛏isActive: Bool = true
     
     @AppStorage("小数点2桁") var 🚩小数点2桁: Bool = false
     
@@ -48,15 +48,15 @@ struct ContentView: View {
             HStack(spacing: 16) {
                 🛠MenuButton()
                 
-                if 🚩基礎体温 {
+                if 🚩🛏基礎体温 {
                     Button {
-                        基礎体温isActive.toggle()
+                        🛏isActive.toggle()
                     } label: {
                         Image(systemName: "bed.double")
                             .font(.title)
                             .tint(.primary)
                     }
-                    .foregroundStyle(基礎体温isActive ? .primary : .tertiary)
+                    .foregroundStyle(🛏isActive ? .primary : .tertiary)
                 }
                 
                 Spacer()
