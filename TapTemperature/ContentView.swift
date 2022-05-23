@@ -32,7 +32,7 @@ struct ContentView: View {
     
     @AppStorage("Unit") var 🛠Unit: 🄴numUnit = .℃
     
-    @AppStorage("🛏") var 🚩🛏基礎体温: Bool = false
+    @AppStorage("🛏") var 🚩BasalTemp: Bool = false
     
     @State private var 🛏isActive: Bool = true
     
@@ -49,7 +49,7 @@ struct ContentView: View {
             HStack(spacing: 16) {
                 🛠MenuButton()
                 
-                if 🚩🛏基礎体温 {
+                if 🚩BasalTemp {
                     Button {
                         🛏isActive.toggle()
                     } label: {

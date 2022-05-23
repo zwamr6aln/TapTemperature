@@ -32,7 +32,7 @@ struct 🛠Menu: View {
     
     @AppStorage("Unit") var 🛠Unit: 🄴numUnit = .℃
     
-    @AppStorage("🛏") var 🚩🛏基礎体温: Bool = false
+    @AppStorage("🛏") var 🚩BasalTemp: Bool = false
     
     @AppStorage("小数点2桁") var 🚩小数点2桁: Bool = false
     
@@ -52,8 +52,8 @@ struct 🛠Menu: View {
                         Label("℃  /  ℉", systemImage: "ruler")
                     }
                     
-                    Toggle(isOn: $🚩🛏基礎体温) {
-                        Label("基礎体温", systemImage: "bed.double")
+                    Toggle(isOn: $🚩BasalTemp) {
+                        Label("Basal temperature", systemImage: "bed.double")
                     }
                 } header: {
                     Text("Option")
