@@ -193,30 +193,7 @@ struct ContentView: View {
             .padding(.vertical, 12)
         }
         .fullScreenCover(isPresented: $🚩InputDone) {
-            ZStack {
-                🚩Success ? Color.pink : Color.gray
-                
-                Button {
-                    🚩InputDone = false
-                } label: {
-                    VStack(spacing: 16) {
-                        Spacer()
-                        
-                        Image(systemName: 🚩Success ? "heart" : "heart.slash")
-                        
-                        Text(🚩Success ? "OK!" : "Error!?")
-                            .lineLimit(1)
-                            .minimumScaleFactor(0.1)
-                        
-                        Spacer()
-                    }
-                    .font(.system(size: 128).weight(.black))
-                    .foregroundColor(.white)
-                }
-                .accessibilityLabel("🌏Dismiss")
-            }
-            .ignoresSafeArea()
-            .preferredColorScheme(.dark)
+            Result(🚩InputDone: $🚩InputDone, 🚩Success: $🚩Success)
         }
         .onAppear {
             let 🅃ype: Set<HKSampleType> = [HKQuantityType(.bodyTemperature)]
