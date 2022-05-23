@@ -53,7 +53,7 @@ struct 🛠Menu: View {
                     }
                     
                     Toggle(isOn: $🚩BasalTemp) {
-                        Label("Basal temperature", systemImage: "bed.double")
+                        Label("Basal body temperature", systemImage: "bed.double")
                     }
                 } header: {
                     Text("Option")
@@ -68,11 +68,6 @@ struct 🛠Menu: View {
                     Toggle(isOn: $🚩小数点2桁) {
                         Label("36.1\(🛠Unit.rawValue)  →  36.12︭\(🛠Unit.rawValue)",
                               systemImage: "character.cursor.ibeam")
-                    }
-                    .onChange(of: 🚩小数点2桁) { 🚩 in
-                        if 🚩 == true {
-                            🔚.callAsFunction()
-                        }
                     }
                 }
                 

@@ -54,7 +54,7 @@ struct 🆗Result: View {
                         }
                         
                         Spacer()
-                            .frame(height: 100)
+                            .frame(height: 50)
                     }
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
