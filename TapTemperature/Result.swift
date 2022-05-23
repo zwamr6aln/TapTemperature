@@ -4,16 +4,16 @@ import SwiftUI
 
 struct Result: View {
     
-    @Binding var 🚩InputDone: Bool
-    
     @Binding var 🚩Success: Bool
+    
+    @Environment(\.dismiss) var 🔙: DismissAction
     
     var body: some View {
         ZStack {
             🚩Success ? Color.pink : Color.gray
             
             Button {
-                🚩InputDone = false
+                🔙.callAsFunction()
             } label: {
                 VStack(spacing: 16) {
                     Spacer()
@@ -34,6 +34,10 @@ struct Result: View {
         .ignoresSafeArea()
         .preferredColorScheme(.dark)
     }
+    
+    init(_ 🚩Success: Binding<Bool>) {
+        self._🚩Success = 🚩Success
+    }
 }
 
 
@@ -41,6 +45,6 @@ struct Result: View {
 
 struct Result_Previews: PreviewProvider {
     static var previews: some View {
-        Result(🚩InputDone: .constant(false), 🚩Success: .constant(true))
+        Result(.constant(true))
     }
 }
