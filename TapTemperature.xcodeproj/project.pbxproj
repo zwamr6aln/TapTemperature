@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		125A9BEB283B35FC00C54634 /* 🛠Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125A9BEA283B35FC00C54634 /* 🛠Menu.swift */; };
-		125A9BED283B441D00C54634 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125A9BEC283B441D00C54634 /* Result.swift */; };
+		125A9BED283B441D00C54634 /* 🆗Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125A9BEC283B441D00C54634 /* 🆗Result.swift */; };
 		12E811BB283089D300B0A615 /* TapTemperatureApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E811BA283089D300B0A615 /* TapTemperatureApp.swift */; };
 		12E811BD283089D300B0A615 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E811BC283089D300B0A615 /* ContentView.swift */; };
 		12E811BF283089D400B0A615 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12E811BE283089D400B0A615 /* Assets.xcassets */; };
@@ -18,7 +18,7 @@
 
 /* Begin PBXFileReference section */
 		125A9BEA283B35FC00C54634 /* 🛠Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🛠Menu.swift"; sourceTree = "<group>"; };
-		125A9BEC283B441D00C54634 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		125A9BEC283B441D00C54634 /* 🆗Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🆗Result.swift"; sourceTree = "<group>"; };
 		12E811B7283089D300B0A615 /* Temperature.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Temperature.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12E811BA283089D300B0A615 /* TapTemperatureApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapTemperatureApp.swift; sourceTree = "<group>"; };
 		12E811BC283089D300B0A615 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -63,7 +63,7 @@
 				12E811C828308A2100B0A615 /* TapTemperature.entitlements */,
 				12E811BA283089D300B0A615 /* TapTemperatureApp.swift */,
 				12E811BC283089D300B0A615 /* ContentView.swift */,
-				125A9BEC283B441D00C54634 /* Result.swift */,
+				125A9BEC283B441D00C54634 /* 🆗Result.swift */,
 				125A9BEA283B35FC00C54634 /* 🛠Menu.swift */,
 				12E811BE283089D400B0A615 /* Assets.xcassets */,
 				12E811C0283089D400B0A615 /* Preview Content */,
@@ -159,7 +159,7 @@
 			files = (
 				125A9BEB283B35FC00C54634 /* 🛠Menu.swift in Sources */,
 				12E811BD283089D300B0A615 /* ContentView.swift in Sources */,
-				125A9BED283B441D00C54634 /* Result.swift in Sources */,
+				125A9BED283B441D00C54634 /* 🆗Result.swift in Sources */,
 				12E811BB283089D300B0A615 /* TapTemperatureApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

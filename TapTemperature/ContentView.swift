@@ -193,7 +193,7 @@ struct ContentView: View {
             .padding(.vertical, 12)
         }
         .fullScreenCover(isPresented: $🚩InputDone) {
-            Result($🚩Success)
+            🆗Result($🚩Success)
         }
         .onAppear {
             let 🅃ype: Set<HKSampleType> = [HKQuantityType(.bodyTemperature)]
