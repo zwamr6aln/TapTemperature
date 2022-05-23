@@ -3,7 +3,7 @@ import SwiftUI
 import HealthKit
 
 
-struct MenuButton: View {
+struct 🛠MenuButton: View {
     
     @State private var 🚩Menu: Bool = false
     
@@ -93,6 +93,6 @@ struct MenuButton: View {
 
 struct Menu_Previews: PreviewProvider {
     static var previews: some View {
-        MenuButton()
+        🛠MenuButton()
     }
 }
