@@ -15,7 +15,7 @@ struct ContentView: View {
     }
     
     var 🅀uantityTemp: HKQuantity {
-        HKQuantity(unit: 🅄nit, doubleValue: 📝Temp)
+        HKQuantity(unit: 🅄nit, doubleValue: 💾Temp)
     }
     
     var 🄳ataTemp: HKQuantitySample {
@@ -25,7 +25,10 @@ struct ContentView: View {
                          end: .now)
     }
     
-    @AppStorage("Temp") var 📝Temp = 36.0
+    @AppStorage("Temp") var 💾Temp = 36.0
+    
+    @State private var 🌡Temp: [Int] = [3]
+    
     
     @AppStorage("Unit") var 🛠Unit: 🄴numUnit = .℃
     
@@ -34,8 +37,6 @@ struct ContentView: View {
     @State private var 🛏isActive: Bool = true
     
     @AppStorage("小数点2桁") var 🚩小数点2桁: Bool = false
-    
-    @State private var 体温: [Int] = [3]
     
     
     @State private var 🚩InputDone: Bool = false
@@ -71,8 +72,8 @@ struct ContentView: View {
             
             
             HStack(alignment: .firstTextBaseline) {
-                if 体温.indices.contains(0) {
-                    Text(体温[0].description)
+                if 🌡Temp.indices.contains(0) {
+                    Text(🌡Temp[0].description)
                 }  else {
                     Text("0").opacity(0)
                         .overlay(alignment: .bottom) {
@@ -81,39 +82,39 @@ struct ContentView: View {
                         }
                 }
                 
-                if 体温.indices.contains(1) {
-                    Text(体温[1].description)
+                if 🌡Temp.indices.contains(1) {
+                    Text(🌡Temp[1].description)
                 }  else {
                     Text("0").opacity(0)
                         .overlay(alignment: .bottom) {
                             Rectangle()
                                 .frame(height: 4)
-                                .opacity(体温.count < 1 ? 0 : 1)
+                                .opacity(🌡Temp.count < 1 ? 0 : 1)
                         }
                 }
                 
                 Text(".")
                 
-                if 体温.indices.contains(2) {
-                    Text(体温[2].description)
+                if 🌡Temp.indices.contains(2) {
+                    Text(🌡Temp[2].description)
                 }  else {
                     Text("0").opacity(0)
                         .overlay(alignment: .bottom) {
                             Rectangle()
                                 .frame(height: 4)
-                                .opacity(体温.count < 2 ? 0 : 1)
+                                .opacity(🌡Temp.count < 2 ? 0 : 1)
                         }
                 }
                 
-                if 体温.indices.contains(3) {
-                    Text(体温[3].description)
+                if 🌡Temp.indices.contains(3) {
+                    Text(🌡Temp[3].description)
                 } else {
                     if 🚩小数点2桁 {
                         Text("0").opacity(0)
                             .overlay(alignment: .bottom) {
                                 Rectangle()
                                     .frame(height: 4)
-                                    .opacity(体温.count < 3 ? 0 : 1)
+                                    .opacity(🌡Temp.count < 3 ? 0 : 1)
                             }
                     } else {
                         EmptyView()
@@ -152,48 +153,48 @@ struct ContentView: View {
                             🚩InputDone = true
                         } label: {
                             Image(systemName: "checkmark.circle")
-                                .symbolVariant(体温.count > 2 ? .fill : .none)
-                                .scaleEffect(体温.count > 2 ? 1.15 : 1)
+                                .symbolVariant(🌡Temp.count > 2 ? .fill : .none)
+                                .scaleEffect(🌡Temp.count > 2 ? 1.15 : 1)
                         }
                         .tint(.pink)
-                        .disabled(体温.count < 3)
+                        .disabled(🌡Temp.count < 3)
                     } else if 🪧 == 11 {
                         Button {
-                            if 体温.count < 4 {
-                                体温.append(0)
+                            if 🌡Temp.count < 4 {
+                                🌡Temp.append(0)
                             }
                         } label: {
                             Text("0")
-                                .fontWeight(体温.count==1 && 体温.first==3 ? .regular:nil)
-                                .fontWeight(体温.count >= 3 && !🚩小数点2桁 ? .regular:nil)
+                                .fontWeight(🌡Temp.count==1 && 🌡Temp.first==3 ? .regular:nil)
+                                .fontWeight(🌡Temp.count >= 3 && !🚩小数点2桁 ? .regular:nil)
                         }
                         .tint(.primary)
-                        .disabled(体温.count == 0)
-                        .disabled(体温.count == 4)
+                        .disabled(🌡Temp.count == 0)
+                        .disabled(🌡Temp.count == 4)
                     } else if 🪧 == 12 {
                         Button {
-                            体温.removeLast()
+                            🌡Temp.removeLast()
                         } label: {
                             Text("⌫")
-                                .fontWeight(体温.count <= 1 ? .regular:nil)
+                                .fontWeight(🌡Temp.count <= 1 ? .regular:nil)
                                 .scaleEffect(0.8)
                         }
                         .tint(.primary)
-                        .disabled(体温.isEmpty)
+                        .disabled(🌡Temp.isEmpty)
                     } else {
                         Button {
-                            if 体温.count < 4 {
-                                体温.append(🪧)
+                            if 🌡Temp.count < 4 {
+                                🌡Temp.append(🪧)
                             }
                         } label: {
                             Text(🪧.description)
-                                .fontWeight(体温.count == 1 && 体温.first==3 && !(4<🪧 && 🪧<=9) ? .regular:nil)
-                                .fontWeight(体温.count >= 3 && !🚩小数点2桁 ? .regular:nil)
+                                .fontWeight(🌡Temp.count == 1 && 🌡Temp.first==3 && !(4<🪧 && 🪧<=9) ? .regular:nil)
+                                .fontWeight(🌡Temp.count >= 3 && !🚩小数点2桁 ? .regular:nil)
                         }
                         .tint(.primary)
-                        .disabled(体温.count==0 && !(🪧==3 || 🪧==4))
-                        .disabled(体温.count == 1 && 体温.first==4 && 🪧 != 1)
-                        .disabled(体温.count == 4)
+                        .disabled(🌡Temp.count==0 && !(🪧==3 || 🪧==4))
+                        .disabled(🌡Temp.count == 1 && 🌡Temp.first==4 && 🪧 != 1)
+                        .disabled(🌡Temp.count == 4)
                     }
                 }
                 .font(.system(size: 48, weight: .heavy, design: .rounded))
