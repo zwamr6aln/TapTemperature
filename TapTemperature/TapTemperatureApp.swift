@@ -11,11 +11,11 @@ struct TapTemperatureApp: App {
     }
 }
 
-// TODO: Add app icon
 // TODO: Implement basal temp
 // TODO: Implement unit ℉
 // TODO: Implement auto complete
 //
 // TODO: Implement local history
 // TODO: Implement document view
-// TODO: Implement localization
+// TODO: Add localization
+// TODO: Add README.md
