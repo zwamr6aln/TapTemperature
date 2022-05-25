@@ -5,8 +5,6 @@ import SwiftUI
 struct 🆗Result: View {
     @EnvironmentObject var 📱:📱Model
     
-    @Environment(\.dismiss) var 🔙: DismissAction
-    
     var body: some View {
         ZStack {
             Rectangle()
@@ -39,7 +37,7 @@ struct 🆗Result: View {
                 .padding(.horizontal, 20)
                 
                 Button {
-                    🔙.callAsFunction()
+                    📱.🚩InputDone = false
                 } label: {
                     VStack(spacing: 12) {
                         Image(systemName: 📱.🚩Success ? "app.badge.checkmark" : "exclamationmark.triangle")

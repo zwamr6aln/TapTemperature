@@ -7,6 +7,8 @@ struct ContentView: View {
     
     @EnvironmentObject var 📱:📱Model
     
+    @Environment(\.scenePhase) private var 🔛: ScenePhase
+    
     var body: some View {
         VStack {
             HStack(spacing: 16) {
@@ -176,6 +178,12 @@ struct ContentView: View {
         }
         .fullScreenCover(isPresented: $📱.🚩InputDone) {
             🆗Result()
+                .onChange(of: 🔛) { 🄽ow in
+                    if 🄽ow == .background {
+                        📱.🚩InputDone = false
+                        📱.🧩Temp = [3]
+                    }
+                }
         }
         .onAppear {
             let 🅃ype: Set<HKSampleType> = [HKQuantityType(.bodyTemperature)]
