@@ -130,7 +130,7 @@ struct ContentView: View {
                                 .fontWeight(📱.🧩Temp.count >= 3 && (📱.🚩2ndDecimalPlace == false) ? .regular:nil)
                         }
                         .tint(.primary)
-                        .disabled(📱.🧩Temp.count == 0)
+                        .disabled(📱.🧩Temp.isEmpty)
                         .disabled(📱.🧩Temp.count == 4)
                     } else if 🪧 == 12 {
                         Button {
@@ -151,7 +151,7 @@ struct ContentView: View {
                                 .fontWeight(📱.🧩Temp.count >= 3 && (📱.🚩2ndDecimalPlace == false) ? .regular:nil)
                         }
                         .tint(.primary)
-                        .disabled(📱.🧩Temp.count==0 && !(🪧==3 || 🪧==4))
+                        .disabled(📱.🧩Temp.isEmpty && !(🪧==3 || 🪧==4))
                         .disabled(📱.🧩Temp.count == 1 && 📱.🧩Temp.first==4 && 🪧 != 1)
                         .disabled(📱.🧩Temp.count == 4)
                     }

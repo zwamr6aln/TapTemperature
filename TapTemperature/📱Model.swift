@@ -22,8 +22,10 @@ class 📱Model: ObservableObject {
     func ⓐppend(_ 🔢: Int) {
         🧩Temp.append(🔢)
         
-        if 🧩Temp.count == (🚩2ndDecimalPlace ? 4 : 3) {
-            🚀Done()
+        if 🚩AutoComplete {
+            if 🧩Temp.count == (🚩2ndDecimalPlace ? 4 : 3) {
+                🚀Done()
+            }
         }
     }
     
