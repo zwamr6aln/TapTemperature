@@ -15,7 +15,7 @@ struct ContentView: View {
     }
     
     var 🅀uantityTemp: HKQuantity {
-        HKQuantity(unit: 🅄nit, doubleValue: 💾Temp)
+        HKQuantity(unit: 🅄nit, doubleValue: 🌡Temp)
     }
     
     var 🄳ataTemp: HKQuantitySample {
@@ -25,9 +25,22 @@ struct ContentView: View {
                          end: .now)
     }
     
-    @AppStorage("Temp") var 💾Temp = 36.0
+    @State private var 🧩Temp: [Int] = [3]
     
-    @State private var 🌡Temp: [Int] = [3]
+    var 🌡Temp: Double {
+        var 🌡 = Double(🧩Temp[0].description
+                        + 🧩Temp[1].description
+                        + "."
+                        + 🧩Temp[2].description)!
+        
+        if 🧩Temp.indices.contains(3) {
+            🌡 = Double(🌡.description + 🧩Temp[3].description)!
+        }
+        
+        return 🌡
+    }
+    
+    @AppStorage("Temp") var 💾Temp = 36.0
     
     
     @AppStorage("Unit") var 🛠Unit: 🄴numUnit = .℃
@@ -80,8 +93,8 @@ struct ContentView: View {
             
             
             HStack(alignment: .firstTextBaseline) {
-                if 🌡Temp.indices.contains(0) {
-                    Text(🌡Temp[0].description)
+                if 🧩Temp.indices.contains(0) {
+                    Text(🧩Temp[0].description)
                 }  else {
                     Text("0").opacity(0)
                         .overlay(alignment: .bottom) {
@@ -90,39 +103,39 @@ struct ContentView: View {
                         }
                 }
                 
-                if 🌡Temp.indices.contains(1) {
-                    Text(🌡Temp[1].description)
+                if 🧩Temp.indices.contains(1) {
+                    Text(🧩Temp[1].description)
                 }  else {
                     Text("0").opacity(0)
                         .overlay(alignment: .bottom) {
                             Rectangle()
                                 .frame(height: 4)
-                                .opacity(🌡Temp.count < 1 ? 0 : 1)
+                                .opacity(🧩Temp.count < 1 ? 0 : 1)
                         }
                 }
                 
                 Text(".")
                 
-                if 🌡Temp.indices.contains(2) {
-                    Text(🌡Temp[2].description)
+                if 🧩Temp.indices.contains(2) {
+                    Text(🧩Temp[2].description)
                 }  else {
                     Text("0").opacity(0)
                         .overlay(alignment: .bottom) {
                             Rectangle()
                                 .frame(height: 4)
-                                .opacity(🌡Temp.count < 2 ? 0 : 1)
+                                .opacity(🧩Temp.count < 2 ? 0 : 1)
                         }
                 }
                 
-                if 🌡Temp.indices.contains(3) {
-                    Text(🌡Temp[3].description)
+                if 🧩Temp.indices.contains(3) {
+                    Text(🧩Temp[3].description)
                 } else {
                     if 🚩2ndDecimalPlace {
                         Text("0").opacity(0)
                             .overlay(alignment: .bottom) {
                                 Rectangle()
                                     .frame(height: 4)
-                                    .opacity(🌡Temp.count < 3 ? 0 : 1)
+                                    .opacity(🧩Temp.count < 3 ? 0 : 1)
                             }
                     } else {
                         EmptyView()
@@ -150,15 +163,7 @@ struct ContentView: View {
                 ForEach(1..<13) { 🪧 in
                     if 🪧 == 10 {
                         Button {
-                            💾Temp = Double(🌡Temp[0].description
-                                            + 🌡Temp[1].description
-                                            + "."
-                                            + 🌡Temp[2].description)!
-                            
-                            if 🌡Temp.indices.contains(3) {
-                                💾Temp = Double(💾Temp.description + 🌡Temp[3].description)!
-                            }
-                            
+                            💾Temp = 🌡Temp
                             🏥HealthStore.save(🄳ataTemp) { 🆗, 👿 in
                                 if 🆗 {
                                     print(".save/.bodyTemp: Success")
@@ -170,48 +175,48 @@ struct ContentView: View {
                             🚩InputDone = true
                         } label: {
                             Image(systemName: "checkmark.circle")
-                                .symbolVariant(🌡Temp.count > 2 ? .fill : .none)
-                                .scaleEffect(🌡Temp.count > 2 ? 1.15 : 1)
+                                .symbolVariant(🧩Temp.count > 2 ? .fill : .none)
+                                .scaleEffect(🧩Temp.count > 2 ? 1.15 : 1)
                         }
                         .tint(.pink)
-                        .disabled(🌡Temp.count < 3)
+                        .disabled(🧩Temp.count < 3)
                     } else if 🪧 == 11 {
                         Button {
-                            if 🌡Temp.count < 4 {
-                                🌡Temp.append(0)
+                            if 🧩Temp.count < 4 {
+                                🧩Temp.append(0)
                             }
                         } label: {
                             Text("0")
-                                .fontWeight(🌡Temp.count==1 && 🌡Temp.first==3 ? .regular:nil)
-                                .fontWeight(🌡Temp.count >= 3 && (🚩2ndDecimalPlace == false) ? .regular:nil)
+                                .fontWeight(🧩Temp.count==1 && 🧩Temp.first==3 ? .regular:nil)
+                                .fontWeight(🧩Temp.count >= 3 && (🚩2ndDecimalPlace == false) ? .regular:nil)
                         }
                         .tint(.primary)
-                        .disabled(🌡Temp.count == 0)
-                        .disabled(🌡Temp.count == 4)
+                        .disabled(🧩Temp.count == 0)
+                        .disabled(🧩Temp.count == 4)
                     } else if 🪧 == 12 {
                         Button {
-                            🌡Temp.removeLast()
+                            🧩Temp.removeLast()
                         } label: {
                             Text("⌫")
-                                .fontWeight(🌡Temp.count <= 1 ? .regular:nil)
+                                .fontWeight(🧩Temp.count <= 1 ? .regular:nil)
                                 .scaleEffect(0.8)
                         }
                         .tint(.primary)
-                        .disabled(🌡Temp.isEmpty)
+                        .disabled(🧩Temp.isEmpty)
                     } else {
                         Button {
-                            if 🌡Temp.count < 4 {
-                                🌡Temp.append(🪧)
+                            if 🧩Temp.count < 4 {
+                                🧩Temp.append(🪧)
                             }
                         } label: {
                             Text(🪧.description)
-                                .fontWeight(🌡Temp.count == 1 && 🌡Temp.first==3 && !(4<🪧 && 🪧<=9) ? .regular:nil)
-                                .fontWeight(🌡Temp.count >= 3 && (🚩2ndDecimalPlace == false) ? .regular:nil)
+                                .fontWeight(🧩Temp.count == 1 && 🧩Temp.first==3 && !(4<🪧 && 🪧<=9) ? .regular:nil)
+                                .fontWeight(🧩Temp.count >= 3 && (🚩2ndDecimalPlace == false) ? .regular:nil)
                         }
                         .tint(.primary)
-                        .disabled(🌡Temp.count==0 && !(🪧==3 || 🪧==4))
-                        .disabled(🌡Temp.count == 1 && 🌡Temp.first==4 && 🪧 != 1)
-                        .disabled(🌡Temp.count == 4)
+                        .disabled(🧩Temp.count==0 && !(🪧==3 || 🪧==4))
+                        .disabled(🧩Temp.count == 1 && 🧩Temp.first==4 && 🪧 != 1)
+                        .disabled(🧩Temp.count == 4)
                     }
                 }
                 .font(.system(size: 48, weight: .heavy, design: .rounded))
