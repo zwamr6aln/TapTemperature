@@ -115,7 +115,9 @@ struct ContentView: View {
                             📱.🏥HealthStore.save(📱.🄳ataTemp) { 🆗, 👿 in
                                 if 🆗 {
                                     print(".save/.bodyTemp: Success")
-                                    📱.🚩Success = true
+                                    DispatchQueue.main.async {
+                                        📱.🚩Success = true
+                                    }
                                 } else {
                                     print("👿:", 👿.debugDescription)
                                 }
@@ -173,7 +175,7 @@ struct ContentView: View {
             .padding(.vertical, 12)
         }
         .fullScreenCover(isPresented: $📱.🚩InputDone) {
-            🆗Result($📱.🚩Success)
+            🆗Result()
         }
         .onAppear {
             let 🅃ype: Set<HKSampleType> = [HKQuantityType(.bodyTemperature)]
