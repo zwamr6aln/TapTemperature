@@ -150,6 +150,15 @@ struct ContentView: View {
                 ForEach(1..<13) { 🪧 in
                     if 🪧 == 10 {
                         Button {
+                            💾Temp = Double(🌡Temp[0].description
+                                            + 🌡Temp[1].description
+                                            + "."
+                                            + 🌡Temp[2].description)!
+                            
+                            if 🌡Temp.indices.contains(3) {
+                                💾Temp = Double(💾Temp.description + 🌡Temp[3].description)!
+                            }
+                            
                             🏥HealthStore.save(🄳ataTemp) { 🆗, 👿 in
                                 if 🆗 {
                                     print(".save/.bodyTemp: Success")
