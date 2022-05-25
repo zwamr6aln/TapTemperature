@@ -29,14 +29,7 @@ enum 🄴numUnit: String, CaseIterable {
 
 
 struct 🛠Menu: View {
-    
-    @AppStorage("Unit") var 🛠Unit: 🄴numUnit = .℃
-    
-    @AppStorage("🛏") var 🚩BasalTemp: Bool = false
-    
-    @AppStorage("2ndDecimalPlace") var 🚩2ndDecimalPlace: Bool = false
-    
-    @AppStorage("AutoComplete") var 🚩AutoComplete: Bool = false
+    @EnvironmentObject var 📱:📱Model
     
     @Environment(\.dismiss) var 🔚: DismissAction
     
@@ -44,7 +37,7 @@ struct 🛠Menu: View {
         NavigationView {
             List {
                 Section {
-                    Picker(selection: $🛠Unit) {
+                    Picker(selection: $📱.🛠Unit) {
                         ForEach(🄴numUnit.allCases, id: \.self) { 🏷 in
                             Text(🏷.rawValue)
                         }
@@ -52,7 +45,7 @@ struct 🛠Menu: View {
                         Label("℃  /  ℉", systemImage: "ruler")
                     }
                     
-                    Toggle(isOn: $🚩BasalTemp) {
+                    Toggle(isOn: $📱.🚩BasalTemp) {
                         Label("Basal body temperature", systemImage: "bed.double")
                     }
                 } header: {
@@ -61,12 +54,12 @@ struct 🛠Menu: View {
                 
                 
                 Section {
-                    Toggle(isOn: $🚩AutoComplete) {
+                    Toggle(isOn: $📱.🚩AutoComplete) {
                         Label("Auto complete", systemImage: "checkmark.circle.trianglebadge.exclamationmark")
                     }
                     
-                    Toggle(isOn: $🚩2ndDecimalPlace) {
-                        Label("36.1\(🛠Unit.rawValue)  →  36.12︭\(🛠Unit.rawValue)",
+                    Toggle(isOn: $📱.🚩2ndDecimalPlace) {
+                        Label("36.1\(📱.🛠Unit.rawValue)  →  36.12︭\(📱.🛠Unit.rawValue)",
                               systemImage: "character.cursor.ibeam")
                     }
                 }
