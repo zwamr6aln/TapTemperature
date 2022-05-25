@@ -31,14 +31,17 @@ class 📱Model: ObservableObject {
     
     func 🚀Done() {
         💾Temp = 🌡Temp
-        🏥HealthStore.save(🄳ataTemp) { 🆗, 👿 in
-            if 🆗 {
+        🏥HealthStore.save(🄳ataTemp) { 🙆, 🙅 in
+            if 🙆 {
                 print(".save/.bodyTemp: Success")
                 DispatchQueue.main.async {
                     self.🚩Success = true
                 }
             } else {
-                print("👿:", 👿.debugDescription)
+                print("🙅:", 🙅.debugDescription)
+                DispatchQueue.main.async {
+                    self.🚩Success = false
+                }
             }
         }
         🚩InputDone = true
