@@ -116,8 +116,8 @@ struct ContentView: View {
             
             let 列 = Array(repeating: GridItem(.flexible()), count: 3)
             LazyVGrid(columns: 列, spacing: 32) {
-                ForEach(1..<13) { 🪧 in
-                    if 🪧 == 10 {
+                ForEach(1..<13) { 🔢 in
+                    if 🔢 == 10 {
                         Button {
                             📱.🚀Done()
                         } label: {
@@ -127,7 +127,7 @@ struct ContentView: View {
                         }
                         .tint(.pink)
                         .disabled(📱.🧩Temp.count < 3)
-                    } else if 🪧 == 11 {
+                    } else if 🔢 == 11 {
                         Button {
                             📱.ⓐppend(0)
                         } label: {
@@ -138,7 +138,7 @@ struct ContentView: View {
                         .tint(.primary)
                         .disabled(📱.🧩Temp.isEmpty)
                         .disabled(📱.🧩Temp.count == 4)
-                    } else if 🪧 == 12 {
+                    } else if 🔢 == 12 {
                         Button {
                             📱.🧩Temp.removeLast()
                         } label: {
@@ -150,15 +150,15 @@ struct ContentView: View {
                         .disabled(📱.🧩Temp.isEmpty)
                     } else {
                         Button {
-                            📱.ⓐppend(🪧)
+                            📱.ⓐppend(🔢)
                         } label: {
-                            Text(🪧.description)
-                                .fontWeight(📱.🧩Temp.count == 1 && 📱.🧩Temp.first==3 && !(4<🪧 && 🪧<=9) ? .regular:nil)
+                            Text(🔢.description)
+                                .fontWeight(📱.🧩Temp.count == 1 && 📱.🧩Temp.first==3 && !(4<🔢 && 🔢<=9) ? .regular:nil)
                                 .fontWeight(📱.🧩Temp.count >= 3 && (📱.🚩2ndDecimalPlace == false) ? .regular:nil)
                         }
                         .tint(.primary)
-                        .disabled(📱.🧩Temp.isEmpty && !(🪧==3 || 🪧==4))
-                        .disabled(📱.🧩Temp.count == 1 && 📱.🧩Temp.first==4 && 🪧 != 1)
+                        .disabled(📱.🧩Temp.isEmpty && !(🔢==3 || 🔢==4))
+                        .disabled(📱.🧩Temp.count == 1 && 📱.🧩Temp.first==4 && 🔢 != 1)
                         .disabled(📱.🧩Temp.count == 4)
                     }
                 }
