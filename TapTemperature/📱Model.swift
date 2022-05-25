@@ -6,11 +6,12 @@ import HealthKit
 
 class 📱Model: ObservableObject {
     
-    @AppStorage("Unit") var 🛠Unit: 🄴numUnit = .℃
-    
     @AppStorage("Temp") var 💾Temp = 36.0
     
-    @AppStorage("🛏") var 🚩BasalTemp: Bool = false
+    
+    @AppStorage("Unit") var 🛠Unit: 🄴numUnit = .℃
+    
+    @AppStorage("BasalTemp") var 🚩BasalTemp: Bool = false
     
     @AppStorage("2ndDecimalPlace") var 🚩2ndDecimalPlace: Bool = false
     
