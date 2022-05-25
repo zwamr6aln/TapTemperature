@@ -13,6 +13,12 @@ struct 🆗Result: View {
             
             VStack {
                 HStack {
+                    if 📱.🚩BasalTemp && 📱.🛏Is {
+                        Image(systemName: "bed.double")
+                            .font(.largeTitle)
+                            .foregroundStyle(.secondary)
+                    }
+                    
                     Spacer()
                     
                     if 📱.🚩Success == false {
