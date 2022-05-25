@@ -38,6 +38,8 @@ struct ContentView: View {
     
     @AppStorage("2ndDecimalPlace") var 🚩2ndDecimalPlace: Bool = false
     
+    @AppStorage("AutoComplete") var 🚩AutoComplete: Bool = false
+    
     
     @State private var 🚩InputDone: Bool = false
     

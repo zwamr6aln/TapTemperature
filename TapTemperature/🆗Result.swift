@@ -6,6 +6,12 @@ struct 🆗Result: View {
     
     @Binding var 🚩Success: Bool
     
+    @AppStorage("Unit") var 🛠Unit: 🄴numUnit = .℃
+    
+    @AppStorage("Temp") var 💾Temp = 36.0
+    
+    @AppStorage("AutoComplete") var 🚩AutoComplete: Bool = false
+    
     @Environment(\.dismiss) var 🔙: DismissAction
     
     var body: some View {
@@ -28,6 +34,14 @@ struct 🆗Result: View {
                     💟JumpButton()
                         .opacity(0.66)
                 }
+                .overlay {
+                    if 🚩Success && 🚩AutoComplete {
+                        Text(💾Temp.description + " " + 🛠Unit.rawValue)
+                            .font(.title.weight(.medium))
+                            .monospacedDigit()
+                            .opacity(0.66)
+                    }
+                }
                 .padding(.top)
                 .padding(.horizontal, 20)
                 
@@ -36,7 +50,7 @@ struct 🆗Result: View {
                 } label: {
                     VStack(spacing: 12) {
                         Image(systemName: 🚩Success ? "app.badge.checkmark" : "exclamationmark.triangle")
-                            .font(.system(size: 128).weight(.semibold))
+                            .font(.system(size: 110).weight(.semibold))
                             .minimumScaleFactor(0.1)
                         
                         Text(🚩Success ? "OK!" : "🌏Error!?")
