@@ -4,7 +4,6 @@ import HealthKit
 
 
 struct ContentView: View {
-    
     @EnvironmentObject var 📱:📱Model
     
     @Environment(\.scenePhase) private var 🔛: ScenePhase
