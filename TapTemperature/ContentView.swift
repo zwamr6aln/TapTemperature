@@ -50,6 +50,7 @@ struct ContentView: View {
             
             Divider()
             
+            let 🔴 = (📱.🧩Temp.count == 2 && !(📱.🚩2ndDecimalPlace)) || (📱.🧩Temp.count == 3 && 📱.🚩2ndDecimalPlace) && 📱.🚩AutoComplete
             
             let ꠲ = Array(repeating: GridItem(.flexible()), count: 3)
             LazyVGrid(columns: ꠲, spacing: 32) {
@@ -71,8 +72,16 @@ struct ContentView: View {
                             Text("0")
                                 .fontWeight(📱.🧩Temp.count==1 && 📱.🧩Temp.first==3 ? .regular:nil)
                                 .fontWeight(📱.🧩Temp.count >= 3 && (📱.🚩2ndDecimalPlace == false) ? .regular:nil)
+                                .padding(8)
+                                .background {
+                                    if 🔴 {
+                                        Circle()
+                                            .foregroundColor(.red)
+                                            .scaledToFill()
+                                    }
+                                }
                         }
-                        .tint(.primary)
+                        .tint(🔴 ? .white : .primary)
                         .disabled(📱.🧩Temp.isEmpty)
                         .disabled(📱.🧩Temp.count == 4)
                     } else if 🔢 == 12 {
@@ -92,8 +101,16 @@ struct ContentView: View {
                             Text(🔢.description)
                                 .fontWeight(📱.🧩Temp.count == 1 && 📱.🧩Temp.first==3 && !(4<🔢 && 🔢<=9) ? .regular:nil)
                                 .fontWeight(📱.🧩Temp.count >= 3 && (📱.🚩2ndDecimalPlace == false) ? .regular:nil)
+                                .padding(8)
+                                .background {
+                                    if 🔴 {
+                                        Circle()
+                                            .foregroundColor(.red)
+                                            .scaledToFill()
+                                    }
+                                }
                         }
-                        .tint(.primary)
+                        .tint(🔴 ? .white : .primary)
                         .disabled(📱.🧩Temp.isEmpty && !(🔢==3 || 🔢==4))
                         .disabled(📱.🧩Temp.count == 1 && 📱.🧩Temp.first==4 && 🔢 != 1)
                         .disabled(📱.🧩Temp.count == 4)
