@@ -114,8 +114,8 @@ struct ContentView: View {
             Divider()
             
             
-            let 列 = Array(repeating: GridItem(.flexible()), count: 3)
-            LazyVGrid(columns: 列, spacing: 32) {
+            let ꠲ = Array(repeating: GridItem(.flexible()), count: 3)
+            LazyVGrid(columns: ꠲, spacing: 32) {
                 ForEach(1..<13) { 🔢 in
                     if 🔢 == 10 {
                         Button {
