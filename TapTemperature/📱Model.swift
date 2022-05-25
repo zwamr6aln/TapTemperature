@@ -19,6 +19,29 @@ class 📱Model: ObservableObject {
     
     @Published var 🧩Temp: [Int] = [3]
     
+    func ⓐppend(_ 🔢: Int) {
+        🧩Temp.append(🔢)
+        
+        if 🧩Temp.count == (🚩2ndDecimalPlace ? 4 : 3) {
+            🚀Done()
+        }
+    }
+    
+    func 🚀Done() {
+        💾Temp = 🌡Temp
+        🏥HealthStore.save(🄳ataTemp) { 🆗, 👿 in
+            if 🆗 {
+                print(".save/.bodyTemp: Success")
+                DispatchQueue.main.async {
+                    self.🚩Success = true
+                }
+            } else {
+                print("👿:", 👿.debugDescription)
+            }
+        }
+        🚩InputDone = true
+    }
+    
     var 🌡Temp: Double {
         var 🌡 = Double(🧩Temp[0].description
                         + 🧩Temp[1].description

@@ -113,18 +113,7 @@ struct ContentView: View {
                 ForEach(1..<13) { 🪧 in
                     if 🪧 == 10 {
                         Button {
-                            📱.💾Temp = 📱.🌡Temp
-                            📱.🏥HealthStore.save(📱.🄳ataTemp) { 🆗, 👿 in
-                                if 🆗 {
-                                    print(".save/.bodyTemp: Success")
-                                    DispatchQueue.main.async {
-                                        📱.🚩Success = true
-                                    }
-                                } else {
-                                    print("👿:", 👿.debugDescription)
-                                }
-                            }
-                            📱.🚩InputDone = true
+                            📱.🚀Done()
                         } label: {
                             Image(systemName: "checkmark.circle")
                                 .symbolVariant(📱.🧩Temp.count > 2 ? .fill : .none)
@@ -134,9 +123,7 @@ struct ContentView: View {
                         .disabled(📱.🧩Temp.count < 3)
                     } else if 🪧 == 11 {
                         Button {
-                            if 📱.🧩Temp.count < 4 {
-                                📱.🧩Temp.append(0)
-                            }
+                            📱.ⓐppend(0)
                         } label: {
                             Text("0")
                                 .fontWeight(📱.🧩Temp.count==1 && 📱.🧩Temp.first==3 ? .regular:nil)
@@ -157,9 +144,7 @@ struct ContentView: View {
                         .disabled(📱.🧩Temp.isEmpty)
                     } else {
                         Button {
-                            if 📱.🧩Temp.count < 4 {
-                                📱.🧩Temp.append(🪧)
-                            }
+                            📱.ⓐppend(🪧)
                         } label: {
                             Text(🪧.description)
                                 .fontWeight(📱.🧩Temp.count == 1 && 📱.🧩Temp.first==3 && !(4<🪧 && 🪧<=9) ? .regular:nil)
