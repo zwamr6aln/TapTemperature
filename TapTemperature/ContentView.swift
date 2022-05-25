@@ -15,25 +15,18 @@ struct ContentView: View {
                 
                 if 📱.🚩BasalTemp {
                     Button {
-                        📱.🛏Is.ⓣoggle()
+                        📱.🛏Is.toggle()
                     } label: {
-                        HStack(alignment: .firstTextBaseline, spacing: 0) {
-                            Image(systemName: "bed.double")
-                                .overlay {
-                                    if 📱.🛏Is == .disable {
-                                        Image(systemName: "xmark")
-                                            .scaleEffect(1.2)
-                                    }
+                        Image(systemName: "bed.double")
+                            .foregroundStyle(📱.🛏Is ? .primary : .quaternary)
+                            .overlay {
+                                if 📱.🛏Is == false {
+                                    Image(systemName: "xmark")
+                                        .scaleEffect(1.2)
                                 }
-                                .font(.title)
-                            
-                            if 📱.🛏Is == .bodyTempTogether {
-                                Text("&")
-                                    .font(.title3)
                             }
-                        }
-                        .tint(.primary)
-                        .foregroundStyle(📱.🛏Is == .disable ? .quaternary : .primary)
+                            .font(.title)
+                            .tint(.primary)
                     }
                 }
                 

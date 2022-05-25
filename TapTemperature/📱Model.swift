@@ -61,21 +61,7 @@ class 📱Model: ObservableObject {
     }
     
     
-    @Published var 🛏Is: 🛏Status = .able
-    
-    enum 🛏Status {
-        case able
-        case disable
-        case bodyTempTogether
-        
-        mutating func ⓣoggle() {
-            switch self {
-                case .able: self = .disable
-                case .disable: self = .bodyTempTogether
-                case .bodyTempTogether: self = .able
-            }
-        }
-    }
+    @Published var 🛏Is: Bool = true
     
     @Published var 🚩InputDone: Bool = false
     
