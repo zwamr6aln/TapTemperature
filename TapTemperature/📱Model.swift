@@ -14,7 +14,7 @@ class 📱Model: ObservableObject {
     @AppStorage("AutoComplete") var 🚩AutoComplete: Bool = false
     
     
-    @Published var 🧩Temp: [Int] = [3]
+    @Published var 🧩Temp: [Int] = []
     
     var 🌡Temp: Double {
         var 🌡 = Double(🧩Temp[0].description

@@ -67,6 +67,11 @@ struct ContentView: View {
                     print("👿:", 👿.debugDescription)
                 }
             }
+            
+            switch 📱.💾Unit {
+                case .℃: 📱.🧩Temp = [3]
+                case .℉: 📱.🧩Temp = []
+            }
         }
     }
 }
