@@ -118,7 +118,7 @@ struct 👆Keypad: View {
                             📱.🧩Temp.removeLast()
                         } label: {
                             Text("⌫")
-                                .fontWeight(📱.🧩Temp.count <= 1 ? .regular : nil)
+                                .fontWeight(.regular)
                                 .scaleEffect(0.8)
                         }
                         .tint(.primary)
