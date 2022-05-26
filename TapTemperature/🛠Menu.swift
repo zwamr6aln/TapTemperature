@@ -44,6 +44,9 @@ struct 🛠Menu: View {
                     } label: {
                         Label("℃  /  ℉", systemImage: "ruler")
                     }
+                    .onChange(of: 📱.💾Unit) { _ in
+                        📱.🧩Reset()
+                    }
                     
                     Toggle(isOn: $📱.🚩BasalTemp) {
                         Label("Basal body temperature", systemImage: "bed.double")

@@ -16,6 +16,13 @@ class 📱Model: ObservableObject {
     
     @Published var 🧩Temp: [Int] = []
     
+    func 🧩Reset() {
+        switch 💾Unit {
+            case .℃: 🧩Temp = [3]
+            case .℉: 🧩Temp = []
+        }
+    }
+    
     var 🌡Temp: Double {
         var 🌡 = Double(🧩Temp[0].description
                         + 🧩Temp[1].description
