@@ -37,19 +37,15 @@ struct ContentView: View {
             .padding(.top)
             .padding(.horizontal, 20)
             
-            
             Spacer()
-            
             
             🪧Label()
                 .padding(.horizontal, 32)
                 .padding(.bottom)
             
-            
             Spacer()
             
             Divider()
-            
             
             👆Keypad()
         }
