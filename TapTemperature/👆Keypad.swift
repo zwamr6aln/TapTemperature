@@ -55,6 +55,11 @@ struct 👆Keypad: View {
                             }
                             return false
                         case .℉:
+                            if 📱.🧩Temp.isEmpty {
+                                if !(🔢 == 9 || 🔢 == 11) {
+                                    return true
+                                }
+                            }
                             return false
                     }
                 }()
@@ -105,10 +110,18 @@ struct 👆Keypad: View {
                         .tint(.pink)
                         .disabled(📱.🧩Temp.count < 3)
                     case 11:
+                        let ０or１０: Int = {
+                            if 📱.💾Unit == .℉ && 📱.🧩Temp.isEmpty {
+                                return 10
+                            } else {
+                                return 0
+                            }
+                        }()
+                        
                         Button {
-                            📱.ⓐppend(0)
+                            📱.ⓐppend(０or１０)
                         } label: {
-                            Text("0")
+                            Text(０or１０.description)
                                 .fontWeight(🄵ixWeight ? .regular : nil)
                         }
                         .tint(.primary)
