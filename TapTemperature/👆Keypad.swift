@@ -28,6 +28,29 @@ struct 👆Keypad: View {
                     return false
                 }()
                 
+                let 🄳isable: Bool = {
+                    if 📱.🧩Temp.isEmpty {
+                        if 🔢 != 3 && 🔢 != 4 {
+                            return true
+                        }
+                    }
+                    
+                    if 📱.🧩Temp.count == 1 {
+                        if 📱.🧩Temp.first==4 {
+                            if 🔢 != 1 && 🔢 != 11 {
+                                return true
+                            }
+                        }
+                    }
+                    
+                    if 📱.🧩Temp.count == 4 {
+                        return true
+                    }
+                    
+                    return false
+                }()
+                
+                
                 if 🔢 == 10 {
                     Button {
                         📱.🚀Done()
@@ -70,8 +93,7 @@ struct 👆Keypad: View {
                             .fontWeight(🄵ixWeight ? .regular:nil)
                     }
                     .tint(.primary)
-                    .disabled(📱.🧩Temp.isEmpty)
-                    .disabled(📱.🧩Temp.count == 4)
+                    .disabled(🄳isable)
                 } else if 🔢 == 12 {
                     Button {
                         📱.🧩Temp.removeLast()
@@ -90,9 +112,7 @@ struct 👆Keypad: View {
                             .fontWeight(🄵ixWeight ? .regular:nil)
                     }
                     .tint(.primary)
-                    .disabled(📱.🧩Temp.isEmpty && !(🔢==3 || 🔢==4))
-                    .disabled(📱.🧩Temp.count == 1 && 📱.🧩Temp.first==4 && 🔢 != 1)
-                    .disabled(📱.🧩Temp.count == 4)
+                    .disabled(🄳isable)
                 }
             }
             .font(.system(size: 48, weight: .heavy, design: .rounded))
