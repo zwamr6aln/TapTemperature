@@ -70,7 +70,7 @@ struct ContentView: View {
                         } label: {
                             Text("0")
                                 .fontWeight(📱.🧩Temp.count==1 && 📱.🧩Temp.first==3 ? .regular:nil)
-                                .fontWeight(📱.🧩Temp.count >= 3 && (📱.🚩2ndDecimalPlace == false) ? .regular:nil)
+                                .fontWeight(📱.🧩Temp.count >= 3 && !(📱.🚩2ndDecimalPlace) ? .regular:nil)
                         }
                         .tint(.primary)
                         .disabled(📱.🧩Temp.isEmpty)
@@ -91,7 +91,7 @@ struct ContentView: View {
                         } label: {
                             Text(🔢.description)
                                 .fontWeight(📱.🧩Temp.count == 1 && 📱.🧩Temp.first==3 && !(4<🔢 && 🔢<=9) ? .regular:nil)
-                                .fontWeight(📱.🧩Temp.count >= 3 && (📱.🚩2ndDecimalPlace == false) ? .regular:nil)
+                                .fontWeight(📱.🧩Temp.count >= 3 && !(📱.🚩2ndDecimalPlace) ? .regular:nil)
                         }
                         .tint(.primary)
                         .disabled(📱.🧩Temp.isEmpty && !(🔢==3 || 🔢==4))
