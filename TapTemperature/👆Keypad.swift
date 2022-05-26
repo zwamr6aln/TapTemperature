@@ -11,7 +11,7 @@ struct 👆Keypad: View {
             ForEach(1..<13) { 🔢 in
                 
                 let 🄵ixWeight: Bool = {
-                    if 📱.🧩Temp.count==1 {
+                    if 📱.🧩Temp.count == 1 {
                         if 📱.🧩Temp.first == 3 {
                             if 🔢 < 5 || 🔢 == 11 {
                                 return true
@@ -36,7 +36,7 @@ struct 👆Keypad: View {
                     }
                     
                     if 📱.🧩Temp.count == 1 {
-                        if 📱.🧩Temp.first==4 {
+                        if 📱.🧩Temp.first == 4 {
                             if 🔢 != 1 && 🔢 != 11 {
                                 return true
                             }
@@ -57,7 +57,7 @@ struct 👆Keypad: View {
                             📱.ⓐppend(🔢)
                         } label: {
                             Text(🔢.description)
-                                .fontWeight(🄵ixWeight ? .regular:nil)
+                                .fontWeight(🄵ixWeight ? .regular : nil)
                         }
                         .tint(.primary)
                         .disabled(🄳isable)
@@ -100,7 +100,7 @@ struct 👆Keypad: View {
                             📱.ⓐppend(0)
                         } label: {
                             Text("0")
-                                .fontWeight(🄵ixWeight ? .regular:nil)
+                                .fontWeight(🄵ixWeight ? .regular : nil)
                         }
                         .tint(.primary)
                         .disabled(🄳isable)
@@ -109,7 +109,7 @@ struct 👆Keypad: View {
                             📱.🧩Temp.removeLast()
                         } label: {
                             Text("⌫")
-                                .fontWeight(📱.🧩Temp.count <= 1 ? .regular:nil)
+                                .fontWeight(📱.🧩Temp.count <= 1 ? .regular : nil)
                                 .scaleEffect(0.8)
                         }
                         .tint(.primary)
