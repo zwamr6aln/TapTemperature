@@ -51,68 +51,71 @@ struct 👆Keypad: View {
                 }()
                 
                 
-                if 🔢 == 10 {
-                    Button {
-                        📱.🚀Done()
-                    } label: {
-                        let 🔘: String = {
-                            if 📱.🚩AutoComplete == false {
-                                return "checkmark.circle"
-                            }
+                switch 🔢 {
+                    case 1..<10:
+                        Button {
+                            📱.ⓐppend(🔢)
+                        } label: {
+                            Text(🔢.description)
+                                .fontWeight(🄵ixWeight ? .regular:nil)
+                        }
+                        .tint(.primary)
+                        .disabled(🄳isable)
+                    case 10:
+                        Button {
+                            📱.🚀Done()
+                        } label: {
+                            let 🔘: String = {
+                                if 📱.🚩AutoComplete == false {
+                                    return "checkmark.circle"
+                                }
+                                
+                                if 📱.🚩2ndDecimalPlace {
+                                    switch 📱.🧩Temp.count {
+                                        case 0: return "4.circle"
+                                        case 1: return "3.circle"
+                                        case 2: return "2.circle"
+                                        case 3: return "1.circle"
+                                        default: return "checkmark.circle"
+                                    }
+                                } else {
+                                    switch 📱.🧩Temp.count {
+                                        case 0: return "3.circle"
+                                        case 1: return "2.circle"
+                                        case 2: return "1.circle"
+                                        default: return "checkmark.circle"
+                                    }
+                                }
+                            }()
                             
-                            if 📱.🚩2ndDecimalPlace {
-                                switch 📱.🧩Temp.count {
-                                    case 0: return "4.circle"
-                                    case 1: return "3.circle"
-                                    case 2: return "2.circle"
-                                    case 3: return "1.circle"
-                                    default: return "checkmark.circle"
-                                }
-                            } else {
-                                switch 📱.🧩Temp.count {
-                                    case 0: return "3.circle"
-                                    case 1: return "2.circle"
-                                    case 2: return "1.circle"
-                                    default: return "checkmark.circle"
-                                }
-                            }
-                        }()
-                        
-                        Image(systemName: 🔘)
-                            .symbolVariant(📱.🧩Temp.count > 2 ? .fill : .none)
-                            .scaleEffect(📱.🧩Temp.count > 2 ? 1.15 : 1)
-                            .font(.system(size: 48, weight: .regular))
-                    }
-                    .tint(.pink)
-                    .disabled(📱.🧩Temp.count < 3)
-                } else if 🔢 == 11 {
-                    Button {
-                        📱.ⓐppend(0)
-                    } label: {
-                        Text("0")
-                            .fontWeight(🄵ixWeight ? .regular:nil)
-                    }
-                    .tint(.primary)
-                    .disabled(🄳isable)
-                } else if 🔢 == 12 {
-                    Button {
-                        📱.🧩Temp.removeLast()
-                    } label: {
-                        Text("⌫")
-                            .fontWeight(📱.🧩Temp.count <= 1 ? .regular:nil)
-                            .scaleEffect(0.8)
-                    }
-                    .tint(.primary)
-                    .disabled(📱.🧩Temp.isEmpty)
-                } else {
-                    Button {
-                        📱.ⓐppend(🔢)
-                    } label: {
-                        Text(🔢.description)
-                            .fontWeight(🄵ixWeight ? .regular:nil)
-                    }
-                    .tint(.primary)
-                    .disabled(🄳isable)
+                            Image(systemName: 🔘)
+                                .symbolVariant(📱.🧩Temp.count > 2 ? .fill : .none)
+                                .scaleEffect(📱.🧩Temp.count > 2 ? 1.15 : 1)
+                                .font(.system(size: 48, weight: .regular))
+                        }
+                        .tint(.pink)
+                        .disabled(📱.🧩Temp.count < 3)
+                    case 11:
+                        Button {
+                            📱.ⓐppend(0)
+                        } label: {
+                            Text("0")
+                                .fontWeight(🄵ixWeight ? .regular:nil)
+                        }
+                        .tint(.primary)
+                        .disabled(🄳isable)
+                    case 12:
+                        Button {
+                            📱.🧩Temp.removeLast()
+                        } label: {
+                            Text("⌫")
+                                .fontWeight(📱.🧩Temp.count <= 1 ? .regular:nil)
+                                .scaleEffect(0.8)
+                        }
+                        .tint(.primary)
+                        .disabled(📱.🧩Temp.isEmpty)
+                    default:
+                        Text("🐛")
                 }
             }
             .font(.system(size: 48, weight: .heavy, design: .rounded))
