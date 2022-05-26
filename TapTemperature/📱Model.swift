@@ -16,6 +16,19 @@ class 📱Model: ObservableObject {
     
     @Published var 🧩Temp: [Int] = [3]
     
+    var 🌡Temp: Double {
+        var 🌡 = Double(🧩Temp[0].description
+                        + 🧩Temp[1].description
+                        + "."
+                        + 🧩Temp[2].description)!
+        
+        if 🧩Temp.indices.contains(3) {
+            🌡 = Double(🌡.description + 🧩Temp[3].description)!
+        }
+        
+        return 🌡
+    }
+    
     func ⓐppend(_ 🔢: Int) {
         🧩Temp.append(🔢)
         
@@ -41,32 +54,6 @@ class 📱Model: ObservableObject {
             }
         }
         🚩InputDone = true
-    }
-    
-    var 🌡Temp: Double {
-        var 🌡 = Double(🧩Temp[0].description
-                        + 🧩Temp[1].description
-                        + "."
-                        + 🧩Temp[2].description)!
-        
-        if 🧩Temp.indices.contains(3) {
-            🌡 = Double(🌡.description + 🧩Temp[3].description)!
-        }
-        
-        return 🌡
-    }
-    
-    var 🌡BasalTemp: Double {
-        var 🌡 = Double(🧩Temp[0].description
-                        + 🧩Temp[1].description
-                        + "."
-                        + 🧩Temp[2].description)!
-        
-        if 🧩Temp.indices.contains(3) {
-            🌡 = Double(🌡.description + 🧩Temp[3].description)!
-        }
-        
-        return 🌡
     }
     
     
@@ -97,13 +84,9 @@ class 📱Model: ObservableObject {
                          end: .now)
     }
     
-    var 🅀uantityBasalTemp: HKQuantity {
-        HKQuantity(unit: 🅄nit, doubleValue: 🌡BasalTemp)
-    }
-    
     var 🄳ataBasalTemp: HKQuantitySample {
         HKQuantitySample(type: HKQuantityType(.basalBodyTemperature),
-                         quantity: 🅀uantityBasalTemp,
+                         quantity: 🅀uantityTemp,
                          start: .now,
                          end: .now)
     }
