@@ -84,6 +84,7 @@ struct ContentView: View {
                             Image(systemName: 🔘)
                                 .symbolVariant(📱.🧩Temp.count > 2 ? .fill : .none)
                                 .scaleEffect(📱.🧩Temp.count > 2 ? 1.15 : 1)
+                                .font(.system(size: 48, weight: .regular))
                         }
                         .tint(.pink)
                         .disabled(📱.🧩Temp.count < 3)
