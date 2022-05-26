@@ -9,6 +9,25 @@ struct 👆Keypad: View {
         let ꠲ = Array(repeating: GridItem(.flexible()), count: 3)
         LazyVGrid(columns: ꠲, spacing: 32) {
             ForEach(1..<13) { 🔢 in
+                
+                let 🄵ixWeight: Bool = {
+                    if 📱.🧩Temp.count==1 {
+                        if 📱.🧩Temp.first == 3 {
+                            if 🔢 < 5 || 🔢 == 11 {
+                                return true
+                            }
+                        }
+                    }
+                    
+                    if 📱.🧩Temp.count >= 3 {
+                        if 📱.🚩2ndDecimalPlace == false {
+                            return true
+                        }
+                    }
+                    
+                    return false
+                }()
+                
                 if 🔢 == 10 {
                     Button {
                         📱.🚀Done()
@@ -48,8 +67,7 @@ struct 👆Keypad: View {
                         📱.ⓐppend(0)
                     } label: {
                         Text("0")
-                            .fontWeight(📱.🧩Temp.count==1 && 📱.🧩Temp.first==3 ? .regular:nil)
-                            .fontWeight(📱.🧩Temp.count >= 3 && !(📱.🚩2ndDecimalPlace) ? .regular:nil)
+                            .fontWeight(🄵ixWeight ? .regular:nil)
                     }
                     .tint(.primary)
                     .disabled(📱.🧩Temp.isEmpty)
@@ -69,8 +87,7 @@ struct 👆Keypad: View {
                         📱.ⓐppend(🔢)
                     } label: {
                         Text(🔢.description)
-                            .fontWeight(📱.🧩Temp.count == 1 && 📱.🧩Temp.first==3 && !(4<🔢 && 🔢<=9) ? .regular:nil)
-                            .fontWeight(📱.🧩Temp.count >= 3 && !(📱.🚩2ndDecimalPlace) ? .regular:nil)
+                            .fontWeight(🄵ixWeight ? .regular:nil)
                     }
                     .tint(.primary)
                     .disabled(📱.🧩Temp.isEmpty && !(🔢==3 || 🔢==4))
