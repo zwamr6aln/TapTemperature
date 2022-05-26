@@ -37,7 +37,7 @@ struct 🛠Menu: View {
         NavigationView {
             List {
                 Section {
-                    Picker(selection: $📱.🛠Unit) {
+                    Picker(selection: $📱.💾Unit) {
                         ForEach(🄴numUnit.allCases, id: \.self) { 🏷 in
                             Text(🏷.rawValue)
                         }
@@ -59,7 +59,7 @@ struct 🛠Menu: View {
                     }
                     
                     Toggle(isOn: $📱.🚩2ndDecimalPlace) {
-                        Label("36.1\(📱.🛠Unit.rawValue)  →  36.12︭\(📱.🛠Unit.rawValue)",
+                        Label("36.1\(📱.💾Unit.rawValue)  →  36.12︭\(📱.💾Unit.rawValue)",
                               systemImage: "character.cursor.ibeam")
                     }
                 }

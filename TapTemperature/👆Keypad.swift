@@ -11,7 +11,7 @@ struct 👆Keypad: View {
             ForEach(1..<13) { 🔢 in
                 
                 let 🄵ixWeight: Bool = {
-                    switch 📱.🛠Unit {
+                    switch 📱.💾Unit {
                         case .℃:
                             if 📱.🧩Temp.count == 1 {
                                 if 📱.🧩Temp.first == 3 {
@@ -34,7 +34,7 @@ struct 👆Keypad: View {
                 }()
                 
                 let 🄳isable: Bool = {
-                    switch 📱.🛠Unit {
+                    switch 📱.💾Unit {
                         case .℃:
                             if 📱.🧩Temp.isEmpty {
                                 if 🔢 != 3 && 🔢 != 4 {

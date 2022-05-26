@@ -8,7 +8,7 @@ class 📱Model: ObservableObject {
     @AppStorage("Temp") var 💾Temp = 36.0
     
     
-    @AppStorage("Unit") var 🛠Unit: 🄴numUnit = .℃
+    @AppStorage("Unit") var 💾Unit: 🄴numUnit = .℃
     
     @AppStorage("BasalTemp") var 🚩BasalTemp: Bool = false
     
@@ -71,7 +71,7 @@ class 📱Model: ObservableObject {
     let 🏥HealthStore = HKHealthStore()
     
     var 🅄nit: HKUnit {
-        switch 🛠Unit {
+        switch 💾Unit {
             case .℃: return .degreeCelsius()
             case .℉: return .degreeFahrenheit()
         }

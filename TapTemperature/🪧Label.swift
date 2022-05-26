@@ -56,7 +56,7 @@ struct 🪧Label: View {
                 }
             }
             
-            Text(📱.🛠Unit.rawValue)
+            Text(📱.💾Unit.rawValue)
                 .font(.system(size: 54, weight: .bold))
                 .minimumScaleFactor(0.1)
                 .scaledToFit()
