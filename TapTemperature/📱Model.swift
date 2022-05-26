@@ -5,9 +5,6 @@ import HealthKit
 
 class 📱Model: ObservableObject {
     
-    @AppStorage("Temp") var 💾Temp = 36.0
-    
-    
     @AppStorage("Unit") var 💾Unit: 🄴numUnit = .℃
     
     @AppStorage("BasalTemp") var 🚩BasalTemp: Bool = false
@@ -30,7 +27,6 @@ class 📱Model: ObservableObject {
     }
     
     func 🚀Done() {
-        💾Temp = 🌡Temp
         🏥HealthStore.save(🄳ataTemp) { 🙆, 🙅 in
             if 🙆 {
                 print(".save/.bodyTemp: Success")
@@ -48,6 +44,19 @@ class 📱Model: ObservableObject {
     }
     
     var 🌡Temp: Double {
+        var 🌡 = Double(🧩Temp[0].description
+                        + 🧩Temp[1].description
+                        + "."
+                        + 🧩Temp[2].description)!
+        
+        if 🧩Temp.indices.contains(3) {
+            🌡 = Double(🌡.description + 🧩Temp[3].description)!
+        }
+        
+        return 🌡
+    }
+    
+    var 🌡BasalTemp: Double {
         var 🌡 = Double(🧩Temp[0].description
                         + 🧩Temp[1].description
                         + "."
@@ -84,6 +93,17 @@ class 📱Model: ObservableObject {
     var 🄳ataTemp: HKQuantitySample {
         HKQuantitySample(type: HKQuantityType(.bodyTemperature),
                          quantity: 🅀uantityTemp,
+                         start: .now,
+                         end: .now)
+    }
+    
+    var 🅀uantityBasalTemp: HKQuantity {
+        HKQuantity(unit: 🅄nit, doubleValue: 🌡BasalTemp)
+    }
+    
+    var 🄳ataBasalTemp: HKQuantitySample {
+        HKQuantitySample(type: HKQuantityType(.basalBodyTemperature),
+                         quantity: 🅀uantityBasalTemp,
                          start: .now,
                          end: .now)
     }

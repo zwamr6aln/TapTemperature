@@ -33,7 +33,7 @@ struct 🆗Result: View {
                 }
                 .overlay {
                     if 📱.🚩Success && 📱.🚩AutoComplete {
-                        Text(📱.💾Temp.description + " " + 📱.💾Unit.rawValue)
+                        Text(📱.🌡Temp.description + " " + 📱.💾Unit.rawValue)
                             .font(.title.weight(.medium))
                             .monospacedDigit()
                             .opacity(0.66)
