@@ -11,43 +11,52 @@ struct 👆Keypad: View {
             ForEach(1..<13) { 🔢 in
                 
                 let 🄵ixWeight: Bool = {
-                    if 📱.🧩Temp.count == 1 {
-                        if 📱.🧩Temp.first == 3 {
-                            if 🔢 < 5 || 🔢 == 11 {
-                                return true
+                    switch 📱.🛠Unit {
+                        case .℃:
+                            if 📱.🧩Temp.count == 1 {
+                                if 📱.🧩Temp.first == 3 {
+                                    if 🔢 < 5 || 🔢 == 11 {
+                                        return true
+                                    }
+                                }
                             }
-                        }
+                            
+                            if 📱.🧩Temp.count >= 3 {
+                                if 📱.🚩2ndDecimalPlace == false {
+                                    return true
+                                }
+                            }
+                            
+                            return false
+                        case .℉:
+                            return false
                     }
-                    
-                    if 📱.🧩Temp.count >= 3 {
-                        if 📱.🚩2ndDecimalPlace == false {
-                            return true
-                        }
-                    }
-                    
-                    return false
                 }()
                 
                 let 🄳isable: Bool = {
-                    if 📱.🧩Temp.isEmpty {
-                        if 🔢 != 3 && 🔢 != 4 {
-                            return true
-                        }
-                    }
-                    
-                    if 📱.🧩Temp.count == 1 {
-                        if 📱.🧩Temp.first == 4 {
-                            if 🔢 != 1 && 🔢 != 11 {
+                    switch 📱.🛠Unit {
+                        case .℃:
+                            if 📱.🧩Temp.isEmpty {
+                                if 🔢 != 3 && 🔢 != 4 {
+                                    return true
+                                }
+                            }
+                            
+                            if 📱.🧩Temp.count == 1 {
+                                if 📱.🧩Temp.first == 4 {
+                                    if 🔢 != 1 && 🔢 != 11 {
+                                        return true
+                                    }
+                                }
+                            }
+                            
+                            if 📱.🧩Temp.count == 4 {
                                 return true
                             }
-                        }
+                            return false
+                        case .℉:
+                            return false
                     }
-                    
-                    if 📱.🧩Temp.count == 4 {
-                        return true
-                    }
-                    
-                    return false
                 }()
                 
                 
