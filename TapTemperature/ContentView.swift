@@ -58,7 +58,30 @@ struct ContentView: View {
                         Button {
                             📱.🚀Done()
                         } label: {
-                            Image(systemName: "checkmark.circle")
+                            let 🔘: String = {
+                                if 📱.🚩AutoComplete == false {
+                                    return "checkmark.circle"
+                                }
+                                
+                                if 📱.🚩2ndDecimalPlace {
+                                    switch 📱.🧩Temp.count {
+                                        case 0: return "4.circle"
+                                        case 1: return "3.circle"
+                                        case 2: return "2.circle"
+                                        case 3: return "1.circle"
+                                        default: return "checkmark.circle"
+                                    }
+                                } else {
+                                    switch 📱.🧩Temp.count {
+                                        case 0: return "3.circle"
+                                        case 1: return "2.circle"
+                                        case 2: return "1.circle"
+                                        default: return "checkmark.circle"
+                                    }
+                                }
+                            }()
+                            
+                            Image(systemName: 🔘)
                                 .symbolVariant(📱.🧩Temp.count > 2 ? .fill : .none)
                                 .scaleEffect(📱.🧩Temp.count > 2 ? 1.15 : 1)
                         }
