@@ -8,22 +8,26 @@ struct 🪧Label: View {
     var body: some View {
         HStack(alignment: .firstTextBaseline) {
             if 📱.🧩Temp.indices.contains(0) {
-                Text(📱.🧩Temp[0].description)
-            }  else {
-                Text("0").opacity(0)
-                    .overlay(alignment: .bottom) {
-                        Rectangle()
-                            .frame(height: 4)
+                Text("10").opacity(0)
+                    .overlay(alignment: .trailing) {
+                        Text(📱.🧩Temp[0].description)
+                            .minimumScaleFactor(0.1)
                     }
+                    .lineLimit(1)
+            }  else {
+                Text("10").opacity(0)
+                    .overlay(alignment: .trailing) {
+                        Text("_")
+                    }
+                    .lineLimit(1)
             }
             
             if 📱.🧩Temp.indices.contains(1) {
                 Text(📱.🧩Temp[1].description)
             }  else {
                 Text("0").opacity(0)
-                    .overlay(alignment: .bottom) {
-                        Rectangle()
-                            .frame(height: 4)
+                    .overlay {
+                        Text("_")
                             .opacity(📱.🧩Temp.count < 1 ? 0 : 1)
                     }
             }
@@ -34,9 +38,8 @@ struct 🪧Label: View {
                 Text(📱.🧩Temp[2].description)
             }  else {
                 Text("0").opacity(0)
-                    .overlay(alignment: .bottom) {
-                        Rectangle()
-                            .frame(height: 4)
+                    .overlay {
+                        Text("_")
                             .opacity(📱.🧩Temp.count < 2 ? 0 : 1)
                     }
             }
@@ -46,9 +49,8 @@ struct 🪧Label: View {
             } else {
                 if 📱.🚩2ndDecimalPlace {
                     Text("0").opacity(0)
-                        .overlay(alignment: .bottom) {
-                            Rectangle()
-                                .frame(height: 4)
+                        .overlay {
+                            Text("_")
                                 .opacity(📱.🧩Temp.count < 3 ? 0 : 1)
                         }
                 } else {
@@ -57,11 +59,11 @@ struct 🪧Label: View {
             }
             
             Text(📱.💾Unit.rawValue)
-                .font(.system(size: 54, weight: .bold))
+                .font(.system(size: 36, weight: .medium))
                 .minimumScaleFactor(0.1)
                 .scaledToFit()
         }
-        .font(.system(size: 81, weight: .bold))
+        .font(.system(size: 64, weight: .bold))
         .monospacedDigit()
     }
 }
