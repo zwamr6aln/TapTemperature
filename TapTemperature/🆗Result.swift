@@ -24,7 +24,7 @@ struct 🆗Result: View {
                         }
                         
                         if 📱.🚩Canceled {
-                            Text("Cenceled")
+                            Text("Canceled")
                                 .fontWeight(.semibold)
                         }
                     }
