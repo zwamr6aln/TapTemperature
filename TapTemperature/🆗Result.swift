@@ -13,15 +13,21 @@ struct 🆗Result: View {
             
             VStack {
                 HStack {
-                    Button {
-                        📱.🗑Cancel()
-                    } label: {
-                        Image(systemName: "arrow.uturn.backward.circle")
-                            .font(.title)
-                            .imageScale(.large)
-                            .foregroundColor(.primary)
+                    if 📱.🚩Success {
+                        Button {
+                            📱.🗑Cancel()
+                        } label: {
+                            Image(systemName: "arrow.uturn.backward.circle")
+                                .font(.title)
+                                .imageScale(.large)
+                                .foregroundColor(.primary)
+                        }
+                        
+                        if 📱.🚩Canceled {
+                            Text("Cenceled")
+                                .fontWeight(.semibold)
+                        }
                     }
-                    .opacity(0.75)
                     
                     Spacer()
                     
@@ -29,12 +35,11 @@ struct 🆗Result: View {
                         Image(systemName: "arrow.right")
                             .imageScale(.small)
                             .font(.largeTitle)
-                            .foregroundStyle(.secondary)
                     }
                     
                     💟JumpButton()
-                        .opacity(0.75)
                 }
+                .opacity(0.75)
                 .padding(.top)
                 .padding(.horizontal, 20)
                 
@@ -88,9 +93,16 @@ struct 🆗Result: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
                 .accessibilityLabel("🌏Dismiss")
+                .opacity(📱.🚩Canceled ? 0.25 : 1)
             }
         }
         .preferredColorScheme(.dark)
+        .onChange(of: 📱.🚩InputDone) { 🚩 in
+            if 🚩 == false {
+                📱.🚩Canceled = false
+            }
+        }
+        .animation(.default, value: 📱.🚩Canceled)
     }
 }
 

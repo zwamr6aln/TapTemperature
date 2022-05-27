@@ -23,6 +23,8 @@ class 📱Model: ObservableObject {
     
     @Published var 🚩Success: Bool = false
     
+    @Published var 🚩Canceled: Bool = false
+    
     
     @AppStorage("history") var 🄷istoryTemp: String = ""
     
@@ -137,6 +139,9 @@ class 📱Model: ObservableObject {
             🏥HealthStore.delete(📃) { 🙆, 🙅 in
                 if 🙆 {
                     print(".delete: Success")
+                    DispatchQueue.main.async {
+                        self.🚩Canceled = true
+                    }
                 } else {
                     print("🙅:", 🙅.debugDescription)
                 }
