@@ -31,12 +31,8 @@ class 📱Model: ObservableObject {
     @AppStorage("historyBasal") var 🄷istoryBasalTemp: String = ""
     
     
-    func 🧩Reset() {
-        switch 💾Unit {
-            case .℃: 🧩Temp = [3]
-            case .℉: 🧩Temp = []
-        }
-    }
+    let 🏥HealthStore = HKHealthStore()
+    
     
     var 🌡Temp: Double {
         if 🧩Temp.count < 3 { return 0.0 }
@@ -53,6 +49,15 @@ class 📱Model: ObservableObject {
         return 🌡
     }
     
+    
+    func 🧩Reset() {
+        switch 💾Unit {
+            case .℃: 🧩Temp = [3]
+            case .℉: 🧩Temp = []
+        }
+    }
+    
+    
     func 🧩Append(_ 🔢: Int) {
         🧩Temp.append(🔢)
         
@@ -60,6 +65,19 @@ class 📱Model: ObservableObject {
             if 🧩Temp.count == (🚩2DecimalPlace ? 4 : 3) {
                 🚀Done()
             }
+        }
+    }
+    
+    
+    var 🅀uantity: HKQuantity {
+        HKQuantity(unit: 💾Unit.ⒽKUnit, doubleValue: 🌡Temp)
+    }
+    
+    var 🅃ype: HKQuantityType {
+        if 🚩BasalTemp && 🛏BasalIs {
+            return HKQuantityType(.basalBodyTemperature)
+        } else {
+            return HKQuantityType(.bodyTemperature)
         }
     }
     
@@ -137,6 +155,7 @@ class 📱Model: ObservableObject {
         }
     }
     
+    
     func 🗑Cancel() {
         if let 📃 = 📃Sample {
             🏥HealthStore.delete(📃) { 🙆, 🙅 in
@@ -152,27 +171,6 @@ class 📱Model: ObservableObject {
         }
     }
     
-    
-    let 🏥HealthStore = HKHealthStore()
-    
-    var 🅄nit: HKUnit {
-        switch 💾Unit {
-            case .℃: return .degreeCelsius()
-            case .℉: return .degreeFahrenheit()
-        }
-    }
-    
-    var 🅀uantity: HKQuantity {
-        HKQuantity(unit: 🅄nit, doubleValue: 🌡Temp)
-    }
-    
-    var 🅃ype: HKQuantityType {
-        if 🚩BasalTemp && 🛏BasalIs {
-            return HKQuantityType(.basalBodyTemperature)
-        } else {
-            return HKQuantityType(.bodyTemperature)
-        }
-    }
     
     func 🏥RequestAuthorization(_ ⓣype: HKQuantityType) {
         🏥HealthStore.requestAuthorization(toShare: [ⓣype], read: nil) { 🙆, 🙅 in

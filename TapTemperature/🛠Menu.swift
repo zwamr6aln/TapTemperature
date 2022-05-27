@@ -25,6 +25,13 @@ struct 🛠MenuButton: View { // ⚙️
 enum 📏EnumUnit: String, CaseIterable {
     case ℃
     case ℉
+    
+    var ⒽKUnit: HKUnit {
+        switch self {
+            case .℃: return .degreeCelsius()
+            case .℉: return .degreeFahrenheit()
+        }
+    }
 }
 
 
