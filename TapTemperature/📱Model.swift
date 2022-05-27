@@ -63,6 +63,8 @@ class 📱Model: ObservableObject {
         }
     }
     
+    var 📃Sample: HKQuantitySample?
+    
     func 🚀Done() {
         UISelectionFeedbackGenerator().selectionChanged()
         
@@ -76,21 +78,24 @@ class 📱Model: ObservableObject {
             if 🏥HealthStore.authorizationStatus(for: HKQuantityType(.basalBodyTemperature)) == .sharingDenied {
                 🚩Success = false
                 🚩InputDone = true
-                self.🄷istoryBasalTemp += ".authorization 👿?!\n"
+                self.🄷istoryBasalTemp += ".authorization: Error?!\n"
                 return
             }
         } else {
             if 🏥HealthStore.authorizationStatus(for: HKQuantityType(.bodyTemperature)) == .sharingDenied {
                 🚩Success = false
                 🚩InputDone = true
-                self.🄷istoryTemp += ".authorization 👿?!\n"
+                self.🄷istoryTemp += ".authorization: Error?!\n"
                 return
             }
         }
         
-        📃Object = 🅂ample
+        📃Sample = HKQuantitySample(type: 🅃ype,
+                                    quantity: 🅀uantity,
+                                    start: .now,
+                                    end: .now)
         
-        if let 📃 = 📃Object {
+        if let 📃 = 📃Sample {
             🏥HealthStore.save(📃) { 🙆, 🙅 in
                 if 🙆 {
                     print(".save: Success")
@@ -110,9 +115,9 @@ class 📱Model: ObservableObject {
                     
                     DispatchQueue.main.async {
                         if self.🚩BasalTemp && self.🛏BasalIs {
-                            self.🄷istoryBasalTemp += ".save 👿?!\n"
+                            self.🄷istoryBasalTemp += ".save: Error?!\n"
                         } else {
-                            self.🄷istoryTemp += ".save 👿?!\n"
+                            self.🄷istoryTemp += ".save: Error?!\n"
                         }
                         
                         self.🚩Success = false
@@ -122,9 +127,9 @@ class 📱Model: ObservableObject {
             }
         } else {
             if 🚩BasalTemp && 🛏BasalIs {
-                🄷istoryBasalTemp += "sample→object 👿?!\n"
+                🄷istoryBasalTemp += "HKQuantitySample: Error?!\n"
             } else {
-                🄷istoryTemp += "sample→object 👿?!\n"
+                🄷istoryTemp += "HKQuantitySample: Error?!\n"
             }
             
             🚩Success = false
@@ -132,10 +137,8 @@ class 📱Model: ObservableObject {
         }
     }
     
-    var 📃Object: HKQuantitySample?
-    
     func 🗑Cancel() {
-        if let 📃 = 📃Object {
+        if let 📃 = 📃Sample {
             🏥HealthStore.delete(📃) { 🙆, 🙅 in
                 if 🙆 {
                     print(".delete: Success")
@@ -171,19 +174,12 @@ class 📱Model: ObservableObject {
         }
     }
     
-    var 🅂ample: HKQuantitySample {
-        HKQuantitySample(type: 🅃ype,
-                         quantity: 🅀uantity,
-                         start: .now,
-                         end: .now)
-    }
-    
     func 🏥RequestAuthorization(_ ⓣype: HKQuantityType) {
-        🏥HealthStore.requestAuthorization(toShare: [ⓣype], read: nil) { 🆗, 👿 in
-            if 🆗 {
+        🏥HealthStore.requestAuthorization(toShare: [ⓣype], read: nil) { 🙆, 🙅 in
+            if 🙆 {
                 print(".requestAuthorization: Success")
             } else {
-                print("👿:", 👿.debugDescription)
+                print("🙅:", 🙅.debugDescription)
             }
         }
     }
