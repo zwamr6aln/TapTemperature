@@ -8,10 +8,9 @@ struct 👆Keypad: View {
     var body: some View {
         let ꠲ = Array(repeating: GridItem(.flexible()), count: 3)
         LazyVGrid(columns: ꠲, spacing: 32) {
-            ForEach(1..<13) { 🔢 in
-                
+            ForEach(1 ..< 13) { 🔢 in
                 let 🄳isable: Bool = {
-                    if 📱.🧩Temp.count == 3 && !(📱.🚩2DecimalPlace) {
+                    if 📱.🧩Temp.count == 3 && (📱.🚩2DecimalPlace == false) {
                         return true
                     }
                     
@@ -66,7 +65,7 @@ struct 👆Keypad: View {
                 
                 
                 switch 🔢 {
-                    case 1..<10:
+                    case 1 ..< 10:
                         Button {
                             📱.🧩Append(🔢)
                         } label: {

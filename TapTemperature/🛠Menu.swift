@@ -82,14 +82,14 @@ struct 🛠Menu: View {
                 
                 Section {
                     NavigationLink {
-                        🕛HistoryView(🄷istory: $📱.🄷istoryTemp)
+                        🕛HistoryView($📱.🄷istoryTemp)
                     } label: {
                         Label("Body temperature", systemImage: "figure.stand")
                             .foregroundStyle(.primary)
                     }
                     
                     NavigationLink {
-                        🕛HistoryView(🄷istory: $📱.🄷istoryBasalTemp)
+                        🕛HistoryView($📱.🄷istoryBasalTemp)
                     } label: {
                         Label("Basal body temperature", systemImage: "bed.double")
                             .foregroundStyle(.primary)
@@ -126,10 +126,10 @@ struct 🛠Menu: View {
 
 
 struct 🕛HistoryView: View {
-    @Binding var 🄷istory: String
+    @Binding var 🅃ext: String
     
     var body: some View {
-        if 🄷istory == "" {
+        if 🅃ext == "" {
             Image(systemName: "text.append")
                 .foregroundStyle(.tertiary)
                 .font(.system(size: 64))
@@ -138,11 +138,11 @@ struct 🕛HistoryView: View {
         } else {
             ScrollView {
                 ScrollView(.horizontal, showsIndicators: false) {
-                    📄PageView(🄷istory, "History")
+                    📄PageView(🅃ext, "History")
                         .toolbar {
                             ToolbarItem(placement: .navigationBarTrailing) {
                                 Button {
-                                    🄷istory = ""
+                                    🅃ext = ""
                                 } label: {
                                     Image(systemName: "trash")
                                         .tint(.red)
@@ -152,6 +152,10 @@ struct 🕛HistoryView: View {
                 }
             }
         }
+    }
+    
+    init(_ 🅃ext: Binding<String>) {
+        self._🅃ext = 🅃ext
     }
 }
 
