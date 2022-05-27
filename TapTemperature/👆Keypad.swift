@@ -10,17 +10,11 @@ struct 👆Keypad: View {
         LazyVGrid(columns: ꠲, spacing: 32) {
             ForEach(1..<13) { 🔢 in
                 
-                let 🄵ixWeight: Bool = {
-                    if 📱.🧩Temp.count >= 3 {
-                        if 📱.🚩2ndDecimalPlace == false {
-                            return true
-                        }
+                let 🄳isable: Bool = {
+                    if 📱.🧩Temp.count == 4 {
+                        return true
                     }
                     
-                    return false
-                }()
-                
-                let 🄳isable: Bool = {
                     switch 📱.💾Unit {
                         case .℃:
                             if 📱.🧩Temp.isEmpty {
@@ -41,9 +35,6 @@ struct 👆Keypad: View {
                                 }
                             }
                             
-                            if 📱.🧩Temp.count == 4 {
-                                return true
-                            }
                             return false
                         case .℉:
                             if 📱.🧩Temp.isEmpty {
@@ -64,10 +55,6 @@ struct 👆Keypad: View {
                                 }
                             }
                             
-                            if 📱.🧩Temp.count == 4 {
-                                return true
-                            }
-                            
                             return false
                     }
                 }()
@@ -79,7 +66,7 @@ struct 👆Keypad: View {
                             📱.ⓐppend(🔢)
                         } label: {
                             Text(🔢.description)
-                                .fontWeight(🄵ixWeight ? .regular : nil)
+                                .fontWeight(📱.🧩Temp.count >= 3 && !(📱.🚩2ndDecimalPlace) ? .regular : nil)
                         }
                         .tint(.primary)
                         .disabled(🄳isable)
@@ -130,7 +117,7 @@ struct 👆Keypad: View {
                             📱.ⓐppend(０or１０)
                         } label: {
                             Text(０or１０.description)
-                                .fontWeight(🄵ixWeight ? .regular : nil)
+                                .fontWeight(📱.🧩Temp.count >= 3 && !(📱.🚩2ndDecimalPlace) ? .regular : nil)
                         }
                         .tint(.primary)
                         .disabled(🄳isable)
