@@ -137,7 +137,7 @@ struct 👆Keypad: View {
                         Text("🐛")
                 }
             }
-            .font(.system(size: 48, weight: .bold, design: .rounded))
+            .font(.system(size: 48, weight: .medium, design: .rounded))
         }
         .padding()
         .padding(.vertical, 12)
