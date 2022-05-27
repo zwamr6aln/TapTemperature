@@ -9,7 +9,7 @@ class 📱Model: ObservableObject {
     
     @AppStorage("BasalTemp") var 🚩BasalTemp: Bool = false
     
-    @AppStorage("2ndDecimalPlace") var 🚩2DecimalPlace: Bool = false
+    @AppStorage("2DecimalPlace") var 🚩2DecimalPlace: Bool = false
     
     @AppStorage("AutoComplete") var 🚩AutoComplete: Bool = false
     
@@ -17,7 +17,7 @@ class 📱Model: ObservableObject {
     @Published var 🧩Temp: [Int] = []
     
     
-    @Published var 🛏BasalIs: Bool = true
+    @Published var 🛏BasalSwitch: Bool = true
     
     @Published var 🚩InputDone: Bool = false
     
@@ -26,7 +26,7 @@ class 📱Model: ObservableObject {
     @Published var 🚩Canceled: Bool = false
     
     
-    @AppStorage("history") var 🄷istoryTemp: String = ""
+    @AppStorage("historyTemp") var 🄷istoryTemp: String = ""
     
     @AppStorage("historyBasal") var 🄷istoryBasalTemp: String = ""
     
@@ -74,7 +74,7 @@ class 📱Model: ObservableObject {
     }
     
     var 🅃ype: HKQuantityType {
-        if 🚩BasalTemp && 🛏BasalIs {
+        if 🚩BasalTemp && 🛏BasalSwitch {
             return HKQuantityType(.basalBodyTemperature)
         } else {
             return HKQuantityType(.bodyTemperature)
@@ -86,24 +86,24 @@ class 📱Model: ObservableObject {
     func 🚀Done() {
         UISelectionFeedbackGenerator().selectionChanged()
         
-        if 🚩BasalTemp && self.🛏BasalIs {
+        if 🚩BasalTemp && 🛏BasalSwitch {
             🄷istoryBasalTemp += Date.now.formatted(date: .numeric, time: .shortened) + ", "
         } else {
             🄷istoryTemp += Date.now.formatted(date: .numeric, time: .shortened) + ", "
         }
         
-        if 🚩BasalTemp && self.🛏BasalIs {
+        if 🚩BasalTemp && 🛏BasalSwitch {
             if 🏥HealthStore.authorizationStatus(for: HKQuantityType(.basalBodyTemperature)) == .sharingDenied {
                 🚩Success = false
                 🚩InputDone = true
-                self.🄷istoryBasalTemp += ".authorization: Error?!\n"
+                🄷istoryBasalTemp += ".authorization: Error?!\n"
                 return
             }
         } else {
             if 🏥HealthStore.authorizationStatus(for: HKQuantityType(.bodyTemperature)) == .sharingDenied {
                 🚩Success = false
                 🚩InputDone = true
-                self.🄷istoryTemp += ".authorization: Error?!\n"
+                🄷istoryTemp += ".authorization: Error?!\n"
                 return
             }
         }
@@ -119,7 +119,7 @@ class 📱Model: ObservableObject {
                     print(".save: Success")
                     
                     DispatchQueue.main.async {
-                        if self.🚩BasalTemp && self.🛏BasalIs {
+                        if self.🚩BasalTemp && self.🛏BasalSwitch {
                             self.🄷istoryBasalTemp += self.🌡Temp.description + " " + self.💾Unit.rawValue + "\n"
                         } else {
                             self.🄷istoryTemp += self.🌡Temp.description + " " + self.💾Unit.rawValue + "\n"
@@ -132,7 +132,7 @@ class 📱Model: ObservableObject {
                     print("🙅:", 🙅.debugDescription)
                     
                     DispatchQueue.main.async {
-                        if self.🚩BasalTemp && self.🛏BasalIs {
+                        if self.🚩BasalTemp && self.🛏BasalSwitch {
                             self.🄷istoryBasalTemp += ".save: Error?!\n"
                         } else {
                             self.🄷istoryTemp += ".save: Error?!\n"
@@ -144,7 +144,7 @@ class 📱Model: ObservableObject {
                 }
             }
         } else {
-            if 🚩BasalTemp && 🛏BasalIs {
+            if 🚩BasalTemp && 🛏BasalSwitch {
                 🄷istoryBasalTemp += "HKQuantitySample: Error?!\n"
             } else {
                 🄷istoryTemp += "HKQuantitySample: Error?!\n"

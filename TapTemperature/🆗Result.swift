@@ -75,7 +75,7 @@ struct 🆗Result: View {
                         Spacer()
                         
                         HStack {
-                            if 📱.🚩BasalTemp && 📱.🛏BasalIs {
+                            if 📱.🚩BasalTemp && 📱.🛏BasalSwitch {
                                 Image(systemName: "bed.double")
                                     .font(.body.bold())
                             }

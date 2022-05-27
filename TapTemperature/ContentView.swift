@@ -15,12 +15,12 @@ struct ContentView: View {
                 
                 if 📱.🚩BasalTemp {
                     Button {
-                        📱.🛏BasalIs.toggle()
+                        📱.🛏BasalSwitch.toggle()
                     } label: {
                         Image(systemName: "bed.double")
-                            .foregroundStyle(📱.🛏BasalIs ? .primary : .quaternary)
+                            .foregroundStyle(📱.🛏BasalSwitch ? .primary : .quaternary)
                             .overlay {
-                                if 📱.🛏BasalIs == false {
+                                if 📱.🛏BasalSwitch == false {
                                     Image(systemName: "xmark")
                                         .scaleEffect(1.2)
                                 }

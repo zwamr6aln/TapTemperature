@@ -11,7 +11,7 @@ struct 👆Keypad: View {
             ForEach(1..<13) { 🔢 in
                 
                 let 🄳isable: Bool = {
-                    if 📱.🧩Temp.count == 3 && (📱.🚩2DecimalPlace == false) {
+                    if 📱.🧩Temp.count == 3 && !(📱.🚩2DecimalPlace) {
                         return true
                     }
                     
@@ -40,6 +40,7 @@ struct 👆Keypad: View {
                             }
                             
                             return false
+                            
                         case .℉:
                             if 📱.🧩Temp.isEmpty {
                                 if !(🔢 == 9 || 🔢 == 11) {
@@ -73,6 +74,7 @@ struct 👆Keypad: View {
                         }
                         .tint(.primary)
                         .disabled(🄳isable)
+                        
                     case 10:
                         Button {
                             📱.🚀Done()
@@ -107,6 +109,7 @@ struct 👆Keypad: View {
                         }
                         .tint(.pink)
                         .disabled(📱.🧩Temp.count < 3)
+                        
                     case 11:
                         let ０or１０: Int = {
                             if 📱.💾Unit == .℉ && 📱.🧩Temp.isEmpty {
@@ -123,6 +126,7 @@ struct 👆Keypad: View {
                         }
                         .tint(.primary)
                         .disabled(🄳isable)
+                        
                     case 12:
                         Button {
                             📱.🧩Temp.removeLast()
@@ -133,6 +137,7 @@ struct 👆Keypad: View {
                         }
                         .tint(.primary)
                         .disabled(📱.🧩Temp.isEmpty)
+                        
                     default:
                         Text("🐛")
                 }

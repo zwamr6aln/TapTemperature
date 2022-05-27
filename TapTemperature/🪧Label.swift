@@ -14,7 +14,7 @@ struct 🪧Label: View {
                             .minimumScaleFactor(0.1)
                     }
                     .lineLimit(1)
-            }  else {
+            } else {
                 Text("10").opacity(0)
                     .overlay(alignment: .trailing) {
                         Text("_")
@@ -24,7 +24,7 @@ struct 🪧Label: View {
             
             if 📱.🧩Temp.indices.contains(1) {
                 Text(📱.🧩Temp[1].description)
-            }  else {
+            } else {
                 Text("0").opacity(0)
                     .overlay {
                         Text("_")
@@ -36,7 +36,7 @@ struct 🪧Label: View {
             
             if 📱.🧩Temp.indices.contains(2) {
                 Text(📱.🧩Temp[2].description)
-            }  else {
+            } else {
                 Text("0").opacity(0)
                     .overlay {
                         Text("_")
