@@ -24,6 +24,9 @@ class 📱Model: ObservableObject {
     @Published var 🚩Success: Bool = false
     
     
+    @AppStorage("history") var 🄷istory: String = ""
+    
+    
     func 🧩Reset() {
         switch 💾Unit {
             case .℃: 🧩Temp = [3]
@@ -57,20 +60,43 @@ class 📱Model: ObservableObject {
     }
     
     func 🚀Done() {
+        UISelectionFeedbackGenerator().selectionChanged()
+        
+        if 🏥HealthStore.authorizationStatus(for: HKQuantityType(.bodyTemperature)) == .sharingDenied {
+            🚩Success = false
+            🚩InputDone = true
+            return
+        }
+        
+        if 🚩BasalTemp {
+            if 🏥HealthStore.authorizationStatus(for: HKQuantityType(.basalBodyTemperature)) == .sharingDenied {
+                🚩Success = false
+                🚩InputDone = true
+                return
+            }
+        }
+        
+        🄷istory += 🚩BasalTemp ? "Basal body temperature " : "Body temperature "
+        
+        🄷istory += Date.now.formatted(date: .numeric, time: .shortened) + ": "
+        
         🏥HealthStore.save(🅂ample) { 🙆, 🙅 in
             if 🙆 {
                 print(".save: Success")
                 DispatchQueue.main.async {
+                    self.🄷istory += self.🌡Temp.description + " " + self.💾Unit.rawValue + "\n"
                     self.🚩Success = true
+                    self.🚩InputDone = true
                 }
             } else {
                 print("🙅:", 🙅.debugDescription)
                 DispatchQueue.main.async {
+                    self.🄷istory += "HealthStore.save error?!\n"
                     self.🚩Success = false
+                    self.🚩InputDone = true
                 }
             }
         }
-        🚩InputDone = true
     }
     
     

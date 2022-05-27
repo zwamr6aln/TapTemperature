@@ -36,6 +36,8 @@ struct 🛠Menu: View {
     var body: some View {
         NavigationView {
             List {
+                Text(📱.🄷istory)
+                
                 Section {
                     Picker(selection: $📱.💾Unit) {
                         ForEach(📏EnumUnit.allCases, id: \.self) { 🏷 in
