@@ -53,9 +53,11 @@ struct ContentView: View {
         .fullScreenCover(isPresented: $📱.🚩InputDone) {
             🆗Result()
                 .onChange(of: 🔛) { 🄽ow in
-                    if 🄽ow == .background && 📱.🚩InputDone {
-                        📱.🚩InputDone = false
-                        📱.🧩Reset()
+                    if 🄽ow == .background {
+                        Timer.scheduledTimer(withTimeInterval: 60, repeats: false) { _ in
+                            📱.🚩InputDone = false
+                            📱.🧩Reset()
+                        }
                     }
                 }
         }
