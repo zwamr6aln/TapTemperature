@@ -15,9 +15,10 @@ struct 🆗Result: View {
                 HStack {
                     if 📱.🚩BasalTemp && 📱.🛏BasalIs {
                         Image(systemName: "bed.double")
+                            .font(.body.bold())
                     }
                     
-                    if 📱.🚩Success && 📱.🚩AutoComplete {
+                    if 📱.🚩Success {
                         Text(📱.🌡Temp.description + " " + 📱.💾Unit.rawValue)
                             .font(.title2)
                             .fontWeight(.bold)
