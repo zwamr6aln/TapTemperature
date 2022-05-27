@@ -64,24 +64,26 @@ class 📱Model: ObservableObject {
     func 🚀Done() {
         UISelectionFeedbackGenerator().selectionChanged()
         
-        if 🏥HealthStore.authorizationStatus(for: HKQuantityType(.bodyTemperature)) == .sharingDenied {
-            🚩Success = false
-            🚩InputDone = true
-            return
-        }
-        
-        if 🚩BasalTemp {
-            if 🏥HealthStore.authorizationStatus(for: HKQuantityType(.basalBodyTemperature)) == .sharingDenied {
-                🚩Success = false
-                🚩InputDone = true
-                return
-            }
-        }
-        
         if 🚩BasalTemp && self.🛏BasalIs {
             🄷istoryBasalTemp += Date.now.formatted(date: .numeric, time: .shortened) + ", "
         } else {
             🄷istoryTemp += Date.now.formatted(date: .numeric, time: .shortened) + ", "
+        }
+        
+        if 🚩BasalTemp && self.🛏BasalIs {
+            if 🏥HealthStore.authorizationStatus(for: HKQuantityType(.basalBodyTemperature)) == .sharingDenied {
+                🚩Success = false
+                🚩InputDone = true
+                self.🄷istoryBasalTemp += "HealthStore.authorization 👿?!\n"
+                return
+            }
+        } else {
+            if 🏥HealthStore.authorizationStatus(for: HKQuantityType(.bodyTemperature)) == .sharingDenied {
+                🚩Success = false
+                🚩InputDone = true
+                self.🄷istoryTemp += "HealthStore.authorization 👿?!\n"
+                return
+            }
         }
         
         🏥HealthStore.save(🅂ample) { 🙆, 🙅 in
@@ -103,9 +105,9 @@ class 📱Model: ObservableObject {
                 
                 DispatchQueue.main.async {
                     if self.🚩BasalTemp && self.🛏BasalIs {
-                        self.🄷istoryBasalTemp += "HealthStore.save error?!\n"
+                        self.🄷istoryBasalTemp += "HealthStore.save 👿?!\n"
                     } else {
-                        self.🄷istoryTemp += "HealthStore.save error?!\n"
+                        self.🄷istoryTemp += "HealthStore.save 👿?!\n"
                     }
                     
                     self.🚩Success = false
