@@ -38,12 +38,17 @@ struct 🆗Result: View {
                             .font(.system(size: 110).weight(.semibold))
                             .minimumScaleFactor(0.1)
                         
-                        Text(📱.🚩Success ? "OK!" : "🌏Error!?")
+                        Text(📱.🚩Success ? "DONE!" : "🌏Error!?")
                             .font(.system(size: 128).weight(.black))
                             .lineLimit(1)
                             .minimumScaleFactor(0.1)
+                            .padding(.horizontal)
                         
-                        if 📱.🚩Success == false {
+                        if 📱.🚩Success {
+                            Text("Registration for \"Health\" app")
+                                .bold()
+                                .opacity(0.8)
+                        } else {
                             Text("🌏Please check permission on \"Health\" app")
                                 .font(.body.weight(.semibold))
                                 .foregroundColor(.secondary)
@@ -66,7 +71,7 @@ struct 🆗Result: View {
                                     .fontWeight(.bold)
                             }
                         }
-                        .padding(.bottom, 36)
+                        .padding(48)
                         .opacity(0.8)
                     }
                     .foregroundColor(.white)
