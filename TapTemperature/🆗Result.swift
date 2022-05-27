@@ -15,8 +15,12 @@ struct 🆗Result: View {
                 HStack {
                     if 📱.🚩BasalTemp && 📱.🛏BasalIs {
                         Image(systemName: "bed.double")
-                            .font(.title)
-                            .opacity(0.4)
+                    }
+                    
+                    if 📱.🚩Success && 📱.🚩AutoComplete {
+                        Text(📱.🌡Temp.description + " " + 📱.💾Unit.rawValue)
+                            .font(.title2)
+                            .fontWeight(.bold)
                     }
                     
                     Spacer()
@@ -30,14 +34,6 @@ struct 🆗Result: View {
                     
                     💟JumpButton()
                         .opacity(0.75)
-                }
-                .overlay {
-                    if 📱.🚩Success && 📱.🚩AutoComplete {
-                        Text(📱.🌡Temp.description + " " + 📱.💾Unit.rawValue)
-                            .font(.title.weight(.medium))
-                            .monospacedDigit()
-                            .opacity(0.4)
-                    }
                 }
                 .padding(.top)
                 .padding(.horizontal, 20)
