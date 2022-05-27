@@ -59,15 +59,16 @@ class 📱Model: ObservableObject {
     
     
     func 🧩Append(_ 🔢: Int) {
-        UISelectionFeedbackGenerator().selectionChanged()
-        
         🧩Temp.append(🔢)
         
         if 🚩AutoComplete {
             if 🧩Temp.count == (🚩2DecimalPlace ? 4 : 3) {
                 🚀Done()
+                return
             }
         }
+        
+        UISelectionFeedbackGenerator().selectionChanged()
     }
     
     
