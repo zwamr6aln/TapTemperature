@@ -85,7 +85,7 @@ class 📱Model: ObservableObject {
     }
     
     var 🅃ype: HKQuantityType {
-        if 🚩BasalTemp {
+        if 🚩BasalTemp && 🛏Is {
             return HKQuantityType(.basalBodyTemperature)
         } else {
             return HKQuantityType(.bodyTemperature)
