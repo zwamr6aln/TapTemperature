@@ -40,7 +40,8 @@ struct ContentView: View {
             Spacer()
             
             🪧Label()
-                .padding(.horizontal, 32)
+                .padding(.horizontal)
+                .padding(.trailing)
                 .padding(.bottom)
             
             Spacer()

@@ -11,26 +11,13 @@ struct 👆Keypad: View {
             ForEach(1..<13) { 🔢 in
                 
                 let 🄵ixWeight: Bool = {
-                    switch 📱.💾Unit {
-                        case .℃:
-                            if 📱.🧩Temp.count == 1 {
-                                if 📱.🧩Temp.first == 3 {
-                                    if 🔢 < 5 || 🔢 == 11 {
-                                        return true
-                                    }
-                                }
-                            }
-                            
-                            if 📱.🧩Temp.count >= 3 {
-                                if 📱.🚩2ndDecimalPlace == false {
-                                    return true
-                                }
-                            }
-                            
-                            return false
-                        case .℉:
-                            return false
+                    if 📱.🧩Temp.count >= 3 {
+                        if 📱.🚩2ndDecimalPlace == false {
+                            return true
+                        }
                     }
+                    
+                    return false
                 }()
                 
                 let 🄳isable: Bool = {
@@ -43,7 +30,11 @@ struct 👆Keypad: View {
                             }
                             
                             if 📱.🧩Temp.count == 1 {
-                                if 📱.🧩Temp.first == 4 {
+                                if 📱.🧩Temp.first == 3 {
+                                    if 🔢 < 4 || 🔢 == 11 {
+                                        return true
+                                    }
+                                } else if 📱.🧩Temp.first == 4 {
                                     if 🔢 != 1 && 🔢 != 11 {
                                         return true
                                     }
@@ -71,6 +62,10 @@ struct 👆Keypad: View {
                                         return true
                                     }
                                 }
+                            }
+                            
+                            if 📱.🧩Temp.count == 4 {
+                                return true
                             }
                             
                             return false
