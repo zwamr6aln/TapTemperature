@@ -74,14 +74,14 @@ class 📱Model: ObservableObject {
             if 🏥HealthStore.authorizationStatus(for: HKQuantityType(.basalBodyTemperature)) == .sharingDenied {
                 🚩Success = false
                 🚩InputDone = true
-                self.🄷istoryBasalTemp += "HealthStore.authorization 👿?!\n"
+                self.🄷istoryBasalTemp += ".authorization 👿?!\n"
                 return
             }
         } else {
             if 🏥HealthStore.authorizationStatus(for: HKQuantityType(.bodyTemperature)) == .sharingDenied {
                 🚩Success = false
                 🚩InputDone = true
-                self.🄷istoryTemp += "HealthStore.authorization 👿?!\n"
+                self.🄷istoryTemp += ".authorization 👿?!\n"
                 return
             }
         }
@@ -105,9 +105,9 @@ class 📱Model: ObservableObject {
                 
                 DispatchQueue.main.async {
                     if self.🚩BasalTemp && self.🛏BasalIs {
-                        self.🄷istoryBasalTemp += "HealthStore.save 👿?!\n"
+                        self.🄷istoryBasalTemp += ".save 👿?!\n"
                     } else {
-                        self.🄷istoryTemp += "HealthStore.save 👿?!\n"
+                        self.🄷istoryTemp += ".save 👿?!\n"
                     }
                     
                     self.🚩Success = false

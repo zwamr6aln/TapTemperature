@@ -81,23 +81,13 @@ struct 🛠Menu: View {
                     NavigationLink {
                         List {
                             NavigationLink {
-                                Text(📱.🄷istoryTemp)
-                                    .toolbar {
-                                        ToolbarItem(placement: .navigationBarTrailing) {
-                                            Button {
-                                                📱.🄷istoryTemp = ""
-                                            } label: {
-                                                Image(systemName: "trash")
-                                                    .tint(.red)
-                                            }
-                                        }
-                                    }
+                                🕛HistoryView(🄷istory: $📱.🄷istoryTemp)
                             } label: {
                                 Text("Body temperature")
                             }
                             
                             NavigationLink {
-                                Text(📱.🄷istoryBasalTemp)
+                                🕛HistoryView(🄷istory: $📱.🄷istoryBasalTemp)
                             } label: {
                                 Text("Basal body temperature")
                             }
@@ -144,10 +134,53 @@ struct 🛠Menu: View {
 }
 
 
+struct 🕛HistoryView: View {
+    @Binding var 🄷istory: String
+    
+    var body: some View {
+        if 🄷istory == "" {
+            Image(systemName: "text.append")
+                .foregroundStyle(.tertiary)
+                .font(.system(size: 64))
+                .navigationTitle("History")
+                .navigationBarTitleDisplayMode(.inline)
+        } else {
+            ScrollView {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    📄PageView(🄷istory, "History")
+                        .toolbar {
+                            ToolbarItem(placement: .navigationBarTrailing) {
+                                Button {
+                                    🄷istory = ""
+                                } label: {
+                                    Image(systemName: "trash")
+                                        .tint(.red)
+                                }
+                            }
+                        }
+                }
+            }
+        }
+    }
+}
 
 
-struct Menu_Previews: PreviewProvider {
-    static var previews: some View {
-        🛠Menu()
+struct 📄PageView: View {
+    var 📄: String
+    
+    var 🏷: String
+    
+    var body: some View {
+        Text(📄)
+            .navigationBarTitle(🏷)
+            .navigationBarTitleDisplayMode(.inline)
+            .font(.caption.monospaced())
+            .padding()
+            .textSelection(.enabled)
+    }
+    
+    init(_ 📄: String, _ 🏷: String) {
+        self.📄 = 📄
+        self.🏷 = 🏷
     }
 }
