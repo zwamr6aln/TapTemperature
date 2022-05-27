@@ -13,6 +13,16 @@ struct 🆗Result: View {
             
             VStack {
                 HStack {
+                    Button {
+                        📱.🗑Cancel()
+                    } label: {
+                        Image(systemName: "arrow.uturn.backward.circle")
+                            .font(.title)
+                            .imageScale(.large)
+                            .foregroundColor(.primary)
+                    }
+                    .opacity(0.75)
+                    
                     Spacer()
                     
                     if 📱.🚩Success == false {

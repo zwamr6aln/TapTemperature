@@ -86,32 +86,59 @@ class 📱Model: ObservableObject {
             }
         }
         
-        🏥HealthStore.save(🅂ample) { 🙆, 🙅 in
-            if 🙆 {
-                print(".save: Success")
-                
-                DispatchQueue.main.async {
-                    if self.🚩BasalTemp && self.🛏BasalIs {
-                        self.🄷istoryBasalTemp += self.🌡Temp.description + " " + self.💾Unit.rawValue + "\n"
-                    } else {
-                        self.🄷istoryTemp += self.🌡Temp.description + " " + self.💾Unit.rawValue + "\n"
-                    }
+        📃Object = 🅂ample
+        
+        if let 📃 = 📃Object {
+            🏥HealthStore.save(📃) { 🙆, 🙅 in
+                if 🙆 {
+                    print(".save: Success")
                     
-                    self.🚩Success = true
-                    self.🚩InputDone = true
+                    DispatchQueue.main.async {
+                        if self.🚩BasalTemp && self.🛏BasalIs {
+                            self.🄷istoryBasalTemp += self.🌡Temp.description + " " + self.💾Unit.rawValue + "\n"
+                        } else {
+                            self.🄷istoryTemp += self.🌡Temp.description + " " + self.💾Unit.rawValue + "\n"
+                        }
+                        
+                        self.🚩Success = true
+                        self.🚩InputDone = true
+                    }
+                } else {
+                    print("🙅:", 🙅.debugDescription)
+                    
+                    DispatchQueue.main.async {
+                        if self.🚩BasalTemp && self.🛏BasalIs {
+                            self.🄷istoryBasalTemp += ".save 👿?!\n"
+                        } else {
+                            self.🄷istoryTemp += ".save 👿?!\n"
+                        }
+                        
+                        self.🚩Success = false
+                        self.🚩InputDone = true
+                    }
                 }
+            }
+        } else {
+            if 🚩BasalTemp && 🛏BasalIs {
+                🄷istoryBasalTemp += "sample→object 👿?!\n"
             } else {
-                print("🙅:", 🙅.debugDescription)
-                
-                DispatchQueue.main.async {
-                    if self.🚩BasalTemp && self.🛏BasalIs {
-                        self.🄷istoryBasalTemp += ".save 👿?!\n"
-                    } else {
-                        self.🄷istoryTemp += ".save 👿?!\n"
-                    }
-                    
-                    self.🚩Success = false
-                    self.🚩InputDone = true
+                🄷istoryTemp += "sample→object 👿?!\n"
+            }
+            
+            🚩Success = false
+            🚩InputDone = true
+        }
+    }
+    
+    var 📃Object: HKQuantitySample?
+    
+    func 🗑Cancel() {
+        if let 📃 = 📃Object {
+            🏥HealthStore.delete(📃) { 🙆, 🙅 in
+                if 🙆 {
+                    print(".delete: Success")
+                } else {
+                    print("🙅:", 🙅.debugDescription)
                 }
             }
         }
