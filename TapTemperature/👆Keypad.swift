@@ -60,6 +60,19 @@ struct 👆Keypad: View {
                                     return true
                                 }
                             }
+                            
+                            if 📱.🧩Temp.count == 1 {
+                                if 📱.🧩Temp.first == 10 {
+                                    if 4 < 🔢 && 🔢 < 10 {
+                                        return true
+                                    }
+                                } else if 📱.🧩Temp.first == 9 {
+                                    if 🔢 < 5 || 🔢 == 11 {
+                                        return true
+                                    }
+                                }
+                            }
+                            
                             return false
                     }
                 }()
