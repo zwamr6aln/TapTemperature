@@ -32,6 +32,8 @@ struct 🆗Result: View {
                     📱.🚩InputDone = false
                 } label: {
                     VStack(spacing: 12) {
+                        Spacer()
+                        
                         Image(systemName: 📱.🚩Success ? "checkmark" : "exclamationmark.triangle")
                             .font(.system(size: 110).weight(.semibold))
                             .minimumScaleFactor(0.1)
@@ -51,27 +53,26 @@ struct 🆗Result: View {
                         }
                         
                         Spacer()
-                            .frame(height: 50)
+                        
+                        HStack {
+                            if 📱.🚩BasalTemp && 📱.🛏BasalIs {
+                                Image(systemName: "bed.double")
+                                    .font(.body.bold())
+                            }
+                            
+                            if 📱.🚩Success {
+                                Text(📱.🌡Temp.description + " " + 📱.💾Unit.rawValue)
+                                    .font(.title2)
+                                    .fontWeight(.bold)
+                            }
+                        }
+                        .padding(.bottom, 36)
+                        .opacity(0.8)
                     }
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
                 .accessibilityLabel("🌏Dismiss")
-                
-                HStack {
-                    if 📱.🚩BasalTemp && 📱.🛏BasalIs {
-                        Image(systemName: "bed.double")
-                            .font(.body.bold())
-                    }
-                    
-                    if 📱.🚩Success {
-                        Text(📱.🌡Temp.description + " " + 📱.💾Unit.rawValue)
-                            .font(.title2)
-                            .fontWeight(.bold)
-                    }
-                }
-                .padding(.bottom, 32)
-                .opacity(0.66)
             }
         }
         .preferredColorScheme(.dark)
