@@ -67,7 +67,7 @@ struct 👆Keypad: View {
                 switch 🔢 {
                     case 1..<10:
                         Button {
-                            📱.ⓐppend(🔢)
+                            📱.🧩Append(🔢)
                         } label: {
                             Text(🔢.description)
                         }
@@ -117,7 +117,7 @@ struct 👆Keypad: View {
                         }()
                         
                         Button {
-                            📱.ⓐppend(０or１０)
+                            📱.🧩Append(０or１０)
                         } label: {
                             Text(０or１０.description)
                         }

@@ -16,6 +16,14 @@ class 📱Model: ObservableObject {
     
     @Published var 🧩Temp: [Int] = []
     
+    
+    @Published var 🛏BasalIs: Bool = true
+    
+    @Published var 🚩InputDone: Bool = false
+    
+    @Published var 🚩Success: Bool = false
+    
+    
     func 🧩Reset() {
         switch 💾Unit {
             case .℃: 🧩Temp = [3]
@@ -24,6 +32,8 @@ class 📱Model: ObservableObject {
     }
     
     var 🌡Temp: Double {
+        if 🧩Temp.count < 3 { return 0.0 }
+        
         var 🌡 = Double(🧩Temp[0].description
                         + 🧩Temp[1].description
                         + "."
@@ -36,7 +46,7 @@ class 📱Model: ObservableObject {
         return 🌡
     }
     
-    func ⓐppend(_ 🔢: Int) {
+    func 🧩Append(_ 🔢: Int) {
         🧩Temp.append(🔢)
         
         if 🚩AutoComplete {
@@ -62,13 +72,6 @@ class 📱Model: ObservableObject {
         }
         🚩InputDone = true
     }
-    
-    
-    @Published var 🛏BasalIs: Bool = true
-    
-    @Published var 🚩InputDone: Bool = false
-    
-    @Published var 🚩Success: Bool = false
     
     
     let 🏥HealthStore = HKHealthStore()
