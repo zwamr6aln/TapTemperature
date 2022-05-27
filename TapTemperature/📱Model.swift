@@ -59,6 +59,8 @@ class 📱Model: ObservableObject {
     
     
     func 🧩Append(_ 🔢: Int) {
+        UISelectionFeedbackGenerator().selectionChanged()
+        
         🧩Temp.append(🔢)
         
         if 🚩AutoComplete {
@@ -72,8 +74,6 @@ class 📱Model: ObservableObject {
     var 📃Sample: HKQuantitySample?
     
     func 🚀Done() {
-        UISelectionFeedbackGenerator().selectionChanged()
-        
         let 🚩BasalTempInput = 🚩BasalTemp && 🛏BasalSwitch
         
         if 🚩BasalTempInput {
@@ -119,6 +119,8 @@ class 📱Model: ObservableObject {
                         self.🚩Success = true
                         self.🚩InputDone = true
                     }
+                    
+                    UINotificationFeedbackGenerator().notificationOccurred(.success)
                 } else {
                     print("🙅:", 🙅.debugDescription)
                     
@@ -152,9 +154,12 @@ class 📱Model: ObservableObject {
             🏥HealthStore.delete(📃) { 🙆, 🙅 in
                 if 🙆 {
                     print(".delete: Success")
+                    
                     DispatchQueue.main.async {
                         self.🚩Canceled = true
                     }
+                    
+                    UINotificationFeedbackGenerator().notificationOccurred(.error)
                 } else {
                     print("🙅:", 🙅.debugDescription)
                 }
