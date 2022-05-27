@@ -47,7 +47,7 @@ struct 🪧Label: View {
             if 📱.🧩Temp.indices.contains(3) {
                 Text(📱.🧩Temp[3].description)
             } else {
-                if 📱.🚩2ndDecimalPlace {
+                if 📱.🚩2DecimalPlace {
                     Text("0").opacity(0)
                         .overlay {
                             Text("_")

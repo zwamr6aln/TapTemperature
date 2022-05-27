@@ -13,7 +13,7 @@ struct 🆗Result: View {
             
             VStack {
                 HStack {
-                    if 📱.🚩BasalTemp && 📱.🛏Is {
+                    if 📱.🚩BasalTemp && 📱.🛏BasalIs {
                         Image(systemName: "bed.double")
                             .font(.title)
                             .opacity(0.4)

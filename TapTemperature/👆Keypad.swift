@@ -11,7 +11,7 @@ struct 👆Keypad: View {
             ForEach(1..<13) { 🔢 in
                 
                 let 🄳isable: Bool = {
-                    if 📱.🧩Temp.count == 3 && (📱.🚩2ndDecimalPlace == false) {
+                    if 📱.🧩Temp.count == 3 && (📱.🚩2DecimalPlace == false) {
                         return true
                     }
                     
@@ -82,7 +82,7 @@ struct 👆Keypad: View {
                                     return "checkmark.circle"
                                 }
                                 
-                                if 📱.🚩2ndDecimalPlace {
+                                if 📱.🚩2DecimalPlace {
                                     switch 📱.🧩Temp.count {
                                         case 0: return "4.circle"
                                         case 1: return "3.circle"

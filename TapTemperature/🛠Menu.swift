@@ -22,7 +22,7 @@ struct 🛠MenuButton: View { // ⚙️
 }
 
 
-enum 🄴numUnit: String, CaseIterable {
+enum 📏EnumUnit: String, CaseIterable {
     case ℃
     case ℉
 }
@@ -38,7 +38,7 @@ struct 🛠Menu: View {
             List {
                 Section {
                     Picker(selection: $📱.💾Unit) {
-                        ForEach(🄴numUnit.allCases, id: \.self) { 🏷 in
+                        ForEach(📏EnumUnit.allCases, id: \.self) { 🏷 in
                             Text(🏷.rawValue)
                         }
                     } label: {
@@ -64,7 +64,7 @@ struct 🛠Menu: View {
                         Label("Auto complete", systemImage: "checkmark.circle.trianglebadge.exclamationmark")
                     }
                     
-                    Toggle(isOn: $📱.🚩2ndDecimalPlace) {
+                    Toggle(isOn: $📱.🚩2DecimalPlace) {
                         let 🪧: String = {
                             switch 📱.💾Unit {
                                 case .℃: return "36.1 ℃  →  36.12︭ ℃"

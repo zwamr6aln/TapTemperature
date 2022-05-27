@@ -5,11 +5,11 @@ import HealthKit
 
 class 📱Model: ObservableObject {
     
-    @AppStorage("Unit") var 💾Unit: 🄴numUnit = .℃
+    @AppStorage("Unit") var 💾Unit: 📏EnumUnit = .℃
     
     @AppStorage("BasalTemp") var 🚩BasalTemp: Bool = false
     
-    @AppStorage("2ndDecimalPlace") var 🚩2ndDecimalPlace: Bool = false
+    @AppStorage("2ndDecimalPlace") var 🚩2DecimalPlace: Bool = false
     
     @AppStorage("AutoComplete") var 🚩AutoComplete: Bool = false
     
@@ -40,14 +40,14 @@ class 📱Model: ObservableObject {
         🧩Temp.append(🔢)
         
         if 🚩AutoComplete {
-            if 🧩Temp.count == (🚩2ndDecimalPlace ? 4 : 3) {
+            if 🧩Temp.count == (🚩2DecimalPlace ? 4 : 3) {
                 🚀Done()
             }
         }
     }
     
     func 🚀Done() {
-        🏥HealthStore.save(🅂ampleTemp) { 🙆, 🙅 in
+        🏥HealthStore.save(🅂ample) { 🙆, 🙅 in
             if 🙆 {
                 print(".save: Success")
                 DispatchQueue.main.async {
@@ -64,7 +64,7 @@ class 📱Model: ObservableObject {
     }
     
     
-    @Published var 🛏Is: Bool = true
+    @Published var 🛏BasalIs: Bool = true
     
     @Published var 🚩InputDone: Bool = false
     
@@ -80,21 +80,21 @@ class 📱Model: ObservableObject {
         }
     }
     
-    var 🅀uantityTemp: HKQuantity {
+    var 🅀uantity: HKQuantity {
         HKQuantity(unit: 🅄nit, doubleValue: 🌡Temp)
     }
     
     var 🅃ype: HKQuantityType {
-        if 🚩BasalTemp && 🛏Is {
+        if 🚩BasalTemp && 🛏BasalIs {
             return HKQuantityType(.basalBodyTemperature)
         } else {
             return HKQuantityType(.bodyTemperature)
         }
     }
     
-    var 🅂ampleTemp: HKQuantitySample {
+    var 🅂ample: HKQuantitySample {
         HKQuantitySample(type: 🅃ype,
-                         quantity: 🅀uantityTemp,
+                         quantity: 🅀uantity,
                          start: .now,
                          end: .now)
     }
