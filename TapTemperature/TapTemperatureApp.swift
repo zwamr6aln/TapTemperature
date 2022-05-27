@@ -18,9 +18,6 @@ struct TapTemperatureApp: App {
 
 
 
-// TODO: Implement basal temp
-// TODO: Implement unit ℉
-
 // TODO: Implement local history
 // TODO: Implement document view
 // TODO: Add localization
