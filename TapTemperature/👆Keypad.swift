@@ -11,6 +11,10 @@ struct 👆Keypad: View {
             ForEach(1..<13) { 🔢 in
                 
                 let 🄳isable: Bool = {
+                    if 📱.🧩Temp.count == 3 && (📱.🚩2ndDecimalPlace == false) {
+                        return true
+                    }
+                    
                     if 📱.🧩Temp.count == 4 {
                         return true
                     }
@@ -66,7 +70,6 @@ struct 👆Keypad: View {
                             📱.ⓐppend(🔢)
                         } label: {
                             Text(🔢.description)
-                                .fontWeight(📱.🧩Temp.count >= 3 && !(📱.🚩2ndDecimalPlace) ? .regular : nil)
                         }
                         .tint(.primary)
                         .disabled(🄳isable)
@@ -117,7 +120,6 @@ struct 👆Keypad: View {
                             📱.ⓐppend(０or１０)
                         } label: {
                             Text(０or１０.description)
-                                .fontWeight(📱.🧩Temp.count >= 3 && !(📱.🚩2ndDecimalPlace) ? .regular : nil)
                         }
                         .tint(.primary)
                         .disabled(🄳isable)
