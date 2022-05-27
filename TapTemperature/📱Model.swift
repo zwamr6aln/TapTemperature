@@ -24,7 +24,9 @@ class 📱Model: ObservableObject {
     @Published var 🚩Success: Bool = false
     
     
-    @AppStorage("history") var 🄷istory: String = ""
+    @AppStorage("history") var 🄷istoryTemp: String = ""
+    
+    @AppStorage("historyBasal") var 🄷istoryBasalTemp: String = ""
     
     
     func 🧩Reset() {
@@ -76,22 +78,36 @@ class 📱Model: ObservableObject {
             }
         }
         
-        🄷istory += 🚩BasalTemp ? "Basal body temperature " : "Body temperature "
-        
-        🄷istory += Date.now.formatted(date: .numeric, time: .shortened) + ": "
+        if 🚩BasalTemp && self.🛏BasalIs {
+            🄷istoryBasalTemp += Date.now.formatted(date: .numeric, time: .shortened) + ", "
+        } else {
+            🄷istoryTemp += Date.now.formatted(date: .numeric, time: .shortened) + ", "
+        }
         
         🏥HealthStore.save(🅂ample) { 🙆, 🙅 in
             if 🙆 {
                 print(".save: Success")
+                
                 DispatchQueue.main.async {
-                    self.🄷istory += self.🌡Temp.description + " " + self.💾Unit.rawValue + "\n"
+                    if self.🚩BasalTemp && self.🛏BasalIs {
+                        self.🄷istoryBasalTemp += self.🌡Temp.description + " " + self.💾Unit.rawValue + "\n"
+                    } else {
+                        self.🄷istoryTemp += self.🌡Temp.description + " " + self.💾Unit.rawValue + "\n"
+                    }
+                    
                     self.🚩Success = true
                     self.🚩InputDone = true
                 }
             } else {
                 print("🙅:", 🙅.debugDescription)
+                
                 DispatchQueue.main.async {
-                    self.🄷istory += "HealthStore.save error?!\n"
+                    if self.🚩BasalTemp && self.🛏BasalIs {
+                        self.🄷istoryBasalTemp += "HealthStore.save error?!\n"
+                    } else {
+                        self.🄷istoryTemp += "HealthStore.save error?!\n"
+                    }
+                    
                     self.🚩Success = false
                     self.🚩InputDone = true
                 }

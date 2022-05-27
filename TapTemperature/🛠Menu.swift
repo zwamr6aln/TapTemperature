@@ -36,7 +36,9 @@ struct 🛠Menu: View {
     var body: some View {
         NavigationView {
             List {
-                Text(📱.🄷istory)
+                Text(📱.🄷istoryTemp)
+                
+                Text(📱.🄷istoryBasalTemp)
                 
                 Section {
                     Picker(selection: $📱.💾Unit) {
