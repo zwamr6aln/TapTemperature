@@ -36,10 +36,6 @@ struct 🛠Menu: View {
     var body: some View {
         NavigationView {
             List {
-                Text(📱.🄷istoryTemp)
-                
-                Text(📱.🄷istoryBasalTemp)
-                
                 Section {
                     Picker(selection: $📱.💾Unit) {
                         ForEach(📏EnumUnit.allCases, id: \.self) { 🏷 in
@@ -77,6 +73,37 @@ struct 🛠Menu: View {
                         }()
                         
                         Label(🪧, systemImage: "character.cursor.ibeam")
+                    }
+                }
+                
+                
+                Section {
+                    NavigationLink {
+                        List {
+                            NavigationLink {
+                                Text(📱.🄷istoryTemp)
+                                    .toolbar {
+                                        ToolbarItem(placement: .navigationBarTrailing) {
+                                            Button {
+                                                📱.🄷istoryTemp = ""
+                                            } label: {
+                                                Image(systemName: "trash")
+                                                    .tint(.red)
+                                            }
+                                        }
+                                    }
+                            } label: {
+                                Text("Body temperature")
+                            }
+                            
+                            NavigationLink {
+                                Text(📱.🄷istoryBasalTemp)
+                            } label: {
+                                Text("Basal body temperature")
+                            }
+                        }
+                    } label: {
+                        Label("Local history", systemImage: "doc")
                     }
                 }
                 
