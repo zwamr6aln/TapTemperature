@@ -77,27 +77,6 @@ struct 🛠Menu: View {
                 }
                 
                 
-                Section {
-                    NavigationLink {
-                        List {
-                            NavigationLink {
-                                🕛HistoryView(🄷istory: $📱.🄷istoryTemp)
-                            } label: {
-                                Text("Body temperature")
-                            }
-                            
-                            NavigationLink {
-                                🕛HistoryView(🄷istory: $📱.🄷istoryBasalTemp)
-                            } label: {
-                                Text("Basal body temperature")
-                            }
-                        }
-                    } label: {
-                        Label("Local history", systemImage: "doc")
-                    }
-                }
-                
-                
                 Link (destination: URL(string: "x-apple-health://")!) {
                     HStack {
                         Label("🌏Open \"Health\" app", systemImage: "heart")
@@ -107,6 +86,27 @@ struct 🛠Menu: View {
                         Image(systemName: "arrow.up.forward.app")
                     }
                     .font(.body.weight(.medium))
+                }
+                
+                
+                Section {
+                    NavigationLink {
+                        🕛HistoryView(🄷istory: $📱.🄷istoryTemp)
+                    } label: {
+                        Label("Body temperature", systemImage: "figure.stand")
+                            .foregroundStyle(.primary)
+                    }
+                    
+                    NavigationLink {
+                        🕛HistoryView(🄷istory: $📱.🄷istoryBasalTemp)
+                    } label: {
+                        Label("Basal body temperature", systemImage: "bed.double")
+                            .foregroundStyle(.primary)
+                    }
+                } header: {
+                    Label("Local history", systemImage: "clock")
+                } footer: {
+                    Text("🌏\"Local history\" is for the porpose of \"operation check\" / \"temporary backup\"")
                 }
                 
                 
