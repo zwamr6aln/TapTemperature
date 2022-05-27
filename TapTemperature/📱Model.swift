@@ -69,18 +69,6 @@ class 📱Model: ObservableObject {
     }
     
     
-    var 🅀uantity: HKQuantity {
-        HKQuantity(unit: 💾Unit.ⒽKUnit, doubleValue: 🌡Temp)
-    }
-    
-    var 🅃ype: HKQuantityType {
-        if 🚩BasalTemp && 🛏BasalSwitch {
-            return HKQuantityType(.basalBodyTemperature)
-        } else {
-            return HKQuantityType(.bodyTemperature)
-        }
-    }
-    
     var 📃Sample: HKQuantitySample?
     
     func 🚀Done() {
@@ -108,8 +96,11 @@ class 📱Model: ObservableObject {
             }
         }
         
+        
+        let 🅃ype = HKQuantityType(🚩BasalTemp && 🛏BasalSwitch ? .basalBodyTemperature : .bodyTemperature)
+        
         📃Sample = HKQuantitySample(type: 🅃ype,
-                                    quantity: 🅀uantity,
+                                    quantity: HKQuantity(unit: 💾Unit.ⒽKUnit, doubleValue: 🌡Temp),
                                     start: .now,
                                     end: .now)
         
