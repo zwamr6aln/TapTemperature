@@ -51,6 +51,9 @@ struct 🛠Menu: View {
                     Toggle(isOn: $📱.🚩BasalTemp) {
                         Label("Basal body temperature", systemImage: "bed.double")
                     }
+                    .onChange(of: 📱.🚩BasalTemp) { _ in
+                        📱.🏥RequestAuthorization(HKQuantityType(.basalBodyTemperature))
+                    }
                 } header: {
                     Text("Option")
                 }

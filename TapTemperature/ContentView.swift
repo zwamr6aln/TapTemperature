@@ -53,21 +53,14 @@ struct ContentView: View {
         .fullScreenCover(isPresented: $📱.🚩InputDone) {
             🆗Result()
                 .onChange(of: 🔛) { 🄽ow in
-                    if 🄽ow == .background {
+                    if 🄽ow == .background && 📱.🚩InputDone {
                         📱.🚩InputDone = false
-                        📱.🧩Temp = [3]
+                        📱.🧩Reset()
                     }
                 }
         }
         .onAppear {
-            let 🅃ype: Set<HKSampleType> = [HKQuantityType(.bodyTemperature)]
-            📱.🏥HealthStore.requestAuthorization(toShare: 🅃ype, read: nil) { 🆗, 👿 in
-                if 🆗 {
-                    print("requestAuthorization/bodyTemp: Success")
-                } else {
-                    print("👿:", 👿.debugDescription)
-                }
-            }
+            📱.🏥RequestAuthorization(HKQuantityType(.bodyTemperature))
             
             📱.🧩Reset()
         }

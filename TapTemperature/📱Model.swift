@@ -47,9 +47,9 @@ class 📱Model: ObservableObject {
     }
     
     func 🚀Done() {
-        🏥HealthStore.save(🄳ataTemp) { 🙆, 🙅 in
+        🏥HealthStore.save(🅂ampleTemp) { 🙆, 🙅 in
             if 🙆 {
-                print(".save/.bodyTemp: Success")
+                print(".save: Success")
                 DispatchQueue.main.async {
                     self.🚩Success = true
                 }
@@ -84,17 +84,28 @@ class 📱Model: ObservableObject {
         HKQuantity(unit: 🅄nit, doubleValue: 🌡Temp)
     }
     
-    var 🄳ataTemp: HKQuantitySample {
-        HKQuantitySample(type: HKQuantityType(.bodyTemperature),
+    var 🅃ype: HKQuantityType {
+        if 🚩BasalTemp {
+            return HKQuantityType(.basalBodyTemperature)
+        } else {
+            return HKQuantityType(.bodyTemperature)
+        }
+    }
+    
+    var 🅂ampleTemp: HKQuantitySample {
+        HKQuantitySample(type: 🅃ype,
                          quantity: 🅀uantityTemp,
                          start: .now,
                          end: .now)
     }
     
-    var 🄳ataBasalTemp: HKQuantitySample {
-        HKQuantitySample(type: HKQuantityType(.basalBodyTemperature),
-                         quantity: 🅀uantityTemp,
-                         start: .now,
-                         end: .now)
+    func 🏥RequestAuthorization(_ ⓣype: HKQuantityType) {
+        🏥HealthStore.requestAuthorization(toShare: [ⓣype], read: nil) { 🆗, 👿 in
+            if 🆗 {
+                print(".requestAuthorization: Success")
+            } else {
+                print("👿:", 👿.debugDescription)
+            }
+        }
     }
 }
