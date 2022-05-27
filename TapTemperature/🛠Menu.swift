@@ -62,8 +62,14 @@ struct 🛠Menu: View {
                     }
                     
                     Toggle(isOn: $📱.🚩2ndDecimalPlace) {
-                        Label("36.1\(📱.💾Unit.rawValue)  →  36.12︭\(📱.💾Unit.rawValue)",
-                              systemImage: "character.cursor.ibeam")
+                        let 🪧: String = {
+                            switch 📱.💾Unit {
+                                case .℃: return "36.1 ℃  →  36.12︭ ℃"
+                                case .℉: return "100.1 ℉  →  100.12︭ ℉"
+                            }
+                        }()
+                        
+                        Label(🪧, systemImage: "character.cursor.ibeam")
                     }
                 }
                 

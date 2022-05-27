@@ -29,7 +29,7 @@ struct 🆗Result: View {
                     }
                     
                     💟JumpButton()
-                        .opacity(0.8)
+                        .opacity(0.75)
                 }
                 .overlay {
                     if 📱.🚩Success && 📱.🚩AutoComplete {
