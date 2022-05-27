@@ -74,30 +74,30 @@ class 📱Model: ObservableObject {
     func 🚀Done() {
         UISelectionFeedbackGenerator().selectionChanged()
         
-        if 🚩BasalTemp && 🛏BasalSwitch {
+        let 🚩BasalTempInput = 🚩BasalTemp && 🛏BasalSwitch
+        
+        if 🚩BasalTempInput {
             🄷istoryBasalTemp += Date.now.formatted(date: .numeric, time: .shortened) + ", "
         } else {
             🄷istoryTemp += Date.now.formatted(date: .numeric, time: .shortened) + ", "
         }
         
-        if 🚩BasalTemp && 🛏BasalSwitch {
-            if 🏥HealthStore.authorizationStatus(for: HKQuantityType(.basalBodyTemperature)) == .sharingDenied {
-                🚩Success = false
-                🚩InputDone = true
+        
+        let 🅃ype = HKQuantityType(🚩BasalTempInput ? .basalBodyTemperature : .bodyTemperature)
+        
+        if 🏥HealthStore.authorizationStatus(for: 🅃ype) == .sharingDenied {
+            🚩Success = false
+            🚩InputDone = true
+            
+            if 🚩BasalTempInput {
                 🄷istoryBasalTemp += ".authorization: Error?!\n"
-                return
-            }
-        } else {
-            if 🏥HealthStore.authorizationStatus(for: HKQuantityType(.bodyTemperature)) == .sharingDenied {
-                🚩Success = false
-                🚩InputDone = true
+            } else {
                 🄷istoryTemp += ".authorization: Error?!\n"
-                return
             }
+            
+            return
         }
         
-        
-        let 🅃ype = HKQuantityType(🚩BasalTemp && 🛏BasalSwitch ? .basalBodyTemperature : .bodyTemperature)
         
         📃Sample = HKQuantitySample(type: 🅃ype,
                                     quantity: HKQuantity(unit: 💾Unit.ⒽKUnit, doubleValue: 🌡Temp),
@@ -110,7 +110,7 @@ class 📱Model: ObservableObject {
                     print(".save: Success")
                     
                     DispatchQueue.main.async {
-                        if self.🚩BasalTemp && self.🛏BasalSwitch {
+                        if 🚩BasalTempInput {
                             self.🄷istoryBasalTemp += self.🌡Temp.description + " " + self.💾Unit.rawValue + "\n"
                         } else {
                             self.🄷istoryTemp += self.🌡Temp.description + " " + self.💾Unit.rawValue + "\n"
@@ -123,7 +123,7 @@ class 📱Model: ObservableObject {
                     print("🙅:", 🙅.debugDescription)
                     
                     DispatchQueue.main.async {
-                        if self.🚩BasalTemp && self.🛏BasalSwitch {
+                        if 🚩BasalTempInput {
                             self.🄷istoryBasalTemp += ".save: Error?!\n"
                         } else {
                             self.🄷istoryTemp += ".save: Error?!\n"
@@ -135,7 +135,7 @@ class 📱Model: ObservableObject {
                 }
             }
         } else {
-            if 🚩BasalTemp && 🛏BasalSwitch {
+            if 🚩BasalTempInput {
                 🄷istoryBasalTemp += "HKQuantitySample: Error?!\n"
             } else {
                 🄷istoryTemp += "HKQuantitySample: Error?!\n"
