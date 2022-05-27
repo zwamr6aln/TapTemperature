@@ -54,15 +54,6 @@ struct 🛠Menu: View {
                     .onChange(of: 📱.🚩BasalTemp) { _ in
                         📱.🏥RequestAuthorization(HKQuantityType(.basalBodyTemperature))
                     }
-                } header: {
-                    Text("Option")
-                }
-                
-                
-                Section {
-                    Toggle(isOn: $📱.🚩AutoComplete) {
-                        Label("Auto complete", systemImage: "checkmark.circle.trianglebadge.exclamationmark")
-                    }
                     
                     Toggle(isOn: $📱.🚩2DecimalPlace) {
                         let 🪧: String = {
@@ -74,6 +65,12 @@ struct 🛠Menu: View {
                         
                         Label(🪧, systemImage: "character.cursor.ibeam")
                     }
+                    
+                    Toggle(isOn: $📱.🚩AutoComplete) {
+                        Label("Auto complete", systemImage: "checkmark.circle.trianglebadge.exclamationmark")
+                    }
+                } header: {
+                    Text("Option")
                 }
                 
                 
