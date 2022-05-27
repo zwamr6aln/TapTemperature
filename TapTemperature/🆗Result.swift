@@ -13,17 +13,6 @@ struct 🆗Result: View {
             
             VStack {
                 HStack {
-                    if 📱.🚩BasalTemp && 📱.🛏BasalIs {
-                        Image(systemName: "bed.double")
-                            .font(.body.bold())
-                    }
-                    
-                    if 📱.🚩Success {
-                        Text(📱.🌡Temp.description + " " + 📱.💾Unit.rawValue)
-                            .font(.title2)
-                            .fontWeight(.bold)
-                    }
-                    
                     Spacer()
                     
                     if 📱.🚩Success == false {
@@ -43,7 +32,7 @@ struct 🆗Result: View {
                     📱.🚩InputDone = false
                 } label: {
                     VStack(spacing: 12) {
-                        Image(systemName: 📱.🚩Success ? "app.badge.checkmark" : "exclamationmark.triangle")
+                        Image(systemName: 📱.🚩Success ? "checkmark" : "exclamationmark.triangle")
                             .font(.system(size: 110).weight(.semibold))
                             .minimumScaleFactor(0.1)
                         
@@ -68,6 +57,21 @@ struct 🆗Result: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
                 .accessibilityLabel("🌏Dismiss")
+                
+                HStack {
+                    if 📱.🚩BasalTemp && 📱.🛏BasalIs {
+                        Image(systemName: "bed.double")
+                            .font(.body.bold())
+                    }
+                    
+                    if 📱.🚩Success {
+                        Text(📱.🌡Temp.description + " " + 📱.💾Unit.rawValue)
+                            .font(.title2)
+                            .fontWeight(.bold)
+                    }
+                }
+                .padding(.bottom, 32)
+                .opacity(0.66)
             }
         }
         .preferredColorScheme(.dark)
