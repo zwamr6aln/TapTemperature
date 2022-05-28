@@ -9,7 +9,7 @@ class 📱Model: ObservableObject {
     
     @AppStorage("BasalTemp") var 🚩BasalTemp: Bool = false
     
-    @AppStorage("2DecimalPlace") var 🚩2DecimalPlace: Bool = false
+    @AppStorage("2DecimalPlace") var 🚩2: Bool = false
     
     @AppStorage("AutoComplete") var 🚩AutoComplete: Bool = false
     
@@ -62,7 +62,7 @@ class 📱Model: ObservableObject {
         🧩Temp.append(🔢)
         
         if 🚩AutoComplete {
-            if 🧩Temp.count == (🚩2DecimalPlace ? 4 : 3) {
+            if 🧩Temp.count == (🚩2 ? 4 : 3) {
                 🚀Done()
                 return
             }

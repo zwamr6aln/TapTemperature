@@ -57,7 +57,7 @@ struct ContentView: View {
                     Spacer()
                     
                     if 📱.🚩AutoComplete {
-                        if 📱.🧩Temp.count == (📱.🚩2DecimalPlace ? 3 : 2) {
+                        if 📱.🧩Temp.count == (📱.🚩2 ? 3 : 2) {
                             Rectangle()
                                 .frame(height: 16 + 📐.safeAreaInsets.bottom)
                                 .foregroundColor(.pink)

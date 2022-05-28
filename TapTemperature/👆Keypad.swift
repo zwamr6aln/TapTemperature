@@ -10,7 +10,7 @@ struct 👆Keypad: View {
         LazyVGrid(columns: ꠲, spacing: 32) {
             ForEach(1 ..< 13) { 🔢 in
                 let 🄳isable: Bool = {
-                    if 📱.🧩Temp.count == 3 && (📱.🚩2DecimalPlace == false) {
+                    if 📱.🧩Temp.count == 3 && (📱.🚩2 == false) {
                         return true
                     }
                     
@@ -83,7 +83,7 @@ struct 👆Keypad: View {
                                     return "checkmark.circle"
                                 }
                                 
-                                if 📱.🚩2DecimalPlace {
+                                if 📱.🚩2 {
                                     switch 📱.🧩Temp.count {
                                         case 0: return "4.circle"
                                         case 1: return "3.circle"

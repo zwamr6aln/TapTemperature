@@ -51,7 +51,7 @@ struct 🛠Menu: View {
                         📱.🏥RequestAuthorization(HKQuantityType(.basalBodyTemperature))
                     }
                     
-                    Toggle(isOn: $📱.🚩2DecimalPlace) {
+                    Toggle(isOn: $📱.🚩2) {
                         let 🪧: String = {
                             switch 📱.💾Unit {
                                 case .℃: return "36.1 ℃  →  36.12︭ ℃"
