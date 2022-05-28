@@ -19,6 +19,7 @@ struct ContentView: View {
                     } label: {
                         Image(systemName: "bed.double")
                             .foregroundStyle(📱.🛏BasalSwitch ? .primary : .quaternary)
+                            .padding(.vertical)
                             .overlay {
                                 if 📱.🛏BasalSwitch == false {
                                     Image(systemName: "xmark")
@@ -34,7 +35,6 @@ struct ContentView: View {
                 
                 💟JumpButton()
             }
-            .padding(.top)
             .padding(.horizontal, 20)
             
             Spacer()
@@ -50,7 +50,7 @@ struct ContentView: View {
             
             👆Keypad()
         }
-        .overlay {
+        .background {
             GeometryReader { 📐 in
                 VStack {
                     Spacer()
@@ -87,6 +87,7 @@ struct 💟JumpButton: View {
         Link(destination: URL(string: "x-apple-health://")!) {
             Image(systemName: "app")
                 .imageScale(.large)
+                .padding(.vertical)
                 .overlay {
                     Image(systemName: "heart")
                         .imageScale(.small)

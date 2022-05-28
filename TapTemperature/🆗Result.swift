@@ -21,6 +21,7 @@ struct 🆗Result: View {
                                 .font(.title)
                                 .imageScale(.large)
                                 .foregroundColor(.primary)
+                                .padding(.vertical)
                         }
                         
                         if 📱.🚩Canceled {
@@ -40,11 +41,14 @@ struct 🆗Result: View {
                     💟JumpButton()
                 }
                 .opacity(0.75)
-                .padding(.top)
                 .padding(.horizontal, 20)
                 
                 Button {
                     📱.🚩InputDone = false
+                    
+                    📱.🚩Canceled = false
+                    
+                    📱.🧩Reset()
                 } label: {
                     VStack(spacing: 12) {
                         Spacer()
@@ -97,11 +101,6 @@ struct 🆗Result: View {
             }
         }
         .preferredColorScheme(.dark)
-        .onChange(of: 📱.🚩InputDone) { 🚩 in
-            if 🚩 == false {
-                📱.🚩Canceled = false
-            }
-        }
         .animation(.default, value: 📱.🚩Canceled)
     }
 }

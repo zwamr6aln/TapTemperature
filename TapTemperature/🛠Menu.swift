@@ -13,6 +13,7 @@ struct 🛠MenuButton: View { // ⚙️
         } label: {
             Image(systemName: "gearshape")
                 .font(.title)
+                .padding(.vertical)
         }
         .tint(.primary)
         .popover(isPresented: $🚩Menu) {
