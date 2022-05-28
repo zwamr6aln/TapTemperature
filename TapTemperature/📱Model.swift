@@ -41,6 +41,8 @@ class 📱Model: ObservableObject {
     
     @AppStorage("2DecimalPlace") var 🙆2桁小数: Bool = false
     
+    @AppStorage("2DecimalPlace") var 🙆2nd小数桁: Bool = false
+    
     @AppStorage("2DecimalPlace") var 🙆小数点2桁: Bool = false
     
     @AppStorage("2DecimalPlace") var a2nd: Bool = false
