@@ -50,6 +50,24 @@ struct ContentView: View {
             
             👆Keypad()
         }
+        .background {
+            VStack {
+                Spacer()
+                
+                if 📱.🚩AutoComplete {
+                    if 📱.🧩Temp.count == (📱.🚩2DecimalPlace ? 3 : 2) {
+                        Rectangle()
+                            .frame(height: 40)
+                            .foregroundColor(.pink)
+                            .shadow(radius: 3)
+                            .transition(.asymmetric(insertion: .move(edge: .bottom),
+                                                    removal: .opacity))
+                    }
+                }
+            }
+            .ignoresSafeArea()
+            .animation(.default.speed(2), value: 📱.🧩Temp.count)
+        }
         .fullScreenCover(isPresented: $📱.🚩InputDone) {
             🆗Result()
         }
