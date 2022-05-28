@@ -19,17 +19,9 @@ class 📱Model: ObservableObject {
     
     @AppStorage("2DecimalPlace") var 🪧2nd: Bool = false
     
-    @AppStorage("2DecimalPlace") var 🏁2nd: Bool = false
-    
     @AppStorage("2DecimalPlace") var 🏳️2nd: Bool = false
     
     @AppStorage("2DecimalPlace") var 🏴2nd: Bool = false
-    
-    @AppStorage("2DecimalPlace") var 🏳️‍🌈2nd: Bool = false
-    
-    @AppStorage("2DecimalPlace") var a2nd: Bool = false
-    
-    @AppStorage("2DecimalPlace") var あ2nd: Bool = false
     
     @AppStorage("2DecimalPlace") var 📁2nd: Bool = false
     
@@ -45,7 +37,11 @@ class 📱Model: ObservableObject {
     
     @AppStorage("2DecimalPlace") var 🙆second: Bool = false
     
-    @AppStorage("2DecimalPlace") var 🙆Third: Bool = false
+    @AppStorage("2DecimalPlace") var 🙆セカンド: Bool = false
+    
+    @AppStorage("2DecimalPlace") var a2nd: Bool = false
+    
+    @AppStorage("2DecimalPlace") var あ2nd: Bool = false
     
     @AppStorage("AutoComplete") var 🚩AutoComplete: Bool = false
     
