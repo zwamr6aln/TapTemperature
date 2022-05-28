@@ -49,11 +49,11 @@ struct 👆Keypad: View {
                             
                             if 📱.🧩Temp.count == 1 {
                                 if 📱.🧩Temp.first == 10 {
-                                    if 4 < 🔢 && 🔢 < 10 {
+                                    if 5 < 🔢 && 🔢 < 10 {
                                         return true
                                     }
                                 } else if 📱.🧩Temp.first == 9 {
-                                    if 🔢 < 5 || 🔢 == 11 {
+                                    if 🔢 < 4 || 🔢 == 11 {
                                         return true
                                     }
                                 }
