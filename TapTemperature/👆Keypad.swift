@@ -144,8 +144,7 @@ struct 👆Keypad: View {
             .font(.system(size: 48, weight: .medium, design: .rounded))
         }
         .padding()
-        .padding(.top, 12)
-        .padding(.bottom, 32)
+        .padding(.vertical, 8)
     }
 }
 
