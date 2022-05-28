@@ -102,7 +102,7 @@ class 📱Model: ObservableObject {
                     print(".save: Success")
                     
                     DispatchQueue.main.async {
-                        self.🄷istory += self.🌡Temp.description + " " + self.💾Unit.rawValue + "\n"
+                        self.🄷istory += self.💾Unit.rawValue + ", " + self.🌡Temp.description + "\n"
                         
                         self.🚩Success = true
                         self.🚩InputDone = true
@@ -137,11 +137,16 @@ class 📱Model: ObservableObject {
                     
                     DispatchQueue.main.async {
                         self.🚩Canceled = true
+                        self.🄷istory += "Cancellation: success\n"
                     }
                     
                     UINotificationFeedbackGenerator().notificationOccurred(.error)
                 } else {
                     print("🙅:", 🙅.debugDescription)
+                    
+                    DispatchQueue.main.async {
+                        self.🄷istory += "Cancellation: error\n"
+                    }
                 }
             }
         }
