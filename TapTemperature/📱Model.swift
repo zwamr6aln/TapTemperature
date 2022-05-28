@@ -11,6 +11,16 @@ class 📱Model: ObservableObject {
     
     @AppStorage("2DecimalPlace") var 🚩2: Bool = false
     
+    @AppStorage("2DecimalPlace") var 🚩2n: Bool = false
+    
+    @AppStorage("2DecimalPlace") var 🚩2nd: Bool = false
+    
+    @AppStorage("2DecimalPlace") var 🚩2Decimal: Bool = false
+    
+    @AppStorage("2DecimalPlace") var 🚩2Place: Bool = false
+    
+    @AppStorage("2DecimalPlace") var 🚩2DecimalPlace: Bool = false
+    
     @AppStorage("AutoComplete") var 🚩AutoComplete: Bool = false
     
     
