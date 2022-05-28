@@ -13,11 +13,9 @@ class 📱Model: ObservableObject {
     
     @AppStorage("2DecimalPlace") var 🚩2nd: Bool = false
     
-    @AppStorage("2DecimalPlace") var 🚩2Decimal: Bool = false
+    @AppStorage("2DecimalPlace") var 🚩2ndDecimal: Bool = false
     
-    @AppStorage("2DecimalPlace") var 🚩2Place: Bool = false
-    
-    @AppStorage("2DecimalPlace") var 🚩2DecimalPlace: Bool = false
+    @AppStorage("2DecimalPlace") var 🚩2ndDecimalPlace: Bool = false
     
     @AppStorage("2DecimalPlace") var 🪧2nd: Bool = false
     
@@ -35,7 +33,19 @@ class 📱Model: ObservableObject {
     
     @AppStorage("2DecimalPlace") var 📁2nd: Bool = false
     
+    @AppStorage("2DecimalPlace") var 🙆1st: Bool = false
+    
     @AppStorage("2DecimalPlace") var 🙆2nd: Bool = false
+    
+    @AppStorage("2DecimalPlace") var 🙆3rd: Bool = false
+    
+    @AppStorage("2DecimalPlace") var 🙆10th: Bool = false
+    
+    @AppStorage("2DecimalPlace") var 🙆10000: Bool = false
+    
+    @AppStorage("2DecimalPlace") var 🙆second: Bool = false
+    
+    @AppStorage("2DecimalPlace") var 🙆Third: Bool = false
     
     @AppStorage("AutoComplete") var 🚩AutoComplete: Bool = false
     
