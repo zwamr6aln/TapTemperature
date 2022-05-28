@@ -19,19 +19,13 @@ class 📱Model: ObservableObject {
     
     @AppStorage("2DecimalPlace") var 🚩DecimalPlace2nd: Bool = false
     
-    @AppStorage("2DecimalPlace") var 🪧2nd: Bool = false
-    
     @AppStorage("2DecimalPlace") var 🏳️2nd: Bool = false
-    
-    @AppStorage("2DecimalPlace") var 🏴2nd: Bool = false
     
     @AppStorage("2DecimalPlace") var 📁2nd: Bool = false
     
     @AppStorage("2DecimalPlace") var 🙆1st: Bool = false
     
     @AppStorage("2DecimalPlace") var 🙆2nd: Bool = false
-    
-    @AppStorage("2DecimalPlace") var 🙆3rd: Bool = false
     
     @AppStorage("2DecimalPlace") var 🙆10th: Bool = false
     
