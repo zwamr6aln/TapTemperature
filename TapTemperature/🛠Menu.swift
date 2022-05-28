@@ -84,20 +84,10 @@ struct 🛠Menu: View {
                 
                 Section {
                     NavigationLink {
-                        🕛HistoryView($📱.🄷istoryTemp)
+                        🕛HistoryView($📱.🄷istory)
                     } label: {
-                        Label("Body temperature", systemImage: "figure.stand")
-                            .foregroundStyle(.primary)
+                        Label("Local history", systemImage: "clock")
                     }
-                    
-                    NavigationLink {
-                        🕛HistoryView($📱.🄷istoryBasalTemp)
-                    } label: {
-                        Label("Basal body temperature", systemImage: "bed.double")
-                            .foregroundStyle(.primary)
-                    }
-                } header: {
-                    Label("Local history", systemImage: "clock")
                 } footer: {
                     Text("🌏\"Local history\" is for the porpose of \"operation check\" / \"temporary backup\"")
                 }

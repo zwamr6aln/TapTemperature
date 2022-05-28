@@ -26,9 +26,7 @@ class 📱Model: ObservableObject {
     @Published var 🚩Canceled: Bool = false
     
     
-    @AppStorage("historyTemp") var 🄷istoryTemp: String = ""
-    
-    @AppStorage("historyBasal") var 🄷istoryBasalTemp: String = ""
+    @AppStorage("history") var 🄷istory: String = ""
     
     
     let 🏥HealthStore = HKHealthStore()
@@ -77,11 +75,8 @@ class 📱Model: ObservableObject {
     func 🚀Done() {
         let 🚩BasalTempInput = 🚩BasalTemp && 🛏BasalSwitch
         
-        if 🚩BasalTempInput {
-            🄷istoryBasalTemp += Date.now.formatted(date: .numeric, time: .shortened) + ", "
-        } else {
-            🄷istoryTemp += Date.now.formatted(date: .numeric, time: .shortened) + ", "
-        }
+        🄷istory += Date.now.formatted(date: .numeric, time: .shortened) + ", "
+        🄷istory += 🚩BasalTempInput ? "BBT, " : "BT, "
         
         
         let 🅃ype = HKQuantityType(🚩BasalTempInput ? .basalBodyTemperature : .bodyTemperature)
@@ -90,11 +85,7 @@ class 📱Model: ObservableObject {
             🚩Success = false
             🚩InputDone = true
             
-            if 🚩BasalTempInput {
-                🄷istoryBasalTemp += ".authorization: Error?!\n"
-            } else {
-                🄷istoryTemp += ".authorization: Error?!\n"
-            }
+            🄷istory += ".authorization: Error?!\n"
             
             return
         }
@@ -111,11 +102,7 @@ class 📱Model: ObservableObject {
                     print(".save: Success")
                     
                     DispatchQueue.main.async {
-                        if 🚩BasalTempInput {
-                            self.🄷istoryBasalTemp += self.🌡Temp.description + " " + self.💾Unit.rawValue + "\n"
-                        } else {
-                            self.🄷istoryTemp += self.🌡Temp.description + " " + self.💾Unit.rawValue + "\n"
-                        }
+                        self.🄷istory += self.🌡Temp.description + " " + self.💾Unit.rawValue + "\n"
                         
                         self.🚩Success = true
                         self.🚩InputDone = true
@@ -126,11 +113,7 @@ class 📱Model: ObservableObject {
                     print("🙅:", 🙅.debugDescription)
                     
                     DispatchQueue.main.async {
-                        if 🚩BasalTempInput {
-                            self.🄷istoryBasalTemp += ".save: Error?!\n"
-                        } else {
-                            self.🄷istoryTemp += ".save: Error?!\n"
-                        }
+                        self.🄷istory += ".save: Error?!\n"
                         
                         self.🚩Success = false
                         self.🚩InputDone = true
@@ -138,11 +121,7 @@ class 📱Model: ObservableObject {
                 }
             }
         } else {
-            if 🚩BasalTempInput {
-                🄷istoryBasalTemp += "HKQuantitySample: Error?!\n"
-            } else {
-                🄷istoryTemp += "HKQuantitySample: Error?!\n"
-            }
+            🄷istory += "HKQuantitySample: Error?!\n"
             
             🚩Success = false
             🚩InputDone = true
