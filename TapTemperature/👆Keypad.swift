@@ -129,6 +129,7 @@ struct 👆Keypad: View {
                     case 12:
                         Button {
                             📱.🧩Temp.removeLast()
+                            UISelectionFeedbackGenerator().selectionChanged()
                         } label: {
                             Text("⌫")
                                 .fontWeight(.regular)

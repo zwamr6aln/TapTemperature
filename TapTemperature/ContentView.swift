@@ -16,6 +16,7 @@ struct ContentView: View {
                 if 📱.🚩BasalTemp {
                     Button {
                         📱.🛏BasalSwitch.toggle()
+                        UISelectionFeedbackGenerator().selectionChanged()
                     } label: {
                         Image(systemName: "bed.double")
                             .foregroundStyle(📱.🛏BasalSwitch ? .primary : .quaternary)

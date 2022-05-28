@@ -10,6 +10,7 @@ struct 🛠MenuButton: View { // ⚙️
     var body: some View {
         Button {
             🚩Menu = true
+            UISelectionFeedbackGenerator().selectionChanged()
         } label: {
             Image(systemName: "gearshape")
                 .font(.title)
