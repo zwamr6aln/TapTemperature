@@ -99,19 +99,9 @@ struct 📓SourceCodeDoc: View {
     
     var body: some View {
         List {
-            Section {
-                ForEach(📦, id: \.self) { 📃 in
-                    NavigationLink(📃) {
-                        let 📍 = 📁URL.appendingPathComponent(📃)
-                        ScrollView {
-                            ScrollView(.horizontal, showsIndicators: false) {
-                                📄PageView(try! String(contentsOf: 📍), 📃)
-                            }
-                        }
-                    }
-                }
-            }
+            📑Section("📁Primary")
             
+            📑Section("📁Secondary")
             
             📑BundleMainInfoDictionary()
             
@@ -148,6 +138,39 @@ struct 📓SourceCodeDoc: View {
             }
         }
         .navigationTitle("Source code")
+    }
+}
+
+
+struct 📑Section: View {
+    var 🄳irPath: String
+    
+    var 📁URL: URL {
+        Bundle.main.bundleURL.appendingPathComponent(🄳irPath)
+    }
+    
+    var 📦: [String] {
+        try! FileManager.default.contentsOfDirectory(atPath: 📁URL.path)
+    }
+    
+    var body: some View {
+        Section {
+            ForEach(📦, id: \.self) { 📃 in
+                NavigationLink(📃) {
+                    let 📍 = 📁URL.appendingPathComponent(📃)
+                    
+                    ScrollView(.vertical) {
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            📄PageView(try! String(contentsOf: 📍), 📃)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    init(_ ⓓirPath: String) {
+        🄳irPath = ⓓirPath
     }
 }
 
