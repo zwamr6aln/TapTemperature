@@ -18,6 +18,5 @@ struct TapTemperatureApp: App {
 
 
 
-// TODO: Implement document view
 // TODO: Add localization
 // TODO: Add README.md
