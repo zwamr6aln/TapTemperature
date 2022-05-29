@@ -17,7 +17,7 @@ struct 🛠MenuButton: View { // ⚙️
                 .padding(.vertical)
         }
         .tint(.primary)
-        .popover(isPresented: $🚩Menu) {
+        .sheet(isPresented: $🚩Menu) {
             🛠Menu()
         }
     }
