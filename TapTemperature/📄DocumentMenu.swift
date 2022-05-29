@@ -72,18 +72,6 @@ struct 📄DocumentMenu: View {
                 }
                 
                 
-                Section {
-                    NavigationLink {
-                        Text("🌏TextAboutAD")
-                            .padding()
-                            .navigationTitle("🌏About self-AD")
-                            .textSelection(.enabled)
-                    } label: {
-                        Label("🌏About self-AD", systemImage: "exclamationmark.bubble")
-                    }
-                }
-                
-                
                 NavigationLink {
                     📓SourceCodeDoc()
                 } label: {
@@ -181,9 +169,9 @@ struct 📑BundleMainInfoDictionary: View {
 
 
 let 📄AboutEN = """
-                    PLACEHOLDER
+                    AboutEN PLACEHOLDER
                     """
 
 let 📄AboutJA = """
-                    PLACEHOLDER
+                    AboutJA PLACEHOLDER
                     """
