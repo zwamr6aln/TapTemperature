@@ -43,7 +43,7 @@ struct 📄DocumentMenu: View {
                 }
                 
                 
-                let 🔗 = "https://apps.apple.com/developer/id1347562710"
+                let 🔗 = "https://apps.apple.com/developer/idPLACEHOLDER"
                 Section {
                     Link(destination: URL(string: 🔗)!) {
                         HStack {
@@ -145,7 +145,7 @@ struct 📓SourceCodeDoc: View {
             }
             
             
-            let Repository🔗 = "https://github.com/FlipByBlink/TapWeight"
+            let Repository🔗 = "https://github.com/FlipByBlink/PLACEHOLDER"
             Section {
                 Link(destination: URL(string: Repository🔗)!) {
                     HStack {
@@ -180,9 +180,9 @@ struct 📑BundleMainInfoDictionary: View {
 
 
 let 📄AboutEN = """
-                    placeholder
+                    PLACEHOLDER
                     """
 
 let 📄AboutJA = """
-                    placeholder
+                    PLACEHOLDER
                     """
