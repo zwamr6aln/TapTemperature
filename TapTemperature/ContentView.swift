@@ -30,6 +30,7 @@ struct ContentView: View {
                             .font(.title)
                             .tint(.primary)
                     }
+                    .accessibilityLabel("Switch type")
                 }
                 
                 Spacer()

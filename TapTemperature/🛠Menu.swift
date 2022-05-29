@@ -17,6 +17,7 @@ struct 🛠MenuButton: View { // ⚙️
                 .padding(.vertical)
         }
         .tint(.primary)
+        .accessibilityLabel("Open menu")
         .sheet(isPresented: $🚩Menu) {
             🛠Menu()
         }

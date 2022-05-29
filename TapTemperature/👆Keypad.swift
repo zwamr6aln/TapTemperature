@@ -107,6 +107,7 @@ struct 👆Keypad: View {
                                 .font(.system(size: 48))
                         }
                         .tint(.pink)
+                        .accessibilityLabel("DONE")
                         .disabled(📱.🧩Temp.count < 3)
                         
                     case 11:
@@ -136,6 +137,7 @@ struct 👆Keypad: View {
                                 .scaleEffect(0.8)
                         }
                         .tint(.primary)
+                        .accessibilityLabel("Delete")
                         .disabled(📱.🧩Temp.isEmpty)
                         
                     default:
