@@ -23,6 +23,9 @@ struct 🆗Result: View {
                                 .foregroundColor(.primary)
                                 .padding(.vertical)
                         }
+                        .disabled(📱.🚩Canceled)
+                        .opacity(📱.🚩Canceled ? 0.5 : 1)
+                        .accessibilityLabel("Cancel")
                         
                         if 📱.🚩Canceled {
                             Text("Canceled")
