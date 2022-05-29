@@ -94,8 +94,7 @@ struct 🛠Menu: View {
                 
                 
                 Section {
-                    Label("App Document", systemImage: "doc")
-                        .foregroundStyle(.secondary)
+                    📄DocumentMenu()
                 }
             }
             .navigationTitle("TapTemperature")
