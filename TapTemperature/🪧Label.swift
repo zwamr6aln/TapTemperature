@@ -67,12 +67,3 @@ struct 🪧Label: View {
         .monospacedDigit()
     }
 }
-
-
-
-
-struct 🪧Label_Previews: PreviewProvider {
-    static var previews: some View {
-        🪧Label()
-    }
-}

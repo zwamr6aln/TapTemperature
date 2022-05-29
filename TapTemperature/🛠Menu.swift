@@ -145,28 +145,27 @@ struct 🕛HistoryView: View {
         }
     }
     
-    init(_ 🅃ext: Binding<String>) {
-        self._🅃ext = 🅃ext
+    init(_ ⓣext: Binding<String>) {
+        _🅃ext = ⓣext
     }
 }
 
 
 struct 📄PageView: View {
-    var 📄: String
-    
-    var 🏷: String
+    var 🅃ext: String
+    var 🅃itle: String
     
     var body: some View {
-        Text(📄)
-            .navigationBarTitle(🏷)
+        Text(🅃ext)
+            .navigationBarTitle(🅃itle)
             .navigationBarTitleDisplayMode(.inline)
             .font(.caption.monospaced())
             .padding()
             .textSelection(.enabled)
     }
     
-    init(_ 📄: String, _ 🏷: String) {
-        self.📄 = 📄
-        self.🏷 = 🏷
+    init(_ ⓣext: String, _ ⓣitle: String) {
+        🅃ext = ⓣext
+        🅃itle = ⓣitle
     }
 }

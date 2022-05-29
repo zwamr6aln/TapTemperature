@@ -104,13 +104,3 @@ struct 🆗Result: View {
         .animation(.default, value: 📱.🚩Canceled)
     }
 }
-
-
-
-
-struct 🆗Result_Previews: PreviewProvider {
-    static var previews: some View {
-        🆗Result()
-            .previewLayout(.fixed(width: 200, height: 400))
-    }
-}

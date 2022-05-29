@@ -86,7 +86,6 @@ struct 📄DocumentMenu: View {
 }
 
 
-//スワイプダウンでの挙動がおかしい
 struct 📓SourceCodeDoc: View {
     @Environment(\.dismiss) var 🔙: DismissAction
     
@@ -96,7 +95,6 @@ struct 📓SourceCodeDoc: View {
     
     var 📦: [String] {
         try! FileManager.default.contentsOfDirectory(atPath: 📁URL.path)
-//        []
     }
     
     var body: some View {
@@ -134,9 +132,9 @@ struct 📓SourceCodeDoc: View {
             }
             
             
-            let Repository🔗 = "https://github.com/FlipByBlink/PLACEHOLDER"
+            let 🔗Repository = "https://github.com/FlipByBlink/PLACEHOLDER"
             Section {
-                Link(destination: URL(string: Repository🔗)!) {
+                Link(destination: URL(string: 🔗Repository)!) {
                     HStack {
                         Label("Web Repository link", systemImage: "link")
                         
@@ -146,7 +144,7 @@ struct 📓SourceCodeDoc: View {
                     }
                 }
             } footer: {
-                Text(Repository🔗)
+                Text(🔗Repository)
             }
         }
         .navigationTitle("Source code")

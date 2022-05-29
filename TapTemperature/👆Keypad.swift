@@ -148,12 +148,3 @@ struct 👆Keypad: View {
         .padding(.vertical)
     }
 }
-
-
-
-
-struct 👆Keypad_Previews: PreviewProvider {
-    static var previews: some View {
-        👆Keypad()
-    }
-}
