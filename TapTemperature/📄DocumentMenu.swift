@@ -98,6 +98,7 @@ struct 📄DocumentMenu: View {
 }
 
 
+//スワイプダウンでの挙動がおかしい
 struct 📓SourceCodeDoc: View {
     @Environment(\.dismiss) var 🔙: DismissAction
     
@@ -106,8 +107,8 @@ struct 📓SourceCodeDoc: View {
     }
     
     var 📦: [String] {
-//        try! FileManager.default.contentsOfDirectory(atPath: 📁URL.path)
-        []
+        try! FileManager.default.contentsOfDirectory(atPath: 📁URL.path)
+//        []
     }
     
     var body: some View {
