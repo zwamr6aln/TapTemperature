@@ -72,7 +72,7 @@ struct 🛠Menu: View {
                 
                 Link (destination: URL(string: "x-apple-health://")!) {
                     HStack {
-                        Label("🌏Open \"Health\" app", systemImage: "heart")
+                        Label("Open \"Health\" app", systemImage: "heart")
                         
                         Spacer()
                         
@@ -89,7 +89,7 @@ struct 🛠Menu: View {
                         Label("Local history", systemImage: "clock")
                     }
                 } footer: {
-                    Text("🌏\"Local history\" is for the porpose of \"operation check\" / \"temporary backup\"")
+                    Text("\"Local history\" is for the porpose of \"operation check\" / \"temporary backup\"")
                 }
                 
                 
@@ -108,7 +108,7 @@ struct 🛠Menu: View {
                             .grayscale(1.0)
                             .padding(8)
                     }
-                    .accessibilityLabel("🌏Dismiss")
+                    .accessibilityLabel("Dismiss")
                 }
             }
         }

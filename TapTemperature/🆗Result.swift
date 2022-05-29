@@ -57,7 +57,7 @@ struct 🆗Result: View {
                             .font(.system(size: 110).weight(.semibold))
                             .minimumScaleFactor(0.1)
                         
-                        Text(📱.🚩Success ? "DONE!" : "🌏Error!?")
+                        Text(📱.🚩Success ? "DONE!" : "Error!?")
                             .font(.system(size: 128).weight(.black))
                             .lineLimit(1)
                             .minimumScaleFactor(0.1)
@@ -68,7 +68,7 @@ struct 🆗Result: View {
                                 .bold()
                                 .opacity(0.8)
                         } else {
-                            Text("🌏Please check permission on \"Health\" app")
+                            Text("Please check permission on \"Health\" app")
                                 .font(.body.weight(.semibold))
                                 .foregroundColor(.secondary)
                                 .lineLimit(1)
@@ -96,7 +96,7 @@ struct 🆗Result: View {
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
-                .accessibilityLabel("🌏Dismiss")
+                .accessibilityLabel("Dismiss")
                 .opacity(📱.🚩Canceled ? 0.25 : 1)
             }
         }

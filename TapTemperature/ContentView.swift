@@ -96,6 +96,6 @@ struct 💟JumpButton: View {
         }
         .font(.title)
         .foregroundStyle(.primary)
-        .accessibilityLabel("🌏Open \"Health\" app")
+        .accessibilityLabel("Open \"Health\" app")
     }
 }
