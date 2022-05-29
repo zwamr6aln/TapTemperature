@@ -14,9 +14,3 @@ struct TapTemperatureApp: App {
         }
     }
 }
-
-
-
-
-// TODO: Add localization
-// TODO: Add README.md
